@@ -17,7 +17,7 @@ params:
   defaultTheme: "auto"
   disableThemeToggle: false
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
@@ -28,30 +28,9 @@ params:
     Title: "你好，我是 LeonJo 👋"
     Content: "欢迎来玩"
 
-  socialIcons:
-    - name: "github"
-      url: "https://github.com/jowjow"
-    - name: "email"
-      url: "mailto:hello@jowjowork.shop"
-
   cover:
     hiddenInSingle: false
     linkFullImages: true
-
-  # 评论系统 (giscus)
-  comments: true
-  giscus:
-    repo: "LeonJow/jowjowork.uno"
-    repoId: "R_kgDOTO16gg"
-    category: "Announcements"
-    categoryId: "DIC_kwDOTO16gs4DAmgQ"
-    mapping: "pathname"
-    strict: "0"
-    reactionsEnabled: "1"
-    emitMetadata: "0"
-    inputPosition: "top"
-    lightTheme: "light"
-    darkTheme: "dark"
 
 taxonomies:
   tag: "tags"
