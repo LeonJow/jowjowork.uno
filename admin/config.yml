@@ -67,28 +67,6 @@ collections:
           - quote
 
   # ============================================
-  # 🤝 合作页面
-  # ============================================
-  - name: "cooperation"
-    label: "合作页面"
-    folder: "content/cooperation"
-    create: false
-    delete: false
-    extension: md
-    format: frontmatter
-    fields:
-      - label: "标题"
-        name: "title"
-        widget: "string"
-      - label: "页面描述"
-        name: "description"
-        widget: "text"
-        hint: "显示在页面标题下方的说明文字"
-      - label: "正文"
-        name: "body"
-        widget: "markdown"
-
-  # ============================================
   # 👤 关于页面
   # ============================================
   - name: "about"
