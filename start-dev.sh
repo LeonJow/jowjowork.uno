@@ -4,7 +4,7 @@
 
 set -e
 
-BLOG_DIR="$HOME/Documents/jowjowork-blog"
+BLOG_DIR="$HOME/Documents/GitHub/jowjowork.uno"
 
 echo "🚀 启动博客开发环境..."
 echo ""
