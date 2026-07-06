@@ -42,9 +42,9 @@ params:
   comments: true
   giscus:
     repo: "LeonJow/jowjowork.uno"
-    repoId: "REPLACE_WITH_REPO_ID"
+    repoId: "R_kgDOTO16gg"
     category: "Announcements"
-    categoryId: "REPLACE_WITH_CATEGORY_ID"
+    categoryId: "DIC_kwDOTO16gs4DAmgQ"
     mapping: "pathname"
     strict: "0"
     reactionsEnabled: "1"
