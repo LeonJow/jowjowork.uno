@@ -67,6 +67,58 @@ collections:
           - quote
 
   # ============================================
+  # 🗂️ 项目管理
+  # ============================================
+  - name: "projects"
+    label: "项目"
+    label_singular: "项目"
+    folder: "content/projects"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    summary: "{{title}} — {{description}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - label: "标题"
+        name: "title"
+        widget: "string"
+      - label: "项目链接"
+        name: "project_url"
+        widget: "string"
+        hint: "项目在线地址或 GitHub 链接（选填）"
+        required: false
+      - label: "描述"
+        name: "description"
+        widget: "text"
+        hint: "卡片上显示的简短描述"
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        hint: "按回车添加标签（如：Hugo、Python）"
+        field:
+          label: 标签
+          name: tag
+          widget: string
+      - label: "发布日期"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+      - label: "正文"
+        name: "body"
+        widget: "markdown"
+        minimal: false
+        buttons:
+          - bold
+          - italic
+          - code
+          - link
+          - bulleted-list
+          - numbered-list
+          - image
+          - quote
+
+  # ============================================
   # 👤 关于页面
   # ============================================
   - name: "about"
