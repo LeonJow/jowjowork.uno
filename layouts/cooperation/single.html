@@ -1,0 +1,50 @@
+{{- define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description }}</div>
+  {{- end }}
+</header>
+
+<div class="post-content">
+  {{ .Content }}
+</div>
+
+<style>
+.cooperation-page form input,
+.cooperation-page form select,
+.cooperation-page form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border, #2d2d4f);
+  border-radius: 6px;
+  background: var(--entry, #1a1a2e);
+  color: var(--primary, #e2e2f0);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.cooperation-page form input:focus,
+.cooperation-page form select:focus,
+.cooperation-page form textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+.cooperation-page form select { cursor: pointer; }
+.cooperation-page form select option { background: #0a0a1a; color: #e2e2f0; }
+.cooperation-page form textarea { resize: vertical; min-height: 80px; }
+.cooperation-page form button[type="submit"] {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cooperation-page form button[type="submit"]:hover { background: #6d28d9; }
+.cooperation-page form button[type="submit"]:disabled { opacity: 0.7; cursor: not-allowed; }
+</style>
+{{- end }}

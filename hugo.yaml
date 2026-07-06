@@ -5,6 +5,11 @@ theme: "PaperMod"
 paginate: 10
 enableRobotsTXT: true
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 params:
   description: "JowJow Work - 个人博客与作品集"
   author: "JowJow"
