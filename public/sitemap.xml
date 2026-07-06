@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jowjowork.uno/categories/</loc>
-    <lastmod>2026-07-06T15:04:00+08:00</lastmod>
-  </url><url>
     <loc>https://jowjowork.uno/</loc>
+    <lastmod>2026-07-06T16:25:57+08:00</lastmod>
+  </url><url>
+    <loc>https://jowjowork.uno/projects/</loc>
+    <lastmod>2026-07-06T16:25:57+08:00</lastmod>
+  </url><url>
+    <loc>https://jowjowork.uno/categories/</loc>
     <lastmod>2026-07-06T15:04:00+08:00</lastmod>
   </url><url>
     <loc>https://jowjowork.uno/posts/</loc>

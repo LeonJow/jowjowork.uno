@@ -38,6 +38,21 @@ params:
     hiddenInSingle: false
     linkFullImages: true
 
+  # 评论系统 (giscus)
+  comments: true
+  giscus:
+    repo: "LeonJow/jowjowork.uno"
+    repoId: "REPLACE_WITH_REPO_ID"
+    category: "Announcements"
+    categoryId: "REPLACE_WITH_CATEGORY_ID"
+    mapping: "pathname"
+    strict: "0"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "top"
+    lightTheme: "light"
+    darkTheme: "dark"
+
 taxonomies:
   tag: "tags"
   category: "categories"
@@ -56,6 +71,10 @@ menu:
       name: "关于"
       url: "/about/"
       weight: 30
+    - identifier: "projects"
+      name: "项目"
+      url: "/projects/"
+      weight: 35
     - identifier: "search"
       name: "搜索"
       url: "/search/"
