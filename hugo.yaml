@@ -1,0 +1,60 @@
+baseURL: "https://jowjowork.shop/"
+locale: "zh-cn"
+title: "JowJow Work"
+theme: "PaperMod"
+paginate: 10
+enableRobotsTXT: true
+
+params:
+  description: "JowJow Work - 个人博客与作品集"
+  author: "JowJow"
+  DateFormat: "2006-01-02"
+  defaultTheme: "auto"
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+
+  homeInfoParams:
+    Title: "你好，我是 JowJow 👋"
+    Content: "欢迎来到我的个人博客。这里记录技术、生活和创作。"
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/jowjow"
+    - name: "email"
+      url: "mailto:hello@jowjowork.shop"
+
+  cover:
+    hiddenInSingle: false
+    linkFullImages: true
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+menu:
+  main:
+    - identifier: "posts"
+      name: "文章"
+      url: "/posts/"
+      weight: 10
+    - identifier: "tags"
+      name: "标签"
+      url: "/tags/"
+      weight: 20
+    - identifier: "about"
+      name: "关于"
+      url: "/about/"
+      weight: 30
+    - identifier: "search"
+      name: "搜索"
+      url: "/search/"
+      weight: 40
+
+outputs:
+  home: ["HTML", "RSS", "JSON"]
