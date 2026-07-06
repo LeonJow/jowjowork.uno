@@ -51,6 +51,10 @@ menu:
       name: "关于"
       url: "/about/"
       weight: 30
+    - identifier: "cooperation"
+      name: "合作"
+      url: "/cooperation/"
+      weight: 35
     - identifier: "search"
       name: "搜索"
       url: "/search/"
