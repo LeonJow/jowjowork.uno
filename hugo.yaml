@@ -41,13 +41,17 @@ params:
 
   socials:
     - name: "小红书"
-      url: "#"
+      icon: "xiaohongshu"
+      url: "https://xhslink.com/m/A0GnUQ9rw0U"
     - name: "抖音"
-      url: "#"
-    - name: "微博"
-      url: "#"
+      icon: "douyin"
+      url: "https://douyin.com/user/MS4wLjABAAAAreuw3cVEK6Hp5cO9UyTVRpkyAs0yGbAmmy21T5seUypb1Mfq9Bc_qUqmY2ecqQWi"
     - name: "哔哩哔哩"
-      url: "#"
+      icon: "bilibili"
+      url: "https://b23.tv/EZxcvcF"
+    - name: "微信公众号"
+      icon: "wechat"
+      url: "https://weixin.qq.com/r/mp/iRE5IU7EIRNerQpC90Sb"
 
   works:
     label: "WORKS / 作品集"
