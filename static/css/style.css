@@ -17,7 +17,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -30,7 +29,6 @@ body {
 }
 
 a { text-decoration: none; color: inherit; }
-.section { scroll-snap-align: start; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
 /* ===== NAV ===== */
