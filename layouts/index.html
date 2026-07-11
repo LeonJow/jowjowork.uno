@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Site.Params.hero.subtitle }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">{{ .Site.Params.brand }}</a>
+      <nav class="nav-links">
+        {{ range .Site.Params.nav }}
+        <a href="{{ .url }}">{{ .name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero section" id="hero">
+      <h1 class="hero-title reveal">{{ .Site.Params.hero.title }}</h1>
+      <p class="hero-sub reveal">{{ .Site.Params.hero.subtitle }}</p>
+      <a class="hero-cta reveal" href="{{ .Site.Params.hero.ctaUrl }}">{{ .Site.Params.hero.cta }}</a>
+      <div class="hero-visual reveal">
+        <span class="hero-visual-label">产品视觉占位 · Product Visual</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <div class="container">
+        <span class="eyebrow">{{ .Site.Params.about.label }}</span>
+        <h2 class="section-title">{{ .Site.Params.about.title }}</h2>
+        <p class="about-body">{{ .Site.Params.about.body }}</p>
+        <div class="bento">
+          {{ range .Site.Params.about.capabilities }}
+          <div class="card reveal">
+            <h3 class="card-title">{{ .title }}</h3>
+            <p class="card-desc">{{ .desc }}</p>
+          </div>
+          {{ end }}
+        </div>
+        <div class="social-block reveal">
+          <p class="social-title">在更多平台找到我</p>
+          <div class="social-row">
+            {{ range .Site.Params.socials }}
+            <a class="social-pill" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKS -->
+    <section class="works section" id="works">
+      <div class="container">
+        <span class="eyebrow">{{ .Site.Params.works.label }}</span>
+        <h2 class="section-title">{{ .Site.Params.works.title }}</h2>
+        <div class="works-grid">
+          {{ range .Site.Params.works.items }}
+          <article class="work-card reveal">
+            <div class="work-cover cover-{{ .cover }}"><span class="cover-label">封面占位</span></div>
+            <div class="work-content">
+              <h3 class="work-title">{{ .title }}</h3>
+              <p class="work-desc">（待补充）</p>
+              <a class="work-link" href="{{ .url }}" target="_blank" rel="noopener">查看项目 →</a>
+            </div>
+          </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="footer" id="contact">
+    <div class="container footer-inner">
+      <h2 class="footer-title reveal">{{ .Site.Params.contact.title }}</h2>
+      <a class="footer-email reveal" href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a>
+      <div class="footer-social">
+        {{ range .Site.Params.socials }}
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+        {{ end }}
+      </div>
+      <p class="footer-copy">{{ .Site.Params.contact.copyright }}</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

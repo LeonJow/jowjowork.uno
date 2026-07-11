@@ -1,9 +1,8 @@
 baseURL: "https://jowjowork.uno/"
-locale: "zh-cn"
-title: "JowJow Work"
-theme: "PaperMod"
-paginate: 10
+locale: "zh-CN"
+title: "JowJow"
 enableRobotsTXT: true
+taxonomies: {}
 
 markup:
   goldmark:
@@ -11,53 +10,60 @@ markup:
       unsafe: true
 
 params:
-  description: "JowJow Work - 个人博客与作品集"
-  author: "JowJow"
-  DateFormat: "2006-01-02"
-  defaultTheme: "auto"
-  disableThemeToggle: false
-  ShowReadingTime: true
-  ShowShareButtons: false
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
+  brand: "JowJow."
+  email: "jowjowork@163.com"
 
-  homeInfoParams:
-    Title: "你好，我是 LeonJo 👋"
-    Content: "欢迎来玩"
+  nav:
+    - name: "关于"
+      url: "#about"
+    - name: "作品"
+      url: "#works"
+    - name: "联系"
+      url: "#contact"
 
-  cover:
-    hiddenInSingle: false
-    linkFullImages: true
+  hero:
+    title: "你好，我是 JowJow 👋"
+    subtitle: "热爱技术与创作的开发者"
+    cta: "查看作品"
+    ctaUrl: "#works"
 
-taxonomies:
-  tag: "tags"
-  category: "categories"
+  about:
+    label: "ABOUT / 关于我"
+    title: "关于我"
+    body: "这里是 JowJow，一名热爱技术与创作的开发者。"
+    capabilities:
+      - title: "内容创作"
+        desc: "文章 · 摄影 · 生活记录"
+      - title: "方案解决"
+        desc: "Git · Hugo · 命令行 · 自动化"
+      - title: "兴趣方向"
+        desc: "个人网站 · 开源 · 效率工具"
 
-menu:
-  main:
-    - identifier: "posts"
-      name: "文章"
-      url: "/posts/"
-      weight: 10
-    - identifier: "tags"
-      name: "标签"
-      url: "/tags/"
-      weight: 20
-    - identifier: "about"
-      name: "关于"
-      url: "/about/"
-      weight: 30
-    - identifier: "projects"
-      name: "项目"
-      url: "/projects/"
-      weight: 35
-    - identifier: "search"
-      name: "搜索"
-      url: "/search/"
-      weight: 40
+  socials:
+    - name: "小红书"
+      url: "#"
+    - name: "抖音"
+      url: "#"
+    - name: "微博"
+      url: "#"
+    - name: "哔哩哔哩"
+      url: "#"
 
-outputs:
-  home: ["HTML", "RSS", "JSON"]
+  works:
+    label: "WORKS / 作品集"
+    title: "我做的东西"
+    items:
+      - title: "未命名作品 01"
+        cover: "blue"
+        url: "#"
+      - title: "未命名作品 02"
+        cover: "purple"
+        url: "#"
+      - title: "未命名作品 03"
+        cover: "teal"
+        url: "#"
+
+  contact:
+    title: "想聊聊？"
+    email: "jowjowork@163.com"
+    copyright: "© 2026 JowJow · Built with Hugo"
