@@ -49,10 +49,6 @@ params:
     - name: "哔哩哔哩"
       icon: "bilibili"
       url: "https://b23.tv/EZxcvcF"
-    - name: "微信公众号"
-      icon: "wechat"
-      url: "https://weixin.qq.com/r/mp/iRE5IU7EIRNerQpC90Sb"
-
   works:
     label: "WORKS / 作品集"
     title: "我做的东西"

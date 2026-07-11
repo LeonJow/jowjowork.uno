@@ -104,7 +104,7 @@ a { text-decoration: none; color: inherit; }
 .card-desc { font-size: 15px; color: var(--ink-2); }
 .social-block { display: flex; flex-direction: column; gap: 16px; }
 .social-title { font-size: 18px; font-weight: 500; }
-.social-row { display: flex; flex-wrap: wrap; gap: 16px; }
+.social-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
 .social-pill {
   display: inline-flex; align-items: center; gap: 8px;
   background: #fff;
@@ -119,7 +119,6 @@ a { text-decoration: none; color: inherit; }
 .social-xiaohongshu { color: #FF2442; }
 .social-douyin      { color: #000000; }
 .social-bilibili   { color: #00A1D6; }
-.social-wechat     { color: #07C160; }
 
 /* ===== WORKS ===== */
 .works { background: var(--bg); padding: 110px 0; }
