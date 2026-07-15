@@ -23,21 +23,21 @@ params:
 
   hero:
     title: "你好，我是 JowJow 👋"
-    subtitle: "热爱技术与创作的开发者"
+    subtitle: "一名AI探索er"
     cta: "查看作品"
     ctaUrl: "#works"
 
   about:
     label: "ABOUT / 关于我"
     title: "关于我"
-    body: "这里是 JowJow，一名热爱技术与创作的开发者。"
+    body: "这里是 JowJow，探索AI改变生活ing。"
     capabilities:
       - title: "内容创作"
-        desc: "文章 · 摄影 · 生活记录"
+        desc: "图文 · 视频 · AI制作"
       - title: "方案解决"
-        desc: "Git · Hugo · 命令行 · 自动化"
+        desc: "Git · Hugo · Prompt · SKILLS"
       - title: "兴趣方向"
-        desc: "个人网站 · 开源 · 效率工具"
+        desc: "健身 · 剪辑 · 管理工具"
 
   socials:
     - name: "小红书"
@@ -51,19 +51,19 @@ params:
       url: "https://b23.tv/EZxcvcF"
   works:
     label: "WORKS / 作品集"
-    title: "我做的东西"
+    title: "进行中"
     items:
-      - title: "未命名作品 01"
+      - title: "AI建站 01"
         cover: "blue"
         url: "#"
-      - title: "未命名作品 02"
+      - title: "提示词优化 02"
         cover: "purple"
         url: "#"
-      - title: "未命名作品 03"
+      - title: "项目管理 03"
         cover: "teal"
         url: "#"
 
   contact:
     title: "想聊聊？"
     email: "jowjowork@163.com"
-    copyright: "© 2026 JowJow · Built with Hugo"
+    copyright: "© 2026 JowJow · Its a good Year"
