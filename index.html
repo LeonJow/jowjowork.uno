@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- 首屏滚动进度条（高仿 decart：顶部细进度条随滚动填充） -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- AURORA 背景（CSS 动效占位，替代 decart 的视频背景） -->
   <div class="aurora" aria-hidden="true">
     <span class="blob b1"></span>
@@ -42,7 +45,10 @@
     <section class="hero section" id="hero">
       <div class="hero-copy reveal">
         <span class="eyebrow">AI EXPLORER / 个人工作站</span>
-        <h1 class="hero-title">探索 AI<br/>改变生活的<span class="grad">每一刻</span></h1>
+        <h1 class="hero-title reveal-lines">
+          <span class="line"><span>探索 AI</span></span>
+          <span class="line"><span>改变生活的<span class="grad">每一刻</span></span></span>
+        </h1>
         <p class="hero-sub">我是 JowJow，一名 AI 探索者。我用内容、方案与工具，把前沿模型变成日常里真正好用的东西。</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#works">查看作品</a>
@@ -88,7 +94,7 @@
     <section class="about section" id="about">
       <div class="container">
         <span class="eyebrow reveal">ABOUT / 关于我</span>
-        <h2 class="section-title reveal">关于 JowJow</h2>
+        <h2 class="section-title reveal-lines"><span class="line"><span>关于 JowJow</span></span></h2>
         <p class="about-body reveal">这里是 JowJow，探索 AI 改变生活 ing。把复杂的能力，做成顺手的东西。</p>
         <div class="bento">
           <div class="card reveal glass">
@@ -155,7 +161,10 @@
     <section class="ideas section" id="ideas">
       <div class="container ideas-inner">
         <span class="eyebrow reveal">IDEAS YOU CAN TOUCH / 理念</span>
-        <h2 class="ideas-title reveal">让 AI<br/>落在<span class="grad">真实生活</span>里</h2>
+        <h2 class="ideas-title reveal-lines">
+          <span class="line"><span>让 AI</span></span>
+          <span class="line"><span>落在<span class="grad">真实生活</span>里</span></span>
+        </h2>
         <p class="ideas-body reveal">智能不只在屏幕里。它该顺着日常的约束长出来，解决问题，也创造愉悦。</p>
         <div class="ideas-row reveal">
           <div class="idea glass"><span class="mono">/E.01</span><p>把模型变成工具</p></div>
