@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>文章详情 ④ 单栏沉浸式 | JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.95;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;padding:18px 20px 14px;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0));}
+.top-nav .nav-item{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 clamp(20px,3vw,46px);color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.3);font-family:'Noto Sans SC',sans-serif;}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(16px,2vw,22px);letter-spacing:1px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+.wrap{max-width:720px;margin:0 auto;padding:130px 24px 40px;}
+.wrap h1{font-size:clamp(30px,5vw,46px);font-weight:700;letter-spacing:1px;margin-bottom:16px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.5;margin-bottom:34px;flex-wrap:wrap;}
+.wrap p{font-size:17px;margin-bottom:22px;color:rgba(255,255,255,.85);}
+.wrap h2{font-size:23px;font-weight:500;margin:36px 0 14px;}
+.rel{margin-top:50px;border-top:1px solid rgba(255,255,255,.12);padding-top:26px;}
+.rel h4{font-size:14px;opacity:.6;margin-bottom:16px;letter-spacing:1px;font-weight:500;}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.rc{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;transition:.25s;}
+.rc:hover{border-color:rgba(159,198,255,.5);transform:translateY(-3px);}
+.rc .t{font-size:14px;font-weight:500;margin-bottom:6px;}
+.rc .d{font-size:12px;opacity:.5;}
+.foot{text-align:center;padding:30px 0 44px;font-size:12px;opacity:.5;}
+@media(max-width:600px){.rel-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+  <a href="../works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <a href="../skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+  <a href="../services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+  <a href="../about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+</nav>
+<div class="wrap">
+  <h1>AI 改变生活的真正入口</h1>
+  <div class="meta"><span>2026-07-10</span><span>JowJo</span><span>约 4 分钟</span></div>
+  <p>不是更聪明的模型，而是更顺手的日常流程。这条认知，是我用了两年 AI 后才真正落地的。</p>
+  <p>很多人期待 AI 替自己完成大事，结果卡在「怎么开始」。其实价值藏在那些每天重复的小事里。</p>
+  <h2>从一件小事开始</h2>
+  <p>先把一个固定动作交给 AI：整理、摘要、分类。当它稳定帮你省下十分钟，你才会愿意交给它更多。</p>
+  <h2>别追求一步到位</h2>
+  <p>流程是长出来的，不是设计出来的。允许它笨一点，先跑起来再说。</p>
+  <div class="rel">
+    <h4>相关阅读</h4>
+    <div class="rel-grid">
+      <a class="rc" href="#"><div class="t">用 AI 整理信息流</div><div class="d">2026-08-09</div></a>
+      <a class="rc" href="#"><div class="t">三个省时 Skill</div><div class="d">2026-08-02</div></a>
+      <a class="rc" href="#"><div class="t">显存翻车记</div><div class="d">2026-07-21</div></a>
+    </div>
+  </div>
+  <div class="foot">Copyright by 超认真工作室</div>
+</div>
+</body>
+</html>

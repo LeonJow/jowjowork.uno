@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>信息流一键摘要 Skill | Skills · JowJo</title>
+<meta name="description" content="JowJo 的 Skills：信息流一键摘要，把每天涌进来的内容自动整理成结构化笔记。" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;padding:18px 20px 14px;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0));}
+.top-nav .nav-item{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 clamp(20px,3vw,46px);color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.3);font-family:'Noto Sans SC',sans-serif;}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(16px,2vw,22px);letter-spacing:1px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+.container{display:grid;grid-template-columns:1fr 320px;gap:46px;max-width:1120px;margin:0 auto;padding:120px 24px 40px;}
+.article{min-width:0;}
+.cover{height:300px;border-radius:14px;background:linear-gradient(135deg,#3a2c44,#2c3a4a);margin-bottom:26px;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:12px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;}
+.article code{background:#1c1c1c;padding:2px 8px;border-radius:6px;font-size:13px;color:#9fc6ff;}
+.article pre{background:#1c1c1c;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;font-size:13px;overflow:auto;margin:14px 0;color:rgba(255,255,255,.85);}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;margin-bottom:18px;}
+.box .tt{font-size:12px;opacity:.55;letter-spacing:1px;margin-bottom:12px;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#3a2c1f,#4a3a2c);flex:0 0 auto;}
+.author .name{font-size:17px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.big{font-size:15px;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:14px;}
+.contact a{display:block;font-size:14px;padding:10px 0;border-top:1px solid rgba(255,255,255,.08);color:#9fc6ff;}
+.contact a:first-child{border-top:none;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <div class="cover"></div>
+    <h1>信息流一键摘要 Skill</h1>
+    <div class="meta"><span>v1.2</span><span>自动化</span><span>可复用</span></div>
+    <p>这个 Skill 接收你当天收集的内容（链接、截图、剪贴文本），自动产出结构化摘要并打标签。下面是实现思路与用法。</p>
+    <h2>一、它解决什么</h2>
+    <p>每天信息太多，手动整理太慢。这个 Skill 把「收集 → 摘要 → 归档」三步合并成一次调用。</p>
+    <h2>二、怎么用</h2>
+    <p>把待整理内容贴进来，调用即可。核心提示词结构如下：</p>
+    <pre>角色：信息整理助手
+输入：用户提供的原始内容
+输出：标题 / 一句话摘要 / 3 个标签 / 是否值得长期保存</pre>
+    <h2>三、进阶：定时推送</h2>
+    <p>配合定时任务，每天晚上自动跑一遍，第二天早上直接看结果。配合 <code>ai-post.html</code> 里的工作流效果更好。</p>
+    <h2>四、下载</h2>
+    <p>完整 Skill 文件放在 <code>skills.html</code> 列表里，点进去即可复制使用。</p>
+  </article>
+  <aside class="aside">
+    <div class="box">
+      <div class="tt">关于这个 Skill</div>
+      <div class="author"><div class="avatar"></div><div><div class="name">JowJo</div><div class="bio">超认真工作室</div></div></div>
+      <div class="big">把每天涌进来的内容，自动变成能检索的笔记。适合不想被信息淹没的人。</div>
+      <div class="tags"><span>AI</span><span>自动化</span><span>效率</span></div>
+    </div>
+    <div class="box contact">
+      <div class="tt">拿到它 / 问问题</div>
+      <a href="mailto:contact@jowjowork.uno">邮箱联系 →</a>
+      <a href="skills.html">回到 Skills 列表 →</a>
+      <a href="ai-sharing.html">相关 AI 经验 →</a>
+    </div>
+  </aside>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+</body>
+</html>

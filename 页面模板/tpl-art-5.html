@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>文章详情 ⑤ 封面+大简介 | JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.85;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;padding:18px 20px 14px;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0));}
+.top-nav .nav-item{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 clamp(20px,3vw,46px);color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.3);font-family:'Noto Sans SC',sans-serif;}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(16px,2vw,22px);letter-spacing:1px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+.cover{height:300px;margin-top:0;background:linear-gradient(135deg,#3a2c1f,#4a3a2c);}
+.head{max-width:1120px;margin:0 auto;padding:28px 24px 0;}
+.head h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;}
+.head .meta{font-size:13px;opacity:.55;margin-top:10px;}
+.container{display:grid;grid-template-columns:1fr 320px;gap:48px;max-width:1120px;margin:0 auto;padding:30px 24px 40px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;}
+.aside .profile{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;text-align:center;position:sticky;top:110px;}
+.avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#2c2c44,#4a2c3e);margin:0 auto 14px;}
+.profile .name{font-size:19px;font-weight:500;}
+.profile .role{font-size:13px;opacity:.6;margin:6px 0 14px;}
+.profile .bio{font-size:13.5px;opacity:.7;line-height:1.6;text-align:left;}
+.profile .contact{margin-top:16px;display:flex;gap:10px;justify-content:center;}
+.profile .contact a{font-size:12.5px;padding:8px 14px;border:1px solid rgba(255,255,255,.3);border-radius:999px;transition:.2s;}
+.profile .contact a:hover{background:rgba(255,255,255,.12);}
+.tags{margin-top:16px;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.profile{position:static;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+  <a href="../works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <a href="../skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+  <a href="../services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+  <a href="../about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+</nav>
+<div class="cover"></div>
+<div class="head"><h1>JowOS 工具套件背后的故事</h1><div class="meta">2022 · JowJo · 项目详情</div></div>
+<div class="container">
+  <article class="article">
+    <p>JowOS 是我给手机（Termux）做的一套自动化脚本集，目标是一键初始化开发环境。这篇讲讲它从想法到落地的过程。</p>
+    <h2>缘起</h2>
+    <p>每次换手机或重装，都要重复装一堆东西。与其每次手点，不如写一次脚本。</p>
+    <h2>做了什么</h2>
+    <p>把环境初始化、常用工具、同步配置全部脚本化，一条命令搞定。</p>
+    <h2>现在</h2>
+    <p>它已经是我每台设备的标配起点，也沉淀进了作品集。</p>
+  </article>
+  <aside class="aside">
+    <div class="profile">
+      <div class="avatar"></div>
+      <div class="name">JowJo</div>
+      <div class="role">超认真工作室</div>
+      <div class="bio">做顺手的小工具，把重复的事交给脚本。这个项目的作者与维护者。</div>
+      <div class="contact"><a href="../services.html">合作</a><a href="mailto:contact@jowjowork.uno">联系</a></div>
+      <div class="tags"><div class="tt">相关</div><span>Termux</span><span>自动化</span></div>
+    </div>
+  </aside>
+</div>
+<div class="foot">Copyright by 超认真工作室</div>
+</body>
+</html>
