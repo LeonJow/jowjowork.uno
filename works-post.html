@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LUUC 子项目复盘 | 作品 · JowJo</title>
+<meta name="description" content="JowJo 的作品：LUUC 个人主页子项目从设计到上线的复盘。" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;padding:18px 20px 14px;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0));}
+.top-nav .nav-item{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 clamp(20px,3vw,46px);color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.3);font-family:'Noto Sans SC',sans-serif;}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(16px,2vw,22px);letter-spacing:1px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+.wrap{max-width:860px;margin:0 auto;padding:120px 24px 40px;}
+.wrap h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:320px;border-radius:14px;background:linear-gradient(135deg,#1f3a2e,#2c3a4a);margin-bottom:28px;}
+.wrap p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.wrap h2{font-size:21px;font-weight:500;margin:30px 0 12px;}
+.wrap blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.rel{margin-top:46px;border-top:1px solid rgba(255,255,255,.1);padding-top:30px;}
+.rel h3{font-size:16px;font-weight:500;letter-spacing:1px;margin-bottom:18px;opacity:.85;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+.card{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;transition:transform .2s,border-color .2s;}
+.card:hover{transform:translateY(-4px);border-color:rgba(159,198,255,.5);}
+.card .t{font-size:15px;font-weight:500;margin-bottom:6px;}
+.card .d{font-size:12.5px;opacity:.6;line-height:1.6;}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;}
+@media(max-width:600px){.cover{height:200px;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+  <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <a href="skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+  <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+  <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+</nav>
+<div class="wrap">
+  <h1>LUUC 子项目复盘</h1>
+  <div class="meta"><span>2026-07</span><span>个人主页</span><span>设计 + 前端</span></div>
+  <div class="cover"></div>
+  <p>LUUC 是我练手的一个独立个人主页：带留言板、相册和轻量 CMS，部署在 Netlify。这里复盘一下从设计到上线的关键决定。</p>
+  <h2>一、为什么单独做一个站</h2>
+  <p>主站 jowjowork.uno 走 GitHub Pages、纯静态；而这个实验想试试 Netlify 的表单与函数能力，所以单独起了一个仓库，互不干扰。</p>
+  <h2>二、结构怎么拆</h2>
+  <p>首页只放「一句话定位 + 几个入口」，把留言板和相册拆成独立页面，加载更快，也更好维护。</p>
+  <blockquote>小站点最怕什么都塞首页，入口清晰比信息多更重要。</blockquote>
+  <h2>三、上线后的取舍</h2>
+  <p>Netlify 的表单收集确实省事，但它和主站的部署方式不一致。后续如果要并入主站，得统一成一套工作流。</p>
+  <div class="rel">
+    <h3>相关作品</h3>
+    <div class="grid">
+      <a class="card" href="works-post.html"><div class="t">JowJo 主站改版</div><div class="d">全屏视频首页 + 五个栏目</div></a>
+      <a class="card" href="works-post.html"><div class="t">超认真工作室官网</div><div class="d">极简品牌落地页</div></a>
+      <a class="card" href="works-post.html"><div class="t">AI 信息流工具</div><div class="d">把摘要与归档自动化</div></a>
+    </div>
+  </div>
+  <div class="foot">Copyright by 超认真工作室</div>
+</div>
+</body>
+</html>
