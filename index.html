@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JowJow</title>
-  <meta name="description" content="JowJow — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
+  <title>JowJo</title>
+  <meta name="description" content="JowJo — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -31,20 +34,20 @@
         linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 30%);
     }
 
-    /* 中央品牌大字（影视飓风式居中标语感） */
+    /* 中央品牌大字（优雅花体 + 弱辉光） */
     .brand {
       position: fixed; top: 50%; left: 50%; z-index: 2;
-      transform: translate(-50%, -50%) skewX(-6deg);
-      font-weight: 800;
-      font-size: clamp(48px, 10vw, 96px);
-      letter-spacing: .06em;
-      font-style: italic;
+      transform: translate(-50%, -50%) skewX(-4deg);
+      font-family: 'Great Vibes', "Brush Script MT", "Snell Roundhand", cursive;
+      font-weight: 400;
+      font-size: clamp(64px, 12vw, 120px);
+      letter-spacing: .02em;
       white-space: nowrap;
       text-shadow:
-        0 0 40px rgba(255,255,255,.25),
-        0 4px 30px rgba(0,0,0,.55);
+        0 0 16px rgba(255,255,255,.12),
+        0 2px 18px rgba(0,0,0,.45);
     }
-    .brand .dot { opacity: .9; }
+    .brand .dot { opacity: .85; }
 
     /* 右上角 slogan（从原左下角移上来，右对齐） */
     .slogan {
