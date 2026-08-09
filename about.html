@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于 | JowJo</title>
+  <meta name="description" content="关于 JowJo 与超认真工作室 — 探索 AI 改变生活的每一刻。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      min-height: 100%;
+      background: #050505;
+      color: #fff;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 60px 20px;
+    }
+    .brand {
+      font-family: 'Allura', cursive;
+      font-size: clamp(48px, 10vw, 96px);
+      margin-bottom: 20px;
+      opacity: .95;
+    }
+    h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .lead {
+      font-size: 15px;
+      opacity: .65;
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+    /* ===== 内容区：更新内容就往这里加卡片 ===== */
+    .grid {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      justify-content: center; max-width: 760px; margin-bottom: 40px;
+    }
+    .card {
+      width: 220px; padding: 20px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      text-align: left;
+    }
+    .card h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .card p { font-size: 13px; opacity: .6; line-height: 1.6; }
+    a.back {
+      color: #fff; opacity: .7;
+      text-decoration: none;
+      font-size: 14px; letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+      padding-bottom: 3px;
+      transition: opacity .2s;
+    }
+    a.back:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="brand">JowJo.</div>
+  <h1>关于</h1>
+  <p class="lead">JowJo 是「探索 AI 改变生活的每一刻」的个人工作站，<br />由「超认真工作室」维护。这里记录我的探索、思考，以及一些不怎么正经但很认真的事。</p>
+
+  <!-- ===== 如何更新内容 =====
+       每加一块介绍，就复制下面整个 <div class="card"> ... </div> 块，
+       改里面的 <h3> 小标题 和 <p> 描述即可。可以写：关于我 / 工作室 / 联系方式 等。 -->
+  <div class="grid">
+    <div class="card">
+      <h3>关于我</h3>
+      <p>在这里写你是谁、在做什么、为什么做这个站。一两句话即可。</p>
+    </div>
+    <div class="card">
+      <h3>超认真工作室</h3>
+      <p>在这里写工作室是做什么的、有什么理念或代表作。</p>
+    </div>
+  </div>
+
+  <a class="back" href="index.html">← 返回首页</a>
+</body>
+</html>
