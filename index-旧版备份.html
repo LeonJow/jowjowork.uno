@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JowJow</title>
+  <meta name="description" content="JowJow — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+      color: #fff;
+    }
+
+    /* 全屏视频铺底 */
+    .video-wrap { position: fixed; inset: 0; z-index: 0; }
+    #bg {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 暗角遮罩：让文字在任何画面下都看得清 */
+    .overlay {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(ellipse at center, rgba(0,0,0,0) 38%, rgba(0,0,0,0.55) 100%),
+        linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 30%);
+    }
+
+    /* 左上角品牌 */
+    .brand {
+      position: fixed; top: 26px; left: 30px; z-index: 2;
+      font-weight: 700; font-size: 20px; letter-spacing: 1px;
+      text-shadow: 0 2px 14px rgba(0,0,0,.5);
+    }
+    .brand .dot { opacity: .9; }
+
+    /* 右上角提示 */
+    .hint {
+      position: fixed; top: 30px; right: 30px; z-index: 2;
+      font-size: 12px; letter-spacing: 2px; opacity: .55;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6);
+    }
+
+    /* 左下角 slogan */
+    .slogan {
+      position: fixed; left: 30px; bottom: 34px; z-index: 2;
+      max-width: 70vw;
+      text-shadow: 0 2px 16px rgba(0,0,0,.6);
+    }
+    .slogan .big {
+      display: block;
+      font-size: clamp(22px, 4.2vw, 42px);
+      font-weight: 700; line-height: 1.18; letter-spacing: .5px;
+    }
+    .slogan .sub {
+      display: block; margin-top: 10px;
+      font-size: 13px; letter-spacing: 3px; opacity: .72;
+    }
+
+    /* 右下角声音开关 */
+    .sound {
+      position: fixed; right: 26px; bottom: 30px; z-index: 3;
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(0,0,0,.35); color: #fff; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: background .2s ease, transform .2s ease;
+    }
+    .sound:hover { background: rgba(0,0,0,.6); transform: scale(1.06); }
+    .sound svg { width: 22px; height: 22px; }
+
+    /* 极简底部社媒（保留联系入口） */
+    .social {
+      position: fixed; right: 86px; bottom: 38px; z-index: 2;
+      display: flex; gap: 16px;
+    }
+    .social a {
+      color: #fff; opacity: .7; font-size: 12px; letter-spacing: 1px;
+      text-decoration: none; transition: opacity .2s;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6);
+    }
+    .social a:hover { opacity: 1; }
+
+    @media (max-width: 600px) {
+      .brand { top: 18px; left: 18px; font-size: 17px; }
+      .hint { display: none; }
+      .slogan { left: 18px; bottom: 24px; }
+      .social { right: 80px; bottom: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-wrap">
+    <video id="bg" autoplay muted loop playsinline preload="auto">
+      <source src="media/hero.mp4" type="video/mp4" />
+      你的浏览器不支持视频播放。
+    </video>
+  </div>
+
+  <div class="overlay"></div>
+
+  <div class="brand">JowJow<span class="dot">.</span></div>
+  <div class="hint">点击右下角开启声音</div>
+
+  <div class="slogan">
+    <span class="big">探索 AI 改变生活的每一刻</span>
+    <span class="sub">JOWJOW · AI EXPLORER</span>
+  </div>
+
+  <div class="social">
+    <a href="https://xhslink.com/m/A0GnUQ9rw0U" target="_blank" rel="noopener">小红书</a>
+    <a href="https://douyin.com/user/MS4wLjABAAAAreuw3cVEK6Hp5cO9UyTVRpkyAs0yGbAmmy21T5seUypb1Mfq9Bc_qUqmY2ecqQWi" target="_blank" rel="noopener">抖音</a>
+    <a href="https://b23.tv/EZxcvcF" target="_blank" rel="noopener">B站</a>
+    <a href="mailto:jowjowork@163.com">邮箱</a>
+  </div>
+
+  <button class="sound" id="sound" aria-label="声音开关">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+  </button>
+
+  <script>
+    const v = document.getElementById('bg');
+    const btn = document.getElementById('sound');
+    const muteSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+    const soundSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
+
+    btn.addEventListener('click', () => {
+      v.muted = !v.muted;
+      if (!v.muted) { v.play().catch(() => {}); }
+      btn.innerHTML = v.muted ? muteSVG : soundSVG;
+    });
+  </script>
+</body>
+</html>
