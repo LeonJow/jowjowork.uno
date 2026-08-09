@@ -4,7 +4,16 @@
 # 前置：先运行一次 termux-setup-storage（授权访问 /sdcard/Download）
 set -e
 
-JOWOS_KEY="d43805430ead8f7eb0e7bd4d7aea9046044cadd1c0bd7187"
+# 同步口令（JOWOS_KEY）：绝不可硬编码进本脚本/仓库！
+# 优先读环境变量；未设置则交互式输入；为空则中止部署。
+if [ -z "$JOWOS_KEY" ]; then
+  printf '请输入 JowOS 同步口令（与 JowOS 前端、Cloudflare Worker 填的同一个）：'
+  read -r JOWOS_KEY
+fi
+if [ -z "$JOWOS_KEY" ]; then
+  echo "❌ 未提供同步口令，已取消部署。"
+  exit 1
+fi
 SRC=/sdcard/Download/jowos-sync-server.py
 HOME_DIR="$HOME/jowos"
 
