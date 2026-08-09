@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JowJow</title>
-  <meta name="description" content="JowJow — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
+  <title>JowJo</title>
+  <meta name="description" content="JowJo — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -31,13 +34,20 @@
         linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 30%);
     }
 
-    /* 左上角品牌 */
+    /* 中央品牌大字（优雅花体 + 弱辉光） */
     .brand {
-      position: fixed; top: 26px; left: 30px; z-index: 2;
-      font-weight: 700; font-size: 20px; letter-spacing: 1px;
-      text-shadow: 0 2px 14px rgba(0,0,0,.5);
+      position: fixed; top: 50%; left: 50%; z-index: 2;
+      transform: translate(-50%, -50%) skewX(-4deg);
+      font-family: 'Great Vibes', "Brush Script MT", "Snell Roundhand", cursive;
+      font-weight: 400;
+      font-size: clamp(64px, 12vw, 120px);
+      letter-spacing: .02em;
+      white-space: nowrap;
+      text-shadow:
+        0 0 16px rgba(255,255,255,.12),
+        0 2px 18px rgba(0,0,0,.45);
     }
-    .brand .dot { opacity: .9; }
+    .brand .dot { opacity: .85; }
 
     /* 右上角 slogan（从原左下角移上来，右对齐） */
     .slogan {
@@ -76,7 +86,7 @@
     }
 
     @media (max-width: 600px) {
-      .brand { top: 18px; left: 18px; font-size: 17px; }
+      .brand { font-size: clamp(36px, 14vw, 64px); transform: translate(-50%, -50%) skewX(-5deg); }
       .slogan { right: 18px; top: 18px; }
       .slogan .big { font-size: 20px; }
       .slogan .sub { font-size: 11px; letter-spacing: 2px; }
@@ -95,7 +105,7 @@
 
   <div class="overlay"></div>
 
-  <div class="brand">JowJow<span class="dot">.</span></div>
+  <div class="brand">JowJo<span class="dot">.</span></div>
 
   <div class="slogan">
     <span class="big">探索 AI 改变生活的每一刻</span>
