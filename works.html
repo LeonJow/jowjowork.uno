@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skills | JowJo</title>
-  <meta name="description" content="JowJo 的 Skills 技能包分享 — 可复用的自动化与工作流。" />
+  <title>作品 | JowJo</title>
+  <meta name="description" content="JowJo 的作品集 — 用 AI 做出的项目、自动化与实验。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -32,27 +32,25 @@
     .top-nav .nav-item:hover .sub { opacity: 1; }
 
     .page-title { text-align: center; margin: 120px 0 4px; font-size: clamp(34px, 6vw, 56px); font-weight: 700; letter-spacing: 2px; }
-    .page-sub { text-align: center; opacity: .55; font-size: 14px; letter-spacing: 3px; margin-bottom: 32px; }
+    .page-sub { text-align: center; opacity: .55; font-size: 14px; letter-spacing: 3px; margin-bottom: 36px; }
 
-    /* 索引列表 + 缩略图（Work6 版式） */
-    .idx { max-width: 880px; margin: 0 auto 40px; padding: 0 24px; }
-    .row { display: flex; gap: 22px; align-items: center; padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,.1); transition: background .3s; }
-    .row:hover { background: rgba(255,255,255,.03); }
-    .thumb { flex: 0 0 150px; height: 96px; border-radius: 10px;
-      background: linear-gradient(135deg, #2c2c44, #4a2c3e); }
+    /* 卡片网格（Work2 版式） */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px; max-width: 1120px; margin: 0 auto 50px; padding: 0 24px; }
+    .card { background: #151515; border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
+      overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 34px rgba(0,0,0,.55); border-color: rgba(255,255,255,.3); }
+    .thumb { height: 168px; background: linear-gradient(135deg, #2c2c44, #4a2c3e); }
     .thumb.b { background: linear-gradient(135deg, #1f3a3a, #2c4a44); }
     .thumb.c { background: linear-gradient(135deg, #3a2c1f, #4a3a2c); }
-    .meta { flex: 1; }
-    .meta .yr { font-size: 12px; color: rgba(255,255,255,.45); letter-spacing: 2px; }
-    .meta h3 { margin: 6px 0 8px; font-size: 20px; font-weight: 500; }
-    .meta p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,.7); }
-    .meta .tags span { display: inline-block; font-size: 11px; padding: 2px 9px; margin: 2px 4px 0 0;
+    .body { padding: 16px 18px 20px; }
+    .body h3 { margin: 0 0 6px; font-size: 18px; font-weight: 500; }
+    .body .yr { font-size: 12px; color: rgba(255,255,255,.45); margin-bottom: 8px; }
+    .body p { margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.7); }
+    .tags span { display: inline-block; font-size: 11px; padding: 2px 9px; margin: 2px 4px 0 0;
       border: 1px solid rgba(255,255,255,.2); border-radius: 20px; color: rgba(255,255,255,.75); }
-    .go { flex: 0 0 auto; font-size: 13px; color: #9fc6ff; padding-left: 8px; }
-    @media (max-width: 560px) { .thumb { flex-basis: 96px; height: 70px; } .meta h3 { font-size: 17px; } }
 
-    .cross { max-width: 880px; margin: 0 auto 24px; padding: 0 24px; text-align: center; font-size: 14px; opacity: .8; line-height: 1.9; }
+    .cross { max-width: 1120px; margin: 0 auto 24px; padding: 0 24px; text-align: center; font-size: 14px; opacity: .8; line-height: 1.9; }
     .cross a { color: #9fc6ff; text-decoration: none; border-bottom: 1px solid rgba(159,198,255,.4); }
     .cross a:hover { border-bottom-color: #9fc6ff; }
     .foot { text-align: center; margin-top: 20px; padding-bottom: 44px; font-size: 12px; opacity: .5; }
@@ -67,19 +65,22 @@
     <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
   </nav>
 
-  <div class="page-title">Skills</div>
-  <div class="page-sub">SKILLS · 一些好用的技能包</div>
+  <div class="page-title">作品</div>
+  <div class="page-sub">WORKS · 我做过的一些项目与案例</div>
 
-  <!-- 如何更新内容：复制下面任意一整块 .row，改 .thumb 样式类(a/b/c)、日期、标题、描述、标签；href="#" 换成你的 Skill 详情/下载页 -->
-  <div class="idx">
-    <div class="row"><div class="thumb"></div><div class="meta"><div class="yr">2026-08-05</div><h3>信息流摘要 Skill</h3><p>一键把公众号、视频、文档丢进去，自动产出结构化摘要。附安装与使用说明。</p><div class="tags"><span>自动化</span><span>效率</span></div></div><div class="go">→</div></div>
-    <div class="row"><div class="thumb b"></div><div class="meta"><div class="yr">2026-07-28</div><h3>本地知识库检索 Skill</h3><p>把个人笔记变成可对话的知识库，离线也能用，支持中文语义检索。</p><div class="tags"><span>本地</span><span>检索</span></div></div><div class="go">→</div></div>
-    <div class="row"><div class="thumb c"></div><div class="meta"><div class="yr">2026-07-15</div><h3>视频素材批量处理 Skill</h3><p>自动压缩、裁剪、加封面，做短视频的人会喜欢。支持批量。</p><div class="tags"><span>视频</span><span>批处理</span></div></div><div class="go">→</div></div>
+  <!-- 如何更新内容：复制下面任意一整块 .card，改 .thumb 的样式类（a/b/c 换颜色）、标题、年份、描述、标签即可；加更多卡片会自动排布 -->
+  <div class="grid">
+    <div class="card"><div class="thumb"></div><div class="body"><h3>个人主页 v1</h3><div class="yr">2021</div><p>第一个静态站，从零学习 GitHub Pages 部署与域名绑定。</p><div class="tags"><span>静态站</span><span>入门</span></div></div></div>
+    <div class="card"><div class="thumb b"></div><div class="body"><h3>JowOS 工具套件</h3><div class="yr">2022</div><p>面向 Termux 的自动化脚本集，一键初始化手机开发环境。</p><div class="tags"><span>Termux</span><span>自动化</span></div></div></div>
+    <div class="card"><div class="thumb c"></div><div class="body"><h3>LUUC 子项目</h3><div class="yr">2023</div><p>嵌套仓库实验，探索模块化内容与代码共存的玩法。</p><div class="tags"><span>实验</span><span>架构</span></div></div></div>
+    <div class="card"><div class="thumb"></div><div class="body"><h3>AI 经验库</h3><div class="yr">2024</div><p>把日常使用 AI 的踩坑与技巧沉淀成可检索的经验。</p><div class="tags"><span>AI</span><span>沉淀</span></div></div></div>
+    <div class="card"><div class="thumb b"></div><div class="body"><h3>Skills 分享站</h3><div class="yr">2025</div><p>把好用的技能包归档、分类、做成可一键复用的模板。</p><div class="tags"><span>Skills</span><span>模板</span></div></div></div>
+    <div class="card"><div class="thumb c"></div><div class="body"><h3>超认真工作室</h3><div class="yr">2025</div><p>把个人品牌与项目统一收口，形成可对外展示的窗口。</p><div class="tags"><span>品牌</span><span>聚合</span></div></div></div>
   </div>
 
   <div class="cross">
-    相关：这些 Skill 背后的思路，见我的 <a href="ai-sharing.html">AI经验 →</a><br />
-    它们用在了哪些项目里？去 <a href="works.html">作品 →</a>
+    相关：这些作品背后的思路，见我的 <a href="ai-sharing.html">AI经验 →</a><br />
+    用到的自动化，去 <a href="skills.html">Skills →</a>
   </div>
   <div class="foot">Copyright by 超认真工作室</div>
 </body>

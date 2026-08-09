@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>作品 · 版本① 中轴时间线</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0e0e0e; color: #f2f2f2;
+    font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .ver-tag { position: fixed; top: 14px; right: 18px; z-index: 60; font-size: 12px;
+    background: rgba(255,255,255,.12); padding: 6px 12px; border-radius: 20px;
+    backdrop-filter: blur(6px); }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 18px 16px 14px;
+    background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,0)); }
+  .top-nav .nav-item { position: relative; color: #fff; padding: 0 20px;
+    border-left: 1px solid rgba(255,255,255,.22);
+    display: flex; flex-direction: column; align-items: center; }
+  .top-nav .nav-item:first-child { border-left: none; }
+  .top-nav .label { font-size: clamp(16px,2vw,22px); font-weight: 500; letter-spacing: 1px;
+    transition: text-shadow .3s, color .3s; }
+  .top-nav .sub { font-size: 10px; opacity: 0; max-height: 0; overflow: hidden; margin-top: 3px;
+    color: rgba(255,255,255,.8); transition: opacity .3s, max-height .3s; white-space: nowrap; }
+  .top-nav .nav-item:hover .label { text-shadow: 0 0 12px rgba(255,255,255,.85); }
+  .top-nav .nav-item:hover .sub { opacity: 1; max-height: 18px; }
+  .page-title { text-align: center; margin: 130px 0 10px; }
+  .page-title .big {  font-size: 64px; color: #fff;
+    text-shadow: 0 0 18px rgba(255,255,255,.25); }
+  .page-title .sub2 { font-size: 14px; letter-spacing: 4px; color: rgba(255,255,255,.6); }
+  /* 中轴时间线 */
+  .timeline { position: relative; max-width: 920px; margin: 40px auto 80px; padding: 0 20px; }
+  .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 2px; transform: translateX(-50%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.5) 12%, rgba(255,255,255,.5) 88%, rgba(255,255,255,0)); }
+  .tl-item { position: relative; width: 50%; padding: 16px 42px; }
+  .tl-item:nth-child(odd) { left: 0; text-align: right; }
+  .tl-item:nth-child(even) { left: 50%; text-align: left; }
+  .tl-dot { position: absolute; top: 26px; width: 14px; height: 14px; border-radius: 50%;
+    background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.8); }
+  .tl-item:nth-child(odd) .tl-dot { right: -7px; }
+  .tl-item:nth-child(even) .tl-dot { left: -7px; }
+  .tl-year { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .tl-card { display: inline-block; text-align: left; background: #171717;
+    border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 16px 18px;
+    max-width: 360px; transition: transform .3s, border-color .3s, box-shadow .3s; }
+  .tl-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.35);
+    box-shadow: 0 12px 30px rgba(0,0,0,.5); }
+  .tl-card h3 { margin: 0 0 6px; font-size: 17px; }
+  .tl-card p { margin: 0 0 10px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.7); }
+  .tl-tags span { display: inline-block; font-size: 11px; padding: 2px 9px; margin: 2px 4px 0 0;
+    border: 1px solid rgba(255,255,255,.2); border-radius: 20px; color: rgba(255,255,255,.75); }
+  @media (max-width: 640px) {
+    .timeline::before { left: 18px; }
+    .tl-item, .tl-item:nth-child(even) { width: 100%; left: 0; text-align: left; padding-left: 44px; padding-right: 0; }
+    .tl-item:nth-child(odd) { text-align: left; }
+    .tl-item:nth-child(odd) .tl-dot, .tl-item:nth-child(even) .tl-dot { left: 11px; right: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="ver-tag">作品页版式 · 版本① 中轴时间线（生根发芽）</div>
+  <nav class="top-nav">
+    <a href="../index.html" class="nav-item"><span class="label">首页</span></a>
+    <a href="../ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="../works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="../skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+    <a href="../services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="../about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+  <div class="page-title">
+    <div class="big">作品</div>
+    <div class="sub2">我做过的一些项目与案例</div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-year">2021</div>
+      <div class="tl-card"><h3>个人主页 v1</h3><p>第一个静态站，从零学习 GitHub Pages 部署与域名绑定。</p>
+        <div class="tl-tags"><span>静态站</span><span>入门</span></div></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-year">2022</div>
+      <div class="tl-card"><h3>JowOS 工具套件</h3><p>面向 Termux 的自动化脚本集，一键初始化手机开发环境。</p>
+        <div class="tl-tags"><span>Termux</span><span>自动化</span></div></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-year">2023</div>
+      <div class="tl-card"><h3>LUUC 子项目</h3><p>嵌套仓库实验，探索模块化内容与代码共存的玩法。</p>
+        <div class="tl-tags"><span>实验</span><span>架构</span></div></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-year">2024</div>
+      <div class="tl-card"><h3>AI 经验库</h3><p>把日常使用 AI 的踩坑与技巧沉淀成可检索的经验。</p>
+        <div class="tl-tags"><span>AI</span><span>沉淀</span></div></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-year">2025</div>
+      <div class="tl-card"><h3>Skills 分享站</h3><p>把好用的技能包归档、分类、做成可一键复用的模板。</p>
+        <div class="tl-tags"><span>Skills</span><span>模板</span></div></div>
+    </div>
+  </div>
+</body>
+</html>

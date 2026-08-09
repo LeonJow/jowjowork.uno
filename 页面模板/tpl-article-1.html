@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>文章页样例① 经典左文右栏 | JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#070707; color:#fff; font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; min-height:100%; }
+  .top-nav { position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:center; align-items:flex-start; padding:18px 20px 14px; background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0)); }
+  .top-nav .nav-item { position:relative; display:flex; flex-direction:column; align-items:center; padding:0 clamp(20px,3vw,46px); color:#fff; text-decoration:none; white-space:nowrap; border-left:1px solid rgba(255,255,255,.3); }
+  .top-nav .nav-item:first-child { border-left:none; }
+  .top-nav .label { font-size:clamp(16px,2vw,22px); letter-spacing:1px; opacity:.82; text-shadow:0 1px 8px rgba(0,0,0,.55); transition:opacity .25s,text-shadow .25s; }
+  .top-nav .nav-item:hover .label { opacity:1; text-shadow:0 0 14px rgba(255,255,255,.7); }
+  .top-nav .sub { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:6px; font-size:11px; letter-spacing:1px; color:rgba(255,255,255,.82); opacity:0; transition:opacity .25s; pointer-events:none; white-space:nowrap; }
+  .top-nav .nav-item:hover .sub { opacity:1; }
+
+  .layout { display:flex; gap:40px; max-width:1080px; margin:0 auto; padding:120px 24px 60px; align-items:flex-start; }
+  .article { flex:1 1 auto; min-width:0; max-width:680px; }
+  .aside { flex:0 0 280px; position:sticky; top:110px; }
+
+  .kicker { font-size:12px; letter-spacing:2px; color:#9fc6ff; opacity:.85; margin-bottom:10px; }
+  .article h1 { font-size:30px; font-weight:700; line-height:1.35; margin-bottom:14px; }
+  .meta { font-size:13px; opacity:.55; margin-bottom:28px; }
+  .article p { font-size:16px; line-height:1.9; opacity:.85; margin-bottom:20px; }
+  .article h2 { font-size:21px; font-weight:600; margin:34px 0 14px; }
+  .article pre { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:14px 16px; font-size:13px; line-height:1.6; overflow:auto; margin-bottom:20px; }
+  .figure { height:180px; border-radius:12px; background:linear-gradient(135deg,#1b2a4a,#0e1530); display:flex; align-items:center; justify-content:center; opacity:.8; margin-bottom:20px; font-size:13px; opacity:.7; }
+  .pager { display:flex; justify-content:space-between; margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); font-size:14px; }
+  .pager a { color:#9fc6ff; text-decoration:none; }
+
+  .card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:18px; margin-bottom:18px; }
+  .author { display:flex; align-items:center; gap:12px; margin-bottom:6px; }
+  .avatar { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#9fc6ff,#5a7fd6); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; }
+  .author .name { font-size:15px; font-weight:600; }
+  .author .bio { font-size:12px; opacity:.6; }
+  .card h4 { font-size:13px; letter-spacing:1px; opacity:.6; margin:4px 0 12px; }
+  .tags span { display:inline-block; font-size:12px; opacity:.75; border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:3px 11px; margin:0 6px 8px 0; }
+  .rel a { display:block; font-size:13px; opacity:.8; color:#fff; text-decoration:none; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+  .rel a:hover { color:#9fc6ff; }
+  .foot { text-align:center; margin-top:40px; font-size:12px; opacity:.5; }
+
+  @media (max-width:820px){ .layout{ flex-direction:column; } .aside{ position:static; flex-basis:auto; width:100%; } .article{ max-width:none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+  <a href="../works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <a href="../skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+  <a href="../services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+  <a href="../about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+</nav>
+
+<div class="layout">
+  <article class="article">
+    <div class="kicker">AI经验 · 实战</div>
+    <h1>用 AI 整理每天的信息流</h1>
+    <div class="meta">2026-08-09 · JowJo · 约 5 分钟阅读</div>
+    <p>这是文章正文样例。左边是主内容区，右边是信息栏。你可以把每天的公众号、视频、文档统一丢给 AI 做摘要，省下大量筛选时间。</p>
+    <div class="figure">封面 / 配图占位</div>
+    <h2>一、为什么这么做</h2>
+    <p>信息越来越多，但真正值得读的很少。让 AI 先帮你过滤一遍，是性价比最高的第一步。</p>
+    <h2>二、具体工作流</h2>
+    <p>把来源聚合到一个入口，再用一个 Skill 批量抓取并生成结构化摘要。</p>
+    <pre># 示例：批量抓取并摘要
+python digest.py --source wechat,video --summarize</pre>
+    <p>下一篇我会拆开讲每个环节怎么落地。</p>
+    <div class="pager">
+      <a href="#">← 上一篇</a>
+      <a href="#">下一篇 →</a>
+    </div>
+  </article>
+
+  <aside class="aside">
+    <div class="card">
+      <div class="author">
+        <div class="avatar">J</div>
+        <div>
+          <div class="name">JowJo</div>
+          <div class="bio">超认真工作室</div>
+        </div>
+      </div>
+      <div style="font-size:13px;opacity:.65;line-height:1.7;">分享 AI 落地与自动化实践。</div>
+    </div>
+    <div class="card">
+      <h4>标签</h4>
+      <div class="tags"><span>AI</span><span>效率</span><span>自动化</span><span>工作流</span></div>
+    </div>
+    <div class="card rel">
+      <h4>相关阅读</h4>
+      <a href="#">三个让我省下 10 小时的 Skill</a>
+      <a href="#">本地跑模型的显存翻车记</a>
+      <a href="#">AI 改变生活的真正入口</a>
+    </div>
+  </aside>
+</div>
+<div class="foot">Copyright by 超认真工作室 · 文章页样例① 经典左文右栏</div>
+</body>
+</html>
