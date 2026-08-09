@@ -92,7 +92,26 @@
       text-shadow: 0 1px 6px rgba(0,0,0,.6);
     }
 
+    /* 顶部居中导航（呼应影视飓风式，但只保留中间文字，无 logo/头像） */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; justify-content: center; align-items: center;
+      gap: clamp(24px, 4vw, 48px);
+      padding: 24px 20px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
+    }
+    .top-nav a {
+      color: #fff; opacity: .72;
+      font-size: 14px; letter-spacing: 1px;
+      text-decoration: none; white-space: nowrap;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55);
+      transition: opacity .2s, transform .2s;
+    }
+    .top-nav a:hover { opacity: 1; transform: translateY(-1px); }
+
     @media (max-width: 600px) {
+      .top-nav { padding: 18px 14px; gap: 18px; }
+      .top-nav a { font-size: 12px; letter-spacing: .5px; }
       .brand { font-size: clamp(40px, 16vw, 72px); }
       .slogan { transform: scaleX(1.12); }
       .slogan .big { font-size: 18px; }
@@ -111,6 +130,12 @@
   </div>
 
   <div class="overlay"></div>
+
+  <nav class="top-nav">
+    <a href="ai-sharing.html">AI经验分享</a>
+    <a href="skills.html">Skills分享</a>
+    <a href="services.html">商业合作</a>
+  </nav>
 
   <div class="center">
     <div class="brand">JowJo<span class="dot">.</span></div>
