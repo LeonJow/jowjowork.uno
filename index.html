@@ -7,7 +7,7 @@
   <meta name="description" content="JowJo — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -34,36 +34,43 @@
         linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 30%);
     }
 
-    /* 中央品牌大字（优雅花体 + 弱辉光） */
-    .brand {
+    /* 中央品牌 + 下方 slogan 垂直居中组 */
+    .center {
       position: fixed; top: 50%; left: 50%; z-index: 2;
-      transform: translate(-50%, -50%) skewX(-4deg);
-      font-family: 'Great Vibes', "Brush Script MT", "Snell Roundhand", cursive;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 92vw;
+    }
+
+    /* 中央品牌大字（Allura 极细优雅花体 + 弱辉光） */
+    .brand {
+      font-family: 'Allura', "Brush Script MT", "Snell Roundhand", cursive;
       font-weight: 400;
-      font-size: clamp(64px, 12vw, 120px);
+      font-size: clamp(76px, 13vw, 134px);
       letter-spacing: .02em;
       white-space: nowrap;
       text-shadow:
-        0 0 16px rgba(255,255,255,.12),
+        0 0 12px rgba(255,255,255,.07),
         0 2px 18px rgba(0,0,0,.45);
     }
     .brand .dot { opacity: .85; }
 
-    /* 右上角 slogan（从原左下角移上来，右对齐） */
+    /* slogan：移至品牌正下方、斜体、宽度略宽于品牌（约 7 -> 9 字符感） */
     .slogan {
-      position: fixed; right: 30px; top: 26px; z-index: 2;
-      max-width: 70vw;
-      text-align: right;
+      margin-top: .14em;
+      font-style: italic;
+      transform: scaleX(1.18);
+      transform-origin: center;
       text-shadow: 0 2px 16px rgba(0,0,0,.6);
     }
     .slogan .big {
       display: block;
-      font-size: clamp(22px, 4.2vw, 42px);
-      font-weight: 700; line-height: 1.18; letter-spacing: .5px;
+      font-size: clamp(18px, 3.6vw, 30px);
+      font-weight: 400; line-height: 1.2; letter-spacing: .5px;
     }
     .slogan .sub {
-      display: block; margin-top: 10px;
-      font-size: 13px; letter-spacing: 3px; opacity: .72;
+      display: block; margin-top: 8px;
+      font-size: 12px; letter-spacing: 3px; opacity: .72;
     }
 
     /* 极简底部社媒（居中，保留联系入口） */
@@ -86,9 +93,9 @@
     }
 
     @media (max-width: 600px) {
-      .brand { font-size: clamp(36px, 14vw, 64px); transform: translate(-50%, -50%) skewX(-5deg); }
-      .slogan { right: 18px; top: 18px; }
-      .slogan .big { font-size: 20px; }
+      .brand { font-size: clamp(40px, 16vw, 72px); }
+      .slogan { transform: scaleX(1.12); }
+      .slogan .big { font-size: 18px; }
       .slogan .sub { font-size: 11px; letter-spacing: 2px; }
       .social { bottom: 40px; gap: 14px; }
       .copyright { bottom: 14px; }
@@ -105,11 +112,13 @@
 
   <div class="overlay"></div>
 
-  <div class="brand">JowJo<span class="dot">.</span></div>
+  <div class="center">
+    <div class="brand">JowJo<span class="dot">.</span></div>
 
-  <div class="slogan">
-    <span class="big">探索 AI 改变生活的每一刻</span>
-    <span class="sub">JOWJOW · AI EXPLORER</span>
+    <div class="slogan">
+      <span class="big">探索 AI 改变生活的每一刻</span>
+      <span class="sub">JOWJOW · AI EXPLORER</span>
+    </div>
   </div>
 
   <div class="social">
