@@ -3,56 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skills分享 | JowJo</title>
-  <meta name="description" content="JowJo 的 Skills 技能包分享 — 持续建设中。" />
+  <title>Skills | JowJo</title>
+  <meta name="description" content="JowJo 的 Skills 技能包分享 — 可复用的自动化与工作流。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      background: #050505;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 40px 20px;
-    }
-    .brand {
-      font-family: 'Allura', cursive;
-      font-size: clamp(48px, 10vw, 96px);
-      margin-bottom: 24px;
-      opacity: .95;
-    }
-    h1 {
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    p {
-      font-size: 15px;
-      opacity: .65;
-      line-height: 1.7;
-      max-width: 480px;
-      margin-bottom: 40px;
-    }
-    a.back {
-      color: #fff; opacity: .7;
-      text-decoration: none;
-      font-size: 14px; letter-spacing: 1px;
-      border-bottom: 1px solid rgba(255,255,255,.25);
-      padding-bottom: 3px;
-      transition: opacity .2s;
-    }
-    a.back:hover { opacity: 1; }
+    body { background: #070707; color: #fff; font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; min-height: 100%; }
+
+    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; justify-content: center; align-items: flex-start;
+      padding: 18px 20px 14px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 100%); }
+    .top-nav .nav-item { position: relative; display: flex; flex-direction: column; align-items: center;
+      padding: 0 clamp(20px, 3vw, 46px); color: #fff; text-decoration: none; white-space: nowrap;
+      border-left: 1px solid rgba(255,255,255,.3); font-family: 'Noto Sans SC', sans-serif; }
+    .top-nav .nav-item:first-child { border-left: none; }
+    .top-nav .label { font-size: clamp(16px, 2vw, 22px); letter-spacing: 1px; opacity: .82;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55); transition: opacity .25s, text-shadow .25s; }
+    .top-nav .nav-item:hover .label { opacity: 1; text-shadow: 0 0 14px rgba(255,255,255,.7); }
+    .top-nav .sub { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 6px;
+      font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.82); opacity: 0;
+      transition: opacity .25s; pointer-events: none; white-space: nowrap; }
+    .top-nav .nav-item:hover .sub { opacity: 1; }
+
+    .wrap { padding: 120px 24px 60px; max-width: 760px; margin: 0 auto; }
+    .page-title { font-family: 'Allura', cursive; font-size: clamp(44px, 8vw, 80px); text-align: center; margin-bottom: 6px; }
+    .page-sub { text-align: center; opacity: .6; font-size: 14px; letter-spacing: 2px; margin-bottom: 36px; }
+
+    /* 单列列表（版式②） */
+    .item { padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .item .date { font-size: 12px; letter-spacing: 1px; opacity: .45; margin-bottom: 6px; }
+    .item h3 { font-size: 19px; font-weight: 500; margin-bottom: 8px; transition: color .2s; }
+    .item:hover h3 { color: #9fc6ff; }
+    .item p { font-size: 14px; opacity: .65; line-height: 1.7; margin-bottom: 10px; }
+    .item .tags { margin-bottom: 10px; }
+    .item .tag { display: inline-block; font-size: 11px; opacity: .6; border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px; padding: 2px 10px; margin-right: 6px; }
+    .item a.more { font-size: 13px; color: #9fc6ff; text-decoration: none; }
+    .item a.more:hover { text-decoration: underline; }
+
+    /* 交叉链接区 */
+    .cross { margin-top: 36px; text-align: center; font-size: 14px; opacity: .8; line-height: 1.9; }
+    .cross a { color: #9fc6ff; text-decoration: none; border-bottom: 1px solid rgba(159,198,255,.4); }
+    .cross a:hover { border-bottom-color: #9fc6ff; }
+
+    .foot { text-align: center; margin-top: 50px; font-size: 12px; opacity: .5; }
   </style>
 </head>
 <body>
-  <div class="brand">JowJo.</div>
-  <h1>Skills分享</h1>
-  <p>这里会整理我沉淀的 WorkBuddy Skills、自动化脚本和可复用工作流，<br />支持一键下载。页面正在搭建，敬请期待。</p>
-  <a class="back" href="index.html">← 返回首页</a>
+  <!-- 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 -->
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+
+  <div class="wrap">
+    <div class="page-title">Skills</div>
+    <div class="page-sub">SKILLS · 一些好用的技能包</div>
+
+    <!-- 如何更新内容：复制下面任意一整块 .item，改标题/描述/标签，把 href 指向你的 Skill 详情页即可 -->
+    <div class="item">
+      <div class="date">2026-08-05</div>
+      <h3><a href="#" style="color:inherit;text-decoration:none;">信息流摘要 Skill</a></h3>
+      <p>一键把公众号、视频、文档丢进去，自动产出结构化摘要。附安装与使用说明。</p>
+      <div class="tags"><span class="tag">自动化</span><span class="tag">效率</span></div>
+      <a class="more" href="#">查看与下载 →</a>
+    </div>
+    <div class="item">
+      <div class="date">2026-07-28</div>
+      <h3><a href="#" style="color:inherit;text-decoration:none;">本地知识库检索 Skill</a></h3>
+      <p>把个人笔记变成可对话的知识库，离线也能用，支持中文语义检索。</p>
+      <div class="tags"><span class="tag">本地</span><span class="tag">检索</span></div>
+      <a class="more" href="#">查看与下载 →</a>
+    </div>
+    <div class="item">
+      <div class="date">2026-07-15</div>
+      <h3><a href="#" style="color:inherit;text-decoration:none;">视频素材批量处理 Skill</a></h3>
+      <p>自动压缩、裁剪、加封面，做短视频的人会喜欢。支持批量。</p>
+      <div class="tags"><span class="tag">视频</span><span class="tag">批处理</span></div>
+      <a class="more" href="#">查看与下载 →</a>
+    </div>
+
+    <div class="cross">
+      相关：这些 Skill 背后的思路，见我的 <a href="ai-sharing.html">AI经验 →</a><br />
+      它们用在了哪些项目里？去 <a href="works.html">作品 →</a>
+    </div>
+
+    <div class="foot">Copyright by 超认真工作室</div>
+  </div>
 </body>
 </html>

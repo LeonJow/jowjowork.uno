@@ -4,55 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>商业合作 | JowJo</title>
-  <meta name="description" content="与 JowJo 建立商业合作 — 持续建设中。" />
+  <meta name="description" content="与 JowJo / 超认真工作室建立商业合作 — 微信、打赏与邮箱直达。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      background: #050505;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 40px 20px;
-    }
-    .brand {
-      font-family: 'Allura', cursive;
-      font-size: clamp(48px, 10vw, 96px);
-      margin-bottom: 24px;
-      opacity: .95;
-    }
-    h1 {
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    p {
-      font-size: 15px;
-      opacity: .65;
-      line-height: 1.7;
-      max-width: 480px;
-      margin-bottom: 40px;
-    }
-    a.back {
-      color: #fff; opacity: .7;
-      text-decoration: none;
-      font-size: 14px; letter-spacing: 1px;
-      border-bottom: 1px solid rgba(255,255,255,.25);
-      padding-bottom: 3px;
-      transition: opacity .2s;
-    }
-    a.back:hover { opacity: 1; }
+    body { background: #070707; color: #fff; min-height: 100%;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+    /* 顶部导航（与首页一致的 5 项顺序） */
+    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; justify-content: center; align-items: flex-start;
+      padding: 18px 20px 14px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 100%); }
+    .top-nav .nav-item { position: relative; display: flex; flex-direction: column; align-items: center;
+      padding: 0 clamp(20px, 3vw, 46px); color: #fff; text-decoration: none; white-space: nowrap;
+      border-left: 1px solid rgba(255,255,255,.3); font-family: 'Noto Sans SC', sans-serif; }
+    .top-nav .nav-item:first-child { border-left: none; }
+    .top-nav .label { font-size: clamp(16px, 2vw, 22px); letter-spacing: 1px; opacity: .82;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55); transition: opacity .25s, text-shadow .25s; }
+    .top-nav .nav-item:hover .label { opacity: 1; text-shadow: 0 0 14px rgba(255,255,255,.7); }
+    .top-nav .sub { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 6px;
+      font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.82); opacity: 0;
+      transition: opacity .25s; pointer-events: none; white-space: nowrap; }
+    .top-nav .nav-item:hover .sub { opacity: 1; }
+
+    .wrap { padding: 120px 24px 60px; max-width: 760px; margin: 0 auto; text-align: center; }
+    .page-title { font-family: 'Allura', cursive; font-size: clamp(48px, 9vw, 88px); margin-bottom: 6px; }
+    .page-sub { opacity: .6; font-size: 14px; letter-spacing: 2px; margin-bottom: 28px; }
+    .intro { font-size: 15px; opacity: .7; line-height: 1.8; max-width: 520px; margin: 0 auto 44px; }
+
+    /* 联系方式：两个二维码 + 邮箱 */
+    .contact { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .qr { background: #fff; border-radius: 16px; padding: 14px; width: 200px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+    .qr img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    .qr-cap { margin-top: 10px; color: #111; font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+
+    .email { display: inline-block; margin-top: 4px; padding: 13px 30px; border-radius: 999px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.35);
+      color: #fff; text-decoration: none; font-size: 15px; letter-spacing: 1px;
+      transition: background .2s, border-color .2s; }
+    .email:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.6); }
+
+    .note { margin-top: 34px; font-size: 12px; opacity: .45; line-height: 1.7; }
+    .foot { text-align: center; margin-top: 50px; font-size: 12px; opacity: .5; }
   </style>
 </head>
 <body>
-  <div class="brand">JowJo.</div>
-  <h1>商业合作</h1>
-  <p>如果你对我的服务、内容共创或项目合作感兴趣，<br />可以在这里了解合作方式。页面正在搭建，敬请期待。</p>
-  <a class="back" href="index.html">← 返回首页</a>
+  <!-- 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 -->
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+
+  <div class="wrap">
+    <div class="page-title">商业合作</div>
+    <div class="page-sub">COOPERATION · 也许我能帮你解决一些问题</div>
+    <p class="intro">如果你对我的内容、技能包或项目合作感兴趣，欢迎用下面的任意方式找到我。合作形式灵活，从内容共创到技术咨询都可以聊。</p>
+
+    <!-- 联系方式：微信二维码 + 打赏二维码（当前为占位图，替换 media/qr-*.svg 即可） -->
+    <div class="contact">
+      <div class="qr">
+        <img src="media/qr-wechat.svg" alt="微信二维码（占位）" />
+        <div class="qr-cap">微信二维码</div>
+      </div>
+      <div class="qr">
+        <img src="media/qr-reward.svg" alt="打赏二维码（占位）" />
+        <div class="qr-cap">打赏支持</div>
+      </div>
+    </div>
+
+    <!-- 邮箱直达：把 href 里的地址换成你的真实邮箱 -->
+    <a class="email" href="mailto:contact@jowjowork.uno">✉ 发邮件给我</a>
+
+    <p class="note">提示：上方两张二维码为占位预览图，用你的真实微信 / 收款二维码替换<br />
+      <code>media/qr-wechat.svg</code> 与 <code>media/qr-reward.svg</code> 同名文件即可；<br />
+      邮箱按钮请把 <code>mailto:</code> 后的地址改成你的真实邮箱。</p>
+
+    <div class="foot">Copyright by 超认真工作室</div>
+  </div>
 </body>
 </html>
