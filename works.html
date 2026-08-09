@@ -4,81 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>作品 | JowJo</title>
-  <meta name="description" content="JowJo 的作品集 — 用 AI 做出的项目、自动化与实验，持续建设中。" />
+  <meta name="description" content="JowJo 的作品集 — 用 AI 做出的项目、自动化与实验。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      min-height: 100%;
-      background: #050505;
-      color: #fff;
-      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 60px 20px;
-    }
-    .brand {
-      font-family: 'Allura', cursive;
-      font-size: clamp(48px, 10vw, 96px);
-      margin-bottom: 20px;
-      opacity: .95;
-    }
-    h1 {
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-    }
-    .lead {
-      font-size: 15px;
-      opacity: .65;
-      line-height: 1.7;
-      max-width: 480px;
-      margin-bottom: 36px;
-    }
-    /* ===== 内容区：更新内容就往这里加卡片 ===== */
-    .grid {
-      display: flex; flex-wrap: wrap; gap: 16px;
-      justify-content: center; max-width: 760px; margin-bottom: 40px;
-    }
-    .card {
-      width: 220px; padding: 20px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 14px;
-      text-align: left;
-    }
-    .card h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
-    .card p { font-size: 13px; opacity: .6; line-height: 1.6; }
-    a.back {
-      color: #fff; opacity: .7;
-      text-decoration: none;
-      font-size: 14px; letter-spacing: 1px;
-      border-bottom: 1px solid rgba(255,255,255,.25);
-      padding-bottom: 3px;
-      transition: opacity .2s;
-    }
-    a.back:hover { opacity: 1; }
+    body { background: #0e0e0e; color: #f2f2f2; min-height: 100%;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+
+    /* 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 */
+    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; justify-content: center; align-items: flex-start;
+      padding: 18px 20px 14px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 100%); }
+    .top-nav .nav-item { position: relative; display: flex; flex-direction: column; align-items: center;
+      padding: 0 clamp(20px, 3vw, 46px); color: #fff; text-decoration: none; white-space: nowrap;
+      border-left: 1px solid rgba(255,255,255,.3); font-family: 'Noto Sans SC', sans-serif; }
+    .top-nav .nav-item:first-child { border-left: none; }
+    .top-nav .label { font-size: clamp(16px, 2vw, 22px); letter-spacing: 1px; opacity: .82;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55); transition: opacity .25s, text-shadow .25s; }
+    .top-nav .nav-item:hover .label { opacity: 1; text-shadow: 0 0 14px rgba(255,255,255,.7); }
+    .top-nav .sub { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 6px;
+      font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.82); opacity: 0;
+      transition: opacity .25s; pointer-events: none; white-space: nowrap; }
+    .top-nav .nav-item:hover .sub { opacity: 1; }
+
+    .page-title { text-align: center; margin: 120px 0 4px; font-size: clamp(34px, 6vw, 56px); font-weight: 700; letter-spacing: 2px; }
+    .page-sub { text-align: center; opacity: .55; font-size: 14px; letter-spacing: 3px; margin-bottom: 36px; }
+
+    /* 卡片网格（Work2 版式） */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px; max-width: 1120px; margin: 0 auto 50px; padding: 0 24px; }
+    .card { background: #151515; border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
+      overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 34px rgba(0,0,0,.55); border-color: rgba(255,255,255,.3); }
+    .thumb { height: 168px; background: linear-gradient(135deg, #2c2c44, #4a2c3e); }
+    .thumb.b { background: linear-gradient(135deg, #1f3a3a, #2c4a44); }
+    .thumb.c { background: linear-gradient(135deg, #3a2c1f, #4a3a2c); }
+    .body { padding: 16px 18px 20px; }
+    .body h3 { margin: 0 0 6px; font-size: 18px; font-weight: 500; }
+    .body .yr { font-size: 12px; color: rgba(255,255,255,.45); margin-bottom: 8px; }
+    .body p { margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.7); }
+    .tags span { display: inline-block; font-size: 11px; padding: 2px 9px; margin: 2px 4px 0 0;
+      border: 1px solid rgba(255,255,255,.2); border-radius: 20px; color: rgba(255,255,255,.75); }
+
+    .cross { max-width: 1120px; margin: 0 auto 24px; padding: 0 24px; text-align: center; font-size: 14px; opacity: .8; line-height: 1.9; }
+    .cross a { color: #9fc6ff; text-decoration: none; border-bottom: 1px solid rgba(159,198,255,.4); }
+    .cross a:hover { border-bottom-color: #9fc6ff; }
+    .foot { text-align: center; margin-top: 20px; padding-bottom: 44px; font-size: 12px; opacity: .5; }
   </style>
 </head>
 <body>
-  <div class="brand">JowJo.</div>
-  <h1>作品</h1>
-  <p class="lead">这里会展示我用 AI 做出的项目、自动化案例与实验性作品。<br />页面正在搭建，敬请期待。</p>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">Skills</span><span class="sub">一些好用的Skills</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
 
-  <!-- ===== 如何更新内容 =====
-       每加一个作品，就复制下面整个 <div class="card"> ... </div> 块，
-       改里面的 <h3> 标题 和 <p> 描述即可。卡片会自动横向排列、自动换行。 -->
+  <div class="page-title">作品</div>
+  <div class="page-sub">WORKS · 我做过的一些项目与案例</div>
+
+  <!-- 如何更新内容：复制下面任意一整块 .card，改 .thumb 的样式类（a/b/c 换颜色）、标题、年份、描述、标签即可；加更多卡片会自动排布 -->
   <div class="grid">
-    <div class="card">
-      <h3>示例作品标题</h3>
-      <p>在这里写一句作品简介，比如用了什么 AI、解决了什么问题、有什么效果。</p>
-    </div>
+    <div class="card"><div class="thumb"></div><div class="body"><h3>个人主页 v1</h3><div class="yr">2021</div><p>第一个静态站，从零学习 GitHub Pages 部署与域名绑定。</p><div class="tags"><span>静态站</span><span>入门</span></div></div></div>
+    <div class="card"><div class="thumb b"></div><div class="body"><h3>JowOS 工具套件</h3><div class="yr">2022</div><p>面向 Termux 的自动化脚本集，一键初始化手机开发环境。</p><div class="tags"><span>Termux</span><span>自动化</span></div></div></div>
+    <div class="card"><div class="thumb c"></div><div class="body"><h3>LUUC 子项目</h3><div class="yr">2023</div><p>嵌套仓库实验，探索模块化内容与代码共存的玩法。</p><div class="tags"><span>实验</span><span>架构</span></div></div></div>
+    <div class="card"><div class="thumb"></div><div class="body"><h3>AI 经验库</h3><div class="yr">2024</div><p>把日常使用 AI 的踩坑与技巧沉淀成可检索的经验。</p><div class="tags"><span>AI</span><span>沉淀</span></div></div></div>
+    <div class="card"><div class="thumb b"></div><div class="body"><h3>Skills 分享站</h3><div class="yr">2025</div><p>把好用的技能包归档、分类、做成可一键复用的模板。</p><div class="tags"><span>Skills</span><span>模板</span></div></div></div>
+    <div class="card"><div class="thumb c"></div><div class="body"><h3>超认真工作室</h3><div class="yr">2025</div><p>把个人品牌与项目统一收口，形成可对外展示的窗口。</p><div class="tags"><span>品牌</span><span>聚合</span></div></div></div>
   </div>
 
-  <a class="back" href="index.html">← 返回首页</a>
+  <div class="cross">
+    相关：这些作品背后的思路，见我的 <a href="ai-sharing.html">AI经验 →</a><br />
+    用到的自动化，去 <a href="skills.html">Skills →</a>
+  </div>
+  <div class="foot">Copyright by 超认真工作室</div>
 </body>
 </html>
