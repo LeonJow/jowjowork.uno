@@ -43,6 +43,15 @@
       width: 92vw;
     }
 
+    /* 头像：虎头 emoji，透明底，置于品牌上方居中 */
+    .avatar {
+      display: block;
+      margin: 0 auto 18px;
+      width: clamp(86px, 13vw, 132px);
+      height: auto;
+      filter: drop-shadow(0 6px 22px rgba(0,0,0,.5));
+    }
+
     /* 中央品牌大字（Allura 极细优雅花体 + 弱辉光） */
     .brand {
       font-family: 'Allura', "Brush Script MT", "Snell Roundhand", cursive;
@@ -163,6 +172,7 @@
   </nav>
 
   <div class="center">
+    <img src="media/tiger-head.png" alt="JowJo 头像" class="avatar" />
     <div class="brand">JowJo<span class="dot">.</span></div>
 
     <div class="slogan">
