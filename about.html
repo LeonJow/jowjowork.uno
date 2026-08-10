@@ -55,6 +55,7 @@
       color: rgba(255,255,255,.8); cursor: pointer; opacity: .9;
       animation: bob 1.7s ease-in-out infinite; transition: opacity .4s; }
     .scroll-cue svg { width: 34px; height: 34px; filter: drop-shadow(0 1px 6px rgba(0,0,0,.6)); }
+    .scroll-cue .chev2 { opacity: .4; }
     .scroll-cue:hover { color: #fff; }
     .scroll-cue.hidden { opacity: 0; pointer-events: none; }
     .cue-down { bottom: 30px; }
@@ -79,11 +80,13 @@
   <div class="scroll-cue cue-up hidden" id="cueUp" title="向上滚动" aria-label="向上滚动">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 15 12 9 18 15"></polyline>
+      <polyline class="chev2" points="6 10 12 4 18 10"></polyline>
     </svg>
   </div>
   <div class="scroll-cue cue-down" id="cueDown" title="向下滚动" aria-label="向下滚动">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"></polyline>
+      <polyline class="chev2" points="6 14 12 20 18 14"></polyline>
     </svg>
   </div>
 
