@@ -14,7 +14,6 @@
       font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
     a { color: inherit; text-decoration: none; }
 
-    /* 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 */
     .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10;
       display: flex; justify-content: center; align-items: flex-start;
       padding: 18px 20px 14px;
@@ -34,15 +33,12 @@
     .page-title { text-align: center; margin: 120px 0 4px; font-size: clamp(34px, 6vw, 56px); font-weight: 700; letter-spacing: 2px; }
     .page-sub { text-align: center; opacity: .55; font-size: 14px; letter-spacing: 3px; margin-bottom: 36px; }
 
-    /* 卡片网格（Work2 版式） */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 22px; max-width: 1120px; margin: 0 auto 50px; padding: 0 24px; }
     .card { background: #151515; border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
       overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; }
     .card:hover { transform: translateY(-6px); box-shadow: 0 14px 34px rgba(0,0,0,.55); border-color: rgba(255,255,255,.3); }
-    .thumb { height: 168px; background: linear-gradient(135deg, #2c2c44, #4a2c3e); }
-    .thumb.b { background: linear-gradient(135deg, #1f3a3a, #2c4a44); }
-    .thumb.c { background: linear-gradient(135deg, #3a2c1f, #4a3a2c); }
+    .thumb { height: 168px; background: #1a1a1a center/cover no-repeat; }
     .body { padding: 16px 18px 20px; }
     .body h3 { margin: 0 0 6px; font-size: 18px; font-weight: 500; }
     .body .yr { font-size: 12px; color: rgba(255,255,255,.45); margin-bottom: 8px; }
@@ -57,10 +53,10 @@
   </style>
 </head>
 <body>
-    <nav class="top-nav">
-    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <nav class="top-nav">
     <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
     <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
     <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
     <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
   </nav>
@@ -68,14 +64,14 @@
   <div class="page-title">作品</div>
   <div class="page-sub">WORKS · 我做过的一些项目与案例</div>
 
-  <!-- 如何更新内容：复制下面任意一整块 .card，改 .thumb 的样式类（a/b/c 换颜色）、标题、年份、描述、标签即可；加更多卡片会自动排布 -->
+  <!-- 复制下面任意一整块 .card 即可加新作品；.thumb 的 style 里换 media/ 下的图片文件名 -->
   <div class="grid">
-    <a class="card" href="works-post.html"><div class="thumb"></div><div class="body"><h3>个人主页 v1</h3><div class="yr">2021</div><p>第一个静态站，从零学习 GitHub Pages 部署与域名绑定。</p><div class="tags"><span>静态站</span><span>入门</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb b"></div><div class="body"><h3>JowOS 工具套件</h3><div class="yr">2022</div><p>面向 Termux 的自动化脚本集，一键初始化手机开发环境。</p><div class="tags"><span>Termux</span><span>自动化</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb c"></div><div class="body"><h3>LUUC 子项目</h3><div class="yr">2023</div><p>嵌套仓库实验，探索模块化内容与代码共存的玩法。</p><div class="tags"><span>实验</span><span>架构</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb"></div><div class="body"><h3>AI 经验库</h3><div class="yr">2024</div><p>把日常使用 AI 的踩坑与技巧沉淀成可检索的经验。</p><div class="tags"><span>AI</span><span>沉淀</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb b"></div><div class="body"><h3>Skills 分享站</h3><div class="yr">2025</div><p>把好用的技能包归档、分类、做成可一键复用的模板。</p><div class="tags"><span>Skills</span><span>模板</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb c"></div><div class="body"><h3>超认真工作室</h3><div class="yr">2025</div><p>把个人品牌与项目统一收口，形成可对外展示的窗口。</p><div class="tags"><span>品牌</span><span>聚合</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/web-design.jpg')"></div><div class="body"><h3>个人主页 v1</h3><div class="yr">2021</div><p>从零搭起第一个静态站，学会了 GitHub Pages 部署、域名绑定和一点点 HTML/CSS。现在看很粗糙，但是一切的起点。</p><div class="tags"><span>静态站</span><span>入门</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/smartphone-app.jpg')"></div><div class="body"><h3>JowOS 工具套件</h3><div class="yr">2022</div><p>面向手机终端的自动化脚本集，把开发环境初始化、备份、定时任务一键串起来，少掉很多重复操作。</p><div class="tags"><span>自动化</span><span>终端</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/notes.jpg')"></div><div class="body"><h3>AI 经验库</h3><div class="yr">2023</div><p>把每天用 AI 踩的坑和技巧沉淀成可检索的笔记，后来长成了现在的「AI经验」栏目。</p><div class="tags"><span>AI</span><span>沉淀</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/puzzle.jpg')"></div><div class="body"><h3>Skills 分享站</h3><div class="yr">2024</div><p>把好用的技能包归档、分类，做成可以一键复用的模板，省下反复造轮子的时间。</p><div class="tags"><span>Skills</span><span>模板</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/video-editing.jpg')"></div><div class="body"><h3>短视频剪辑流水线</h3><div class="yr">2025</div><p>用 AI 做素材批量压缩、裁剪、加封面，把一条视频的后期从两小时压到二十分钟。</p><div class="tags"><span>视频</span><span>批处理</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/workspace.jpg')"></div><div class="body"><h3>超认真工作室</h3><div class="yr">2025</div><p>把个人品牌和项目统一收口，形成现在这个对外展示的窗口，也是你正在看的这个站。</p><div class="tags"><span>品牌</span><span>聚合</span></div></div></a>
   </div>
 
   <div class="cross">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>用 AI 整理每天的信息流 | AI经验 · JowJo</title>
+<title>本地跑模型的显存翻车记 | AI经验 · JowJo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -55,26 +55,26 @@ a{color:inherit;text-decoration:none;}
   </nav>
 <div class="container">
   <article class="article">
-    <h1>用 AI 整理每天的信息流</h1>
-    <div class="meta"><span>2026-08-09</span><span>JowJo</span><span>约 6 分钟</span></div>
-    <div class="cover" style="background-image:url('media/workspace.jpg')"></div>
-<h2 id="s1">一、为什么会乱</h2>
-<p>公众号、视频、文档、群聊……每天涌进来的信息太多，真正能留下的很少。每个平台都有自己的阅读节奏，很难在同一处汇总。等到想回看时，早已找不到当初那条有价值的内容。</p>
-<p>不是信息太少，而是没有一条「统一的入口」。</p>
-<h2 id="s2">二、我的工作流</h2>
-<p>先把所有来源丢进一个收集箱，再定时让 AI 产出结构化摘要，最后按主题归档。完整步骤和踩坑我都写在了对应的 Skills 里。</p>
-<p>关键不是某个神奇模型，而是「固定动作 + 自动归档」这条链路跑顺了。</p>
-<h2 id="s3">三、接上 Skills</h2>
-<p>光看摘要还不够，我把常用动作写成 Skill：一键摘要、自动打标签、定时推送。这样每天花在整理上的时间，从半小时降到五分钟。</p>
-<p>这些 Skill 在 Skills 页都能拿到，照着装就行。</p>
-<h2 id="s4">四、下一步</h2>
-<p>打算把这套流程做成可一键复用的自动化，让没有技术背景的人也能直接套用。完整脚本会在 Skills 页放出。</p>
+    <h1>本地跑模型的显存翻车记</h1>
+    <div class="meta"><span>2026-06-20</span><span>JowJo</span><span>约 6 分钟</span></div>
+    <div class="cover" style="background-image:url('media/server.jpg')"></div>
+<h2 id="s1">一、翻车现场</h2>
+<p>兴致勃勃拉了个 7B 模型想本地跑，结果一加载显存直接爆，终端报 OOM，电脑风扇狂转。那一刻我意识到：本地 AI 不是「下载就能用」。</p>
+<p>问题不在模型大小，而在于默认配置把全部层都塞进了显存。</p>
+<h2 id="s2">二、排查思路</h2>
+<p>先看 nvidia-smi 确认显存占用，再用 llama.cpp 的量化参数把模型压到 4-bit；同时把上下文长度从 32k 砍到 8k，瞬间稳了。</p>
+<p>经验：本地跑模型，先算显存账，再谈体验。</p>
+<h2 id="s3">三、轻量化方案</h2>
+<p>最终方案：4-bit 量化 + 只加载需要用到的层 + 关掉不必要的视觉模块。一台普通独显的笔记本也能流畅对话。</p>
+<p>如果你也卡在这一步，先把量化打开，别硬刚。</p>
+<h2 id="s4">四、现在的配置</h2>
+<p>我现在用一套固定参数，开机即用。具体配置写在了 Skills 页的「本地知识库检索 Skill」说明里，照着改就行。</p>
 
   </article>
   <aside class="aside">
     <div class="box toc">
       <h4>目录</h4>
-      <a href="#s1">一、为什么会乱</a><a href="#s2">二、我的工作流</a><a href="#s3">三、接上 Skills</a><a href="#s4">四、下一步</a>
+      <a href="#s1">一、翻车现场</a><a href="#s2">二、排查思路</a><a href="#s3">三、轻量化方案</a><a href="#s4">四、现在的配置</a>
     </div>
     <div class="box author">
       <div class="avatar" style="background-image:url('media/portrait.jpg')"></div>
@@ -82,11 +82,11 @@ a{color:inherit;text-decoration:none;}
     </div>
     <div class="box tags">
       <div class="tt">标签</div>
-      <span>AI</span><span>效率</span><span>工作流</span>
+      <span>本地</span><span>模型</span><span>踩坑</span>
     </div>
     <div class="box rel">
       <h4>相关阅读</h4>
-      <a href="ai-post-skill.html">三个让我省下 10 小时的 Skill →</a><a href="ai-post-writing.html">用 AI 写出不尴尬的中文文案 →</a>
+      <a href="ai-post-skill.html">三个让我省下 10 小时的 Skill →</a><a href="ai-post-entry.html">AI 改变生活的真正入口 →</a>
     </div>
   </aside>
   <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
