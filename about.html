@@ -10,13 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; }
+    html, body { margin: 0; height: 100%; }
     html { background: #0b0b0d; overscroll-behavior: none; }
-    body { background: #0b0b0d; color: #fff; scroll-behavior: smooth;
-      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      /* 隐藏滚动条（黑条）但保留滚动能力 */
-      scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior-y: none; }
-    body::-webkit-scrollbar { display: none; }
+    /* body 不自己滚动，整屏吸附交给 .gallery 这一个滚动容器，避免"第二个滚动条=黑条" */
+    body { background: #0b0b0d; color: #fff; overflow: hidden;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
     a { color: inherit; text-decoration: none; }
 
     .mini-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
@@ -29,9 +27,12 @@
     .mini-bar .left { display: inline-flex; align-items: center; gap: 6px; }
     .mini-bar .left::before { content: '←'; font-size: 14px; opacity: .7; }
 
-    /* 改为自然文档流：body 统一滚动，不再有嵌套滚动框，也就没有第二个滚动条(黑条) */
-    .gallery { display: block; }
-    .gsection { min-height: 100vh; display: flex; flex-direction: column;
+    /* 整屏吸附滚动容器（一屏一跳）。隐藏其滚动条 + 关掉越界反弹，黑条来源被消除 */
+    .gallery { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory;
+      overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+      background: #0b0b0d; scrollbar-width: none; -ms-overflow-style: none; }
+    .gallery::-webkit-scrollbar { display: none; }
+    .gsection { height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center; position: relative; padding: 80px 24px;
       background: #0b0b0d center/cover no-repeat; }
     .gsection::before { content: ''; position: absolute; inset: 0;
@@ -43,6 +44,8 @@
     .gsection .links { margin-top: 26px; font-size: 14px; }
     .gsection .links a { color: #9fc6ff; border-bottom: 1px solid rgba(159,198,255,.45); padding-bottom: 2px; margin: 0 8px; }
     .gsection .links a:hover { border-bottom-color: #9fc6ff; }
+    .copyright { background: #0b0b0d; scroll-snap-align: start; text-align: center;
+      padding: 30px 0 40px; font-size: 12px; opacity: .5; }
 
     /* 左右两侧向下滚动引导图标（scroll cue）：上下浮动，点一下滚到下一屏 */
     .scroll-cue { position: fixed; top: 50%; transform: translateY(-50%); z-index: 60;
@@ -78,7 +81,7 @@
     </svg>
   </div>
 
-  <div class="gallery">
+  <div class="gallery" id="gallery">
     <div class="gsection" style="background-image:url('media/portrait.jpg')"><div class="inner">
       <div class="yr">ABOUT</div>
       <h2>关于 JowJo</h2>
@@ -107,23 +110,24 @@
         <a href="services.html">商业合作 →</a>
       </div>
     </div></div>
+    <div class="copyright">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
   </div>
-  <div style="text-align:center;padding:30px 0 40px;font-size:12px;opacity:.5;">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
 
   <script>
     (function () {
+      var g = document.getElementById('gallery');
       var cueL = document.getElementById('cueLeft');
       var cueR = document.getElementById('cueRight');
-      function scrollDown() { window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }); }
+      function scrollDown() { g.scrollBy({ top: g.clientHeight, behavior: 'smooth' }); }
       cueL.addEventListener('click', scrollDown);
       cueR.addEventListener('click', scrollDown);
       // 滚过第一屏后隐藏引导图标，避免一直挡着
       function onScroll() {
-        var passed = window.scrollY > window.innerHeight * 0.6;
+        var passed = g.scrollTop > g.clientHeight * 0.6;
         cueL.classList.toggle('hidden', passed);
         cueR.classList.toggle('hidden', passed);
       }
-      window.addEventListener('scroll', onScroll, { passive: true });
+      g.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     })();
   </script>
