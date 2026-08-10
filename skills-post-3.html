@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>信息流一键摘要 Skill | Skills · JowJo</title>
-<meta name="description" content="JowJo 的 Skills：信息流一键摘要，把每天涌进来的内容自动整理成结构化笔记。" />
+<title>视频素材批量处理 Skill | Skills · JowJo</title>
+<meta name="description" content="JowJo 的 Skills：视频素材批量处理 Skill — 自动压缩、裁剪、加封面，做短视频的人会喜欢。支持批量，一小时素材五分钟搞定。" />
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -23,7 +23,7 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
 .container{display:grid;grid-template-columns:1fr 320px;gap:46px;max-width:1120px;margin:0 auto;padding:120px 24px 40px;}
 .article{min-width:0;}
-.cover{height:300px;border-radius:14px;background:linear-gradient(135deg,#3a2c44,#2c3a4a);margin-bottom:26px;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:26px;}
 .article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:12px;line-height:1.3;}
 .meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
 .article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none;}
 .box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;margin-bottom:18px;}
 .box .tt{font-size:12px;opacity:.55;letter-spacing:1px;margin-bottom:12px;}
 .author{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
-.avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#3a2c1f,#4a3a2c);flex:0 0 auto;}
+.avatar{width:56px;height:56px;border-radius:50%;background:#1c1c1c center/cover no-repeat;flex:0 0 auto;}
 .author .name{font-size:17px;font-weight:500;}
 .author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
 .big{font-size:15px;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:14px;}
@@ -42,41 +42,54 @@ a{color:inherit;text-decoration:none;}
 .contact a:first-child{border-top:none;}
 .tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
 .foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+.rel{margin-top:34px;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;}
+.rel .tt{font-size:13px;opacity:.65;margin-bottom:12px;}
+.rel a{display:block;font-size:14px;padding:8px 0;color:#9fc6ff;border-bottom:1px solid rgba(255,255,255,.06);}
+.rel a:last-child{border-bottom:none;}
 @media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
 </style>
 </head>
 <body>
-    <nav class="top-nav">
-    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
-    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
-    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
-    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
-    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
-  </nav>
+<nav class="top-nav">
+  <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+  <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+  <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+  <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+</nav>
 <div class="container">
   <article class="article">
-    <div class="cover" style="background-image:url('media/automation.jpg')"></div>
-    <h1>信息流一键摘要 Skill</h1>
-    <div class="meta"><span>v1.2</span><span>自动化</span><span>可复用</span></div>
-    <p>这个 Skill 接收你当天收集的内容（链接、截图、剪贴文本），自动产出结构化摘要并打标签。下面是实现思路与用法。</p>
-    <h2>一、它解决什么</h2>
-    <p>每天信息太多，手动整理太慢。这个 Skill 把「收集 → 摘要 → 归档」三步合并成一次调用。</p>
-    <h2>二、怎么用</h2>
-    <p>把待整理内容贴进来，调用即可。核心提示词结构如下：</p>
-    <pre>角色：信息整理助手
-输入：用户提供的原始内容
-输出：标题 / 一句话摘要 / 3 个标签 / 是否值得长期保存</pre>
-    <h2>三、进阶：定时推送</h2>
-    <p>配合定时任务，每天晚上自动跑一遍，第二天早上直接看结果。配合 <code>ai-post.html</code> 里的工作流效果更好。</p>
-    <h2>四、下载</h2>
-    <p>完整 Skill 文件放在 <code>skills.html</code> 列表里，点进去即可复制使用。</p>
+    <div class="cover" style="background-image:url('media/video-editing.jpg')"></div>
+    <h1>视频素材批量处理 Skill</h1>
+    <div class="meta"><span>v1.1 · 视频 · 批处理 · 效率</span></div>
+    <p>自动压缩、裁剪、加封面，做短视频的人会喜欢。支持批量，一小时素材五分钟搞定。</p>
+    <h2>一、痛点</h2>
+    <p>短视频后期最烦的不是创作，是重复操作：压缩体积、裁剪尺寸、加封面、导出不同平台格式。一条视频可能要做四五遍。</p>
+    <p>这个 Skill 把这些步骤串成一条命令，原始素材丢进去，出来就是各个平台的成品。</p>
+    <h2>二、流程设计</h2>
+    <p>配置文件里写好各平台的尺寸、码率、封面模板。脚本会按顺序：读取素材 → 统一压缩 → 按平台裁剪 → 叠加封面文字 → 输出到对应文件夹。</p>
+    <p>我把 ffmpeg 参数全部抽出来，避免每次手动输入一长串命令。</p>
+    <h2>三、省下的时间</h2>
+    <p>以前一条 3 分钟的视频，导出各平台版本要 20 分钟。现在 5 分钟左右完成，中间还能去做别的事。</p>
+    <p>批量处理时更夸张：一晚上能跑完十条视频的后半段，第二天早上直接发。</p>
+    <h2>四、后续计划</h2>
+    <p>下一步想接上 AI 字幕和智能封面：自动识别视频里最抓眼的帧，配上标题。</p>
+    <p>如果你也经常剪视频，这个 Skill 可能是最快让你省时间的一个。</p>
+
+    <div class="rel">
+      <div class="tt">更多 Skills</div>
+      <a href="skills-post.html">信息流摘要 Skill →</a>
+      <a href="skills-post-2.html">本地知识库检索 Skill →</a>
+      <a href="skills-post-4.html">公众号排版 Skill →</a>
+      <a href="skills-post-5.html">邮件自动分类 Skill →</a>
+    </div>
   </article>
   <aside class="aside">
     <div class="box">
       <div class="tt">关于这个 Skill</div>
       <div class="author"><div class="avatar" style="background-image:url('media/portrait.jpg')"></div><div><div class="name">JowJo</div><div class="bio">超认真工作室</div></div></div>
-      <div class="big">把每天涌进来的内容，自动变成能检索的笔记。适合不想被信息淹没的人。</div>
-      <div class="tags"><span>AI</span><span>自动化</span><span>效率</span></div>
+      <div class="big">自动压缩、裁剪、加封面，做短视频的人会喜欢。支持批量，一小时素材五分钟搞定。</div>
+      <div class="tags"><span>批处理</span> <span>效率</span></div>
     </div>
     <div class="box contact">
       <div class="tt">拿到它 / 问问题</div>

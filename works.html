@@ -14,35 +14,59 @@
       font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
     a { color: inherit; text-decoration: none; }
 
-    /* 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 */
-    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    /* 顶部导航：与主页完全一致，保证点进栏目页无感衔接 */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 10;
       display: flex; justify-content: center; align-items: flex-start;
-      padding: 18px 20px 14px;
-      background: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 100%); }
-    .top-nav .nav-item { position: relative; display: flex; flex-direction: column; align-items: center;
-      padding: 0 clamp(20px, 3vw, 46px); color: #fff; text-decoration: none; white-space: nowrap;
-      border-left: 1px solid rgba(255,255,255,.3); font-family: 'Noto Sans SC', sans-serif; }
+      max-width: 1100px; margin: 0 auto;
+      padding: 30px 24px 16px;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
+    }
+    .top-nav .nav-item {
+      position: relative; display: flex; flex-direction: column; align-items: center;
+      flex: 1 1 0; min-width: 0;
+      color: #fff; text-decoration: none; white-space: nowrap;
+      border-left: 1px solid rgba(255,255,255,.32);
+    }
     .top-nav .nav-item:first-child { border-left: none; }
-    .top-nav .label { font-size: clamp(16px, 2vw, 22px); letter-spacing: 1px; opacity: .82;
-      text-shadow: 0 1px 8px rgba(0,0,0,.55); transition: opacity .25s, text-shadow .25s; }
-    .top-nav .nav-item:hover .label { opacity: 1; text-shadow: 0 0 14px rgba(255,255,255,.7); }
-    .top-nav .sub { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 6px;
-      font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.82); opacity: 0;
-      transition: opacity .25s; pointer-events: none; white-space: nowrap; }
+    .top-nav .label {
+      font-size: clamp(18px, 2.2vw, 25px); letter-spacing: 1.5px;
+      opacity: .82;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55);
+      transition: opacity .25s, text-shadow .25s;
+    }
+    .top-nav .nav-item:hover .label {
+      opacity: 1;
+      text-shadow: 0 0 14px rgba(255,255,255,.7);
+    }
+    .top-nav .sub {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      margin-top: 8px;
+      font-size: 12px; letter-spacing: 1px; white-space: nowrap;
+      color: rgba(255,255,255,.82);
+      opacity: 0; transition: opacity .25s;
+      pointer-events: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,.75);
+    }
     .top-nav .nav-item:hover .sub { opacity: 1; }
+
+    /* 手机端：与主页一致，顶部紧凑、字号缩小（刚刚好） */
+    @media (max-width: 600px) {
+      .top-nav { padding: 14px 8px 10px; max-width: none; }
+      .top-nav .label { font-size: 12px; letter-spacing: .3px; }
+      .top-nav .sub { font-size: 9px; margin-top: 4px; }
+    }
 
     .page-title { text-align: center; margin: 120px 0 4px; font-size: clamp(34px, 6vw, 56px); font-weight: 700; letter-spacing: 2px; }
     .page-sub { text-align: center; opacity: .55; font-size: 14px; letter-spacing: 3px; margin-bottom: 36px; }
 
-    /* 卡片网格（Work2 版式） */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 22px; max-width: 1120px; margin: 0 auto 50px; padding: 0 24px; }
+      gap: 22px; max-width: 980px; margin: 0 auto 50px; padding: 0 36px; }
     .card { background: #151515; border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
       overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; }
     .card:hover { transform: translateY(-6px); box-shadow: 0 14px 34px rgba(0,0,0,.55); border-color: rgba(255,255,255,.3); }
-    .thumb { height: 168px; background: linear-gradient(135deg, #2c2c44, #4a2c3e); }
-    .thumb.b { background: linear-gradient(135deg, #1f3a3a, #2c4a44); }
-    .thumb.c { background: linear-gradient(135deg, #3a2c1f, #4a3a2c); }
+    .thumb { height: 168px; background: #1a1a1a center/cover no-repeat; }
     .body { padding: 16px 18px 20px; }
     .body h3 { margin: 0 0 6px; font-size: 18px; font-weight: 500; }
     .body .yr { font-size: 12px; color: rgba(255,255,255,.45); margin-bottom: 8px; }
@@ -50,17 +74,17 @@
     .tags span { display: inline-block; font-size: 11px; padding: 2px 9px; margin: 2px 4px 0 0;
       border: 1px solid rgba(255,255,255,.2); border-radius: 20px; color: rgba(255,255,255,.75); }
 
-    .cross { max-width: 1120px; margin: 0 auto 24px; padding: 0 24px; text-align: center; font-size: 14px; opacity: .8; line-height: 1.9; }
+    .cross { max-width: 980px; margin: 0 auto 24px; padding: 0 36px; text-align: center; font-size: 14px; opacity: .8; line-height: 1.9; }
     .cross a { color: #9fc6ff; text-decoration: none; border-bottom: 1px solid rgba(159,198,255,.4); }
     .cross a:hover { border-bottom-color: #9fc6ff; }
     .foot { text-align: center; margin-top: 20px; padding-bottom: 44px; font-size: 12px; opacity: .5; }
   </style>
 </head>
 <body>
-    <nav class="top-nav">
-    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+  <nav class="top-nav">
     <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
     <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
     <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
     <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
   </nav>
@@ -68,14 +92,14 @@
   <div class="page-title">作品</div>
   <div class="page-sub">WORKS · 我做过的一些项目与案例</div>
 
-  <!-- 如何更新内容：复制下面任意一整块 .card，改 .thumb 的样式类（a/b/c 换颜色）、标题、年份、描述、标签即可；加更多卡片会自动排布 -->
+  <!-- 复制下面任意一整块 .card 即可加新作品；.thumb 的 style 里换 media/ 下的图片文件名 -->
   <div class="grid">
-    <a class="card" href="works-post.html"><div class="thumb"></div><div class="body"><h3>个人主页 v1</h3><div class="yr">2021</div><p>第一个静态站，从零学习 GitHub Pages 部署与域名绑定。</p><div class="tags"><span>静态站</span><span>入门</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb b"></div><div class="body"><h3>JowOS 工具套件</h3><div class="yr">2022</div><p>面向 Termux 的自动化脚本集，一键初始化手机开发环境。</p><div class="tags"><span>Termux</span><span>自动化</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb c"></div><div class="body"><h3>LUUC 子项目</h3><div class="yr">2023</div><p>嵌套仓库实验，探索模块化内容与代码共存的玩法。</p><div class="tags"><span>实验</span><span>架构</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb"></div><div class="body"><h3>AI 经验库</h3><div class="yr">2024</div><p>把日常使用 AI 的踩坑与技巧沉淀成可检索的经验。</p><div class="tags"><span>AI</span><span>沉淀</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb b"></div><div class="body"><h3>Skills 分享站</h3><div class="yr">2025</div><p>把好用的技能包归档、分类、做成可一键复用的模板。</p><div class="tags"><span>Skills</span><span>模板</span></div></div></a>
-    <a class="card" href="works-post.html"><div class="thumb c"></div><div class="body"><h3>超认真工作室</h3><div class="yr">2025</div><p>把个人品牌与项目统一收口，形成可对外展示的窗口。</p><div class="tags"><span>品牌</span><span>聚合</span></div></div></a>
+    <a class="card" href="works-post-1.html"><div class="thumb" style="background-image:url('media/web-design.jpg')"></div><div class="body"><h3>个人主页 v1</h3><div class="yr">2021</div><p>从零搭起第一个静态站，学会了 GitHub Pages 部署、域名绑定和一点点 HTML/CSS。现在看很粗糙，但是一切的起点。</p><div class="tags"><span>静态站</span><span>入门</span></div></div></a>
+    <a class="card" href="works-post-2.html"><div class="thumb" style="background-image:url('media/smartphone-app.jpg')"></div><div class="body"><h3>JowOS 工具套件</h3><div class="yr">2022</div><p>面向手机终端的自动化脚本集，把开发环境初始化、备份、定时任务一键串起来，少掉很多重复操作。</p><div class="tags"><span>自动化</span><span>终端</span></div></div></a>
+    <a class="card" href="works-post-3.html"><div class="thumb" style="background-image:url('media/notes.jpg')"></div><div class="body"><h3>AI 经验库</h3><div class="yr">2023</div><p>把每天用 AI 踩的坑和技巧沉淀成可检索的笔记，后来长成了现在的「AI经验」栏目。</p><div class="tags"><span>AI</span><span>沉淀</span></div></div></a>
+    <a class="card" href="works-post-4.html"><div class="thumb" style="background-image:url('media/puzzle.jpg')"></div><div class="body"><h3>Skills 分享站</h3><div class="yr">2024</div><p>把好用的技能包归档、分类，做成可以一键复用的模板，省下反复造轮子的时间。</p><div class="tags"><span>Skills</span><span>模板</span></div></div></a>
+    <a class="card" href="works-post.html"><div class="thumb" style="background-image:url('media/video-editing.jpg')"></div><div class="body"><h3>短视频剪辑流水线</h3><div class="yr">2025</div><p>用 AI 做素材批量压缩、裁剪、加封面，把一条视频的后期从两小时压到二十分钟。</p><div class="tags"><span>视频</span><span>批处理</span></div></div></a>
+    <a class="card" href="works-post-6.html"><div class="thumb" style="background-image:url('media/workspace.jpg')"></div><div class="body"><h3>超认真工作室</h3><div class="yr">2025</div><p>把个人品牌和项目统一收口，形成现在这个对外展示的窗口，也是你正在看的这个站。</p><div class="tags"><span>品牌</span><span>聚合</span></div></div></a>
   </div>
 
   <div class="cross">

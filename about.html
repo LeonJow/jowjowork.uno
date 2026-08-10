@@ -10,29 +10,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; }
-    body { background: #000; color: #fff; scroll-behavior: smooth;
+    html, body { margin: 0; height: 100%; }
+    html { background: #0b0b0d; overscroll-behavior: none; }
+    /* body 不自己滚动，整屏吸附交给 .gallery 这一个滚动容器，避免"第二个滚动条=黑条" */
+    body { background: #0b0b0d; color: #fff; overflow: hidden;
       font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
     a { color: inherit; text-decoration: none; }
 
-    /* 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 */
-    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      display: flex; justify-content: center; align-items: flex-start; padding: 18px 16px 14px;
-      background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,0)); }
-    .top-nav .nav-item { position: relative; color: #fff; padding: 0 20px;
-      border-left: 1px solid rgba(255,255,255,.22); display: flex; flex-direction: column; align-items: center; }
-    .top-nav .nav-item:first-child { border-left: none; }
-    .top-nav .label { font-size: clamp(16px,2vw,22px); font-weight: 500; letter-spacing: 1px; transition: text-shadow .3s, color .3s; }
-    .top-nav .sub { font-size: 10px; opacity: 0; max-height: 0; overflow: hidden; margin-top: 3px; color: rgba(255,255,255,.8); transition: opacity .3s, max-height .3s; white-space: nowrap; }
-    .top-nav .nav-item:hover .label { text-shadow: 0 0 12px rgba(255,255,255,.85); }
-    .top-nav .nav-item:hover .sub { opacity: 1; max-height: 18px; }
+    .mini-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 30px 24px 16px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0)); }
+    .mini-bar a { color: #fff; font-size: clamp(18px, 2.2vw, 25px); opacity: .82; letter-spacing: 1.5px;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55); transition: opacity .25s, text-shadow .25s; }
+    .mini-bar a:hover { opacity: 1; text-shadow: 0 0 14px rgba(255,255,255,.7); }
+    .mini-bar .left { display: inline-flex; align-items: center; gap: 6px; }
+    .mini-bar .left::before { content: '←'; font-size: clamp(16px, 2vw, 22px); opacity: .7; }
 
-    .gallery { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+    /* 整屏吸附滚动容器（一屏一跳）。隐藏其滚动条 + 关掉越界反弹，黑条来源被消除 */
+    .gallery { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory;
+      overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+      background: #0b0b0d; scrollbar-width: none; -ms-overflow-style: none; }
+    .gallery::-webkit-scrollbar { display: none; }
     .gsection { height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center; position: relative; padding: 0 24px; }
-    .gsection::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #241f33, #3a2233); opacity: .92; }
-    .gsection.b::before { background: linear-gradient(135deg, #14302f, #1f3a35); }
-    .gsection.c::before { background: linear-gradient(135deg, #2e2417, #3a2c22); }
+      align-items: center; justify-content: center; text-align: center; position: relative; padding: 80px 24px;
+      background: #0b0b0d center/cover no-repeat; }
+    .gsection::before { content: ''; position: absolute; inset: 0;
+      background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)); }
     .gsection .inner { position: relative; z-index: 1; max-width: 720px; }
     .gsection .yr { font-size: 14px; letter-spacing: 6px; color: rgba(255,255,255,.65); margin-bottom: 14px; }
     .gsection h2 { font-size: clamp(34px, 6vw, 64px); margin: 0 0 18px; font-weight: 700; letter-spacing: 2px; }
@@ -40,50 +44,103 @@
     .gsection .links { margin-top: 26px; font-size: 14px; }
     .gsection .links a { color: #9fc6ff; border-bottom: 1px solid rgba(159,198,255,.45); padding-bottom: 2px; margin: 0 8px; }
     .gsection .links a:hover { border-bottom-color: #9fc6ff; }
-    .scrollhint { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 60;
-      font-size: 12px; color: rgba(255,255,255,.55); }
+    /* 底部悬浮版权：像顶部 mini-bar 一样浮在内容之上，不再作为滚动里的一节（那才是底部黑条的元凶） */
+    .copyright { position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; text-align: center;
+      padding: 24px 0 12px; font-size: 12px; opacity: .6; color: #fff;
+      background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0)); }
+
+    /* 滚动引导箭头：底部居中的"向下" + 顶部居中的"向上"，按所在屏自动显隐 */
+    .scroll-cue { position: fixed; left: 50%; transform: translateX(-50%); z-index: 60;
+      width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.8); cursor: pointer; opacity: .9;
+      animation: bob 1.7s ease-in-out infinite; transition: opacity .4s; }
+    .scroll-cue svg { width: 34px; height: 34px; filter: drop-shadow(0 1px 6px rgba(0,0,0,.6)); }
+    .scroll-cue .chev2 { opacity: .4; }
+    .scroll-cue:hover { color: #fff; }
+    .scroll-cue.hidden { opacity: 0; pointer-events: none; }
+    .cue-down { bottom: 30px; }
+    .cue-up { top: 62px; animation: bobUp 1.7s ease-in-out infinite; }
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(9px); }
+    }
+    @keyframes bobUp {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-9px); }
+    }
   </style>
 </head>
 <body>
-    <nav class="top-nav">
-    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
-    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
-    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
-    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
-    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
-  </nav>
-  <div class="scrollhint">↓ 向下滚动 ↓</div>
-  <div class="gallery">
-    <!-- 关于页（Work5 全屏画廊）。每一屏 = 一个介绍板块，复制 .gsection 改文字即可；.b/.c 换背景色 -->
-    <div class="gsection"><div class="inner">
+  <div class="mini-bar">
+    <a class="left" href="index.html">返回主页</a>
+    <a href="services.html">商业合作</a>
+  </div>
+
+  <!-- 顶部居中的"向上"箭头 + 底部居中的"向下"箭头：按所在屏自动显隐 -->
+  <div class="scroll-cue cue-up hidden" id="cueUp" title="向上滚动" aria-label="向上滚动">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 15 12 9 18 15"></polyline>
+      <polyline class="chev2" points="6 10 12 4 18 10"></polyline>
+    </svg>
+  </div>
+  <div class="scroll-cue cue-down" id="cueDown" title="向下滚动" aria-label="向下滚动">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+      <polyline class="chev2" points="6 14 12 20 18 14"></polyline>
+    </svg>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <div class="gsection" style="background-image:url('media/portrait.jpg')"><div class="inner">
       <div class="yr">ABOUT</div>
       <h2>关于 JowJo</h2>
-      <p>在这里写你是谁、在做什么、为什么做这个站。一两段话讲清你的方向与性格，让人一眼记住。</p>
+      <p>我叫 JowJo，一个被 AI 改变日常的人。白天做新媒体和内容，晚上折腾各种把生活变顺手的小工具。这个站，是我把摸索过程一点点摊开的地方——不藏私，也不装专家。</p>
     </div></div>
-    <div class="gsection b"><div class="inner">
+    <div class="gsection" style="background-image:url('media/workspace.jpg')"><div class="inner">
       <div class="yr">STUDIO</div>
       <h2>超认真工作室</h2>
-      <p>在这里写工作室是做什么的、有什么理念或代表作。可以把它当成你对外的一张名片。</p>
+      <p>「超认真工作室」是我给自己贴的标签。它不是一个公司，而是一种态度：把每件小事做到能复用、能讲清楚。我接的活儿不多，但交出去的每一个都认真。</p>
     </div></div>
-    <div class="gsection c"><div class="inner">
+    <div class="gsection" style="background-image:url('media/laptop-code.jpg')"><div class="inner">
       <div class="yr">EXPLORE</div>
       <h2>我在做的事</h2>
-      <p>想看我具体做了什么？去看看作品与日常分享。</p>
+      <p>现在主要在三件事上花时间：用 AI 做内容生产的自动化、搭个人工具站，以及把踩过的坑写成经验分享，帮别人少走弯路。</p>
       <div class="links">
         <a href="works.html">作品 →</a>
         <a href="ai-sharing.html">AI经验 →</a>
         <a href="skills.html">Skills →</a>
       </div>
     </div></div>
-    <div class="gsection"><div class="inner">
+    <div class="gsection" style="background-image:url('media/coffee.jpg')"><div class="inner">
       <div class="yr">CONTACT</div>
       <h2>找到我</h2>
-      <p>有合作或想聊的，欢迎联系。</p>
+      <p>想聊合作、想让我帮你把某个流程自动化，或者只是想交个朋友，都欢迎。微信和邮箱都在「商业合作」页，扫一下就能找到我。</p>
       <div class="links">
         <a href="services.html">商业合作 →</a>
       </div>
     </div></div>
   </div>
-  <div style="text-align:center;padding:30px 0 40px;font-size:12px;opacity:.5;">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+  <div class="copyright">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+
+  <script>
+    (function () {
+      var g = document.getElementById('gallery');
+      var cueUp = document.getElementById('cueUp');
+      var cueDown = document.getElementById('cueDown');
+      var sections = g.querySelectorAll('.gsection').length;
+      function scrollByDir(dir) { g.scrollBy({ top: dir * g.clientHeight, behavior: 'smooth' }); }
+      cueUp.addEventListener('click', function () { scrollByDir(-1); });
+      cueDown.addEventListener('click', function () { scrollByDir(1); });
+      // 按当前所在屏显隐箭头：第一屏只下、中间屏上下都有、最后一屏只上
+      function onScroll() {
+        var idx = Math.round(g.scrollTop / g.clientHeight);
+        idx = Math.max(0, Math.min(sections - 1, idx));
+        cueUp.classList.toggle('hidden', idx === 0);
+        cueDown.classList.toggle('hidden', idx === sections - 1);
+      }
+      g.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 </body>
 </html>

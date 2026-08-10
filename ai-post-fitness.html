@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>用 AI 整理每天的信息流 | AI经验 · JowJo</title>
+<title>如何让 AI 做自己的健身教练 | AI经验 · JowJo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -56,26 +56,36 @@ a{color:inherit;text-decoration:none;}
   </nav>
 <div class="container">
   <article class="article">
-    <h1>用 AI 整理每天的信息流</h1>
-    <div class="meta"><span>2026-08-09</span><span>JowJo</span><span>约 6 分钟</span></div>
-    <div class="cover" style="background-image:url('media/workspace.jpg')"></div>
-<h2 id="s1">一、为什么会乱</h2>
-<p>公众号、视频、文档、群聊……每天涌进来的信息太多，真正能留下的很少。每个平台都有自己的阅读节奏，很难在同一处汇总。等到想回看时，早已找不到当初那条有价值的内容。</p>
-<p>不是信息太少，而是没有一条「统一的入口」。</p>
-<h2 id="s2">二、我的工作流</h2>
-<p>先把所有来源丢进一个收集箱，再定时让 AI 产出结构化摘要，最后按主题归档。完整步骤和踩坑我都写在了对应的 Skills 里。</p>
-<p>关键不是某个神奇模型，而是「固定动作 + 自动归档」这条链路跑顺了。</p>
-<h2 id="s3">三、接上 Skills</h2>
-<p>光看摘要还不够，我把常用动作写成 Skill：一键摘要、自动打标签、定时推送。这样每天花在整理上的时间，从半小时降到五分钟。</p>
-<p>这些 Skill 在 Skills 页都能拿到，照着装就行。</p>
-<h2 id="s4">四、下一步</h2>
-<p>打算把这套流程做成可一键复用的自动化，让没有技术背景的人也能直接套用。完整脚本会在 Skills 页放出。</p>
+    <h1>如何让 AI 做自己的健身教练</h1>
+    <div class="meta"><span>2026-07-30</span><span>JowJo</span><span>约 9 分钟</span></div>
+    <div class="cover" style="background-image:url('media/gym.jpg')"></div>
+<h2 id="s1">一、为什么需要 AI 教练</h2>
+<p>请私教贵，且时间不自由；自己练又容易瞎练、练伤、练着练着就放弃。我想要的，是一个随时在、记得我进度、还会纠正我的「教练」——于是把 AI 接进了我的训练日常。</p>
+<p>它的定位不是替代专业教练，而是在没有教练的日子里，帮你把动作做对、把计划续上、把饮食算清。</p>
+<h2 id="s2">二、第一步：把身体数据交给 AI</h2>
+<p>先给 AI 一份「体检式」背景：年龄、身高体重、体脂、伤病史、每周能练几天、器械条件（在家/健身房）、目标（增肌/减脂/塑形）。</p>
+<p>我用的提示词是：「你是我的一对一教练，请根据以下数据给我一份 12 周计划，每周练 4 天，器材只有哑铃和瑜伽垫。」把约束写清楚，它才不会给你一套用不上的健身房方案。</p>
+<h2 id="s3">三、让 AI 出一份能执行的计划</h2>
+<p>好的计划不是「练胸日/练背日」这种笼统词，而是具体到：动作、组数、次数、休息秒数、重量递增逻辑。我让 AI 每周日输出下周安排，并标注「这周比上周多加 2.5kg」。</p>
+<p>关键技巧：让 AI 把计划写成可勾选的清单（Markdown 表格），练完一项目就打勾，下次它自动读取进度继续推进。</p>
+<h2 id="s4">四、用 AI 盯动作：拍照纠错</h2>
+<p>动作不标准，练了也白练甚至受伤。我的做法是：每个新动作做一组，侧面拍 3 秒视频发给 AI，让它指出「膝盖是否内扣、腰背是否反弓、幅度是否够」。</p>
+<p>它给的反馈比想象中准，尤其对深蹲、硬拉这类容易代偿的动作。注意：只拍动作不拍脸，隐私更安心。</p>
+<h2 id="s5">五、算热量与饮食：别再凭感觉</h2>
+<p>训练和饮食各占一半。我把每天吃什么拍照发给 AI，让它估算热量和蛋白质，再对照当天的训练目标给建议（练腿日多加碳水，休息日控总热量）。</p>
+<p>三个月下来，我不再靠「感觉吃饱了」,而是用数字说话，体型变化明显更可控。</p>
+<h2 id="s6">六、三个月复盘：我踩过的坑</h2>
+<p>坑 1：计划太满，第一周就练到不想动——后来让 AI 把强度曲线做缓一点。坑 2：只练不拍，动作悄悄变形——固定每周拍一次对照。坑 3：饮食记录断断续续，数据断了 AI 就瞎猜——坚持每天拍一顿饭就行。</p>
+<p>最大的心得：AI 教练的价值不在「多聪明」，而在「你愿不愿意每天把数据喂给它」。</p>
+<h2 id="s7">七、一个能直接抄的提示词</h2>
+<p>「你是我的一对一健身教练。我：男/女，身高___，体重___，目标___，每周可练___天，器材___。请：1) 给 12 周渐进计划，按周输出可勾选清单；2) 每个动作给组数/次数/休息；3) 我发训练或饮食照片时，指出问题并给调整建议；4) 每周日提醒我复盘。请严格基于我的数据，不要给用不上的健身房方案。」</p>
+<p>把空填上，存成 Skill，每天把照片和勾选发过去，教练就上线了。</p>
 
   </article>
   <aside class="aside">
     <div class="box toc">
       <h4>目录</h4>
-      <a href="#s1">一、为什么会乱</a><a href="#s2">二、我的工作流</a><a href="#s3">三、接上 Skills</a><a href="#s4">四、下一步</a>
+      <a href="#s1">一、为什么需要 AI 教练</a><a href="#s2">二、第一步：把身体数据交给 AI</a><a href="#s3">三、让 AI 出一份能执行的计划</a><a href="#s4">四、用 AI 盯动作：拍照纠错</a><a href="#s5">五、算热量与饮食：别再凭感觉</a><a href="#s6">六、三个月复盘：我踩过的坑</a><a href="#s7">七、一个能直接抄的提示词</a>
     </div>
     <div class="box author">
       <div class="avatar" style="background-image:url('media/portrait.jpg')"></div>
@@ -83,11 +93,11 @@ a{color:inherit;text-decoration:none;}
     </div>
     <div class="box tags">
       <div class="tt">标签</div>
-      <span>AI</span><span>效率</span><span>工作流</span>
+      <span>健身</span><span>AI</span><span>效率</span>
     </div>
     <div class="box rel">
       <h4>相关阅读</h4>
-      <a href="ai-post-skill.html">三个让我省下 10 小时的 Skill →</a><a href="ai-post-writing.html">用 AI 写出不尴尬的中文文案 →</a>
+      <a href="ai-post-skill.html">三个让我省下 10 小时的 Skill →</a><a href="ai-post-local.html">本地跑模型的显存翻车记 →</a>
     </div>
   </aside>
   <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
