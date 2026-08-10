@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>文科生 Coding 法 | Skills · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:46px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:26px;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:12px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article code{background:#1c1c1c;padding:2px 8px;border-radius:6px;font-size:13px;color:#9fc6ff;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;margin-bottom:18px;}
+.box .tt{font-size:12px;opacity:.55;letter-spacing:1px;margin-bottom:12px;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.avatar{width:56px;height:56px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;}
+.author .name{font-size:17px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.big{font-size:15px;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:14px;}
+.contact a{display:block;font-size:14px;padding:10px 0;border-top:1px solid rgba(255,255,255,.08);color:#9fc6ff;}
+.contact a:first-child{border-top:none;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:16px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:18px 16px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:14px 0 6px;margin-top:8px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <div class="cover" style="background-image:url('media/puzzle.jpg')"></div>
+    <h1>文科生 Coding 法</h1>
+    <div class="meta"><span>整理自 张咋啦 的 AI 经验</span><span>可一键复制</span></div>
+<h2>一、它解决什么</h2>
+<p>「我不会写代码」是很多人不用 AI 做东西的最大借口。张咋啦（Zara Zhang）恰好反着来：她自称不会写代码，却靠 Coding Agent 做出了 2.3 万星的开源项目。</p>
+<p>她的方法论四个字：learn by doing，先把手弄脏。</p>
+<h2>二、怎么用（可以复制）</h2>
+<div class="code-block"><pre><code>我是一个不会写代码的产品经理。
+我想做一个网页：＜描述你想要的东西，越具体越好＞
+
+请你：
+1. 先告诉我这个页面需要哪些文件；
+2. 帮我写完整的 HTML / CSS / JS；
+3. 写完后告诉我怎么在浏览器里打开；
+4. 每解释一步都用大白话，不要用术语。</code></pre></div>
+<h2>三、迭代流程</h2>
+<p>1. 把需求拆成最小的一步；2. 让 AI 写出来；3. 在浏览器里看效果；4. 提修改意见；5. 循环。</p>
+<p>你当「产品经理」，AI 当「程序员」——你负责想清楚要什么，AI 负责把它做出来。描述得越具体，结果越好；先做丑的能用的，再慢慢改。</p>
+<h2>四、背后的故事</h2>
+<p>张咋啦还说过「定位是折腾出来的，不是想出来的」「你不需要任何人的许可」。完整思路见：<a href="ai-post-zhangzara.html" style="color:#9fc6ff;">不会写代码的文科生，怎么做出了 2.3 万星开源项目 →</a></p>
+  </article>
+  <aside class="aside">
+    <div class="box">
+      <div class="tt">关于这个 Skill</div>
+      <div class="author"><div class="avatar ph" style="background:#3E8E5A">张</div><div><div class="name">张咋啦</div><div class="bio">整理自「张咋啦 的 AI 经验」</div></div></div>
+      <div class="big">不会写代码也能做出东西：把需求拆成小步，每一步让 AI 帮你写、你在浏览器里看效果。</div>
+      <div class="tags"><span>AI</span><span>开源</span><span>文科生</span></div>
+    </div>
+    <div class="box contact">
+      <div class="tt">拿到它 / 问问题</div>
+      <a href="mailto:contact@jowjowork.uno">邮箱联系 →</a>
+      <a href="skills.html">回到 Skills 列表 →</a>
+      <a href="ai-post-zhangzara.html">对应的 AI 经验文章 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本 Skill 的方法整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>
