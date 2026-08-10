@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI 时代，人还能做什么：罗振宇的答案 | AI经验 · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:18px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:20px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:16px 0 8px;margin-top:10px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>AI 时代，人还能做什么：罗振宇的答案</h1>
+    <div class="meta"><span>2026-08-07</span><span>罗振宇</span><span>约 7 分钟</span></div>
+    <div class="cover" style="background-image:url('media/typography.jpg')"></div>
+<h2 id="s1">一、AI 不是工具，AI 是伙伴</h2>
+<p>在「时间的朋友」跨年演讲里，罗振宇给过一个判断：AI 不是工具，AI 是伙伴。工具是你用它，伙伴是你和它一起。</p>
+<p>那人的优势还剩什么？他引用了康德的一个词——「愿力」：在客观上依据不足的情况下，仍然坚持的判断。AI 不会替你做这种判断，因为「依据不足」这件事，只有人愿意扛。</p>
+<h2 id="s2">二、「实现」不再稀缺，稀缺的是「你想要什么」</h2>
+<p>罗振宇在 AI 未来大会演讲《AI 时代，人还能做什么？》里说：当 AI 让「实现」变得不再稀缺，人的稀缺性就转移到了「你想要什么」。</p>
+<p>他还补了一句很重的话：人最重要的作品，是「你自己」。</p>
+<p>换句话说：AI 能帮你把事做成，但「做什么、为什么做、做成什么样才算好」——这些得你说了算。</p>
+<h2 id="s3">三、他的写作分工法：写事实 AI 来做，写自己人来做</h2>
+<p>罗振宇直播分享过自己的写作方法，一句话：「写事实，AI 来做；写自己，人来做。」他起头、他选择、他收尾，中间的素材和资料交给 AI。</p>
+<p>他自称「50 岁开外的老文科生」，还做过一个实验：21 天用 AI 学微积分。结论是——AI 当老师，真的能教会你。</p>
+<h2 id="s4">四、AI 时代的写作分工提示词（可以复制）</h2>
+<p>如果你也想用他的「分工法」写文章，可以这样交代 AI：</p>
+<div class="code-block"><pre><code>以下段落请你负责「事实层」：
+查资料、核对数据、检查逻辑是否自洽。
+
+以下部分我自己写（你不许代笔）：
+我的判断、我的经历、我的态度。
+
+请只做前者，不要替我做后者。
+如果发现事实层和我的观点有冲突，直接指出来。</code></pre></div>
+<p>这样写出来的东西，既有 AI 的资料密度，又保留了「你」的声音。</p>
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+<a href="#s1">一、AI 不是工具，AI 是伙伴</a>
+<a href="#s2">二、「实现」不再稀缺，稀缺的是「你想要什么」</a>
+<a href="#s3">三、他的写作分工法：写事实 AI 来做，写自己人来做</a>
+<a href="#s4">四、AI 时代的写作分工提示词（可以复制）</a>
+    </div>
+    <div class="box author">
+      <div class="avatar ph" style="background:#A63A3A">罗</div>
+      <div><div class="name">罗振宇</div><div class="bio">得到创始人 · 《罗辑思维》主讲人</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+<span>AI</span>
+<span>写作</span>
+<span>思考</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+<a href="ai-post-tuobuhua.html">去做 AI 做不出来的东西 →</a>
+<a href="ai-post-lidan.html">把 AI 当宠物养 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本文内容整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>

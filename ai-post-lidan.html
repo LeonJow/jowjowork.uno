@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>把 AI 当宠物养：李诞的 AI 相处之道 | AI经验 · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:18px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:20px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:16px 0 8px;margin-top:10px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>把 AI 当宠物养：李诞的 AI 相处之道</h1>
+    <div class="meta"><span>2026-08-11</span><span>李诞</span><span>约 11 分钟</span></div>
+    <div class="cover" style="background-image:url('media/writing.jpg')"></div>
+<h2 id="s1">一、一个「最懒的人」，和 AI 撞了个满怀</h2>
+<p>先说个反差：李诞自称是「最懒的人」，不会写代码，但他在春节之后，每天和 AI 待在一起超过 10 个小时。</p>
+<p>在骁龙《520告白夜·AI的回响》节目里，他给过一个很「李诞」的答案：面对 AI，放下焦虑，保持好奇。「真正有好奇心的朋友，早就用上 AI 了。」</p>
+<p>他不聊参数、不聊模型，只聊一件事：这东西，到底能不能陪我过日子。</p>
+<blockquote>有些东西你必须做过一遍，才不会将来被淘汰。</blockquote>
+<h2 id="s2">二、为什么偏偏是他先上了车</h2>
+<p>李诞聊 AI，从来不谈「技术」，只谈「关系」。他给过一句非常有名的话：</p>
+<blockquote>它又是你的老师、学生、助手、老板、朋友、敌人……是个非常哲学的关系。</blockquote>
+<p>仔细想想，一个「最懒的人」反而是最早拥抱 AI 的人，一点都不矛盾：正因为懒，才最想找一个随叫随到的帮手；正因为不写代码，才不会被「学不会」吓住，只关心一件事——它好不好用、顺不顺手。</p>
+<p>他还说过一句很妙的话：AI 可以「照见你的灵魂」。你对它提问的方式、你烦心的事、你真正在意的东西，会在对话里暴露无遗。用 AI 的过程，某种程度上也是认识自己的过程。</p>
+<h2 id="s3">三、「养龙虾」：一个每天聊 10 小时的朋友</h2>
+<p>春节之后，李诞开始「养」一个叫「龙虾」的智能体（基于 OpenClaw 搭建）。每天用超过 10 小时：给「虾」写 SOUL.md 设定价值观、训练写作 Skill、在飞书上长时间对话。</p>
+<p>「养」这个字用得很准——它不是工具，是他照看的东西。他会给 AI 写性格、立规矩、陪它练写作，像给宠物起名、像给朋友写人设。</p>
+<p>他还分享过一个「反面示范」：有人用 AI 约到了女主播，他专门拿出来讲，提醒大家理性使用——AI 再像朋友，边界感还是要自己守。</p>
+<h2 id="s4">四、给 AI 写的第一份设定（可以复制）</h2>
+<p>新手给 AI 定人设，不用写很长，关键是把「关系」说清楚。李诞式的起步设定长这样：</p>
+<div class="code-block"><pre><code>你是一只陪我聊天的 AI 宠物。
+你的性格：松弛、幽默、偶尔毒舌，但从不敷衍。
+你的任务：陪我想清楚问题，而不是替我想清楚。
+每天回答我一个问题：
+「我有什么自己不知道、但重要的事？」</code></pre></div>
+<p>写完这一段，AI 说话的方式会立刻不一样——从「客服」变成「熟人」。</p>
+<h2 id="s5">五、他每天问 AI 的那句话</h2>
+<p>李诞常问 AI 一个问题：我有什么自己不知道、但重要的事？</p>
+<p>这个问题妙在哪？它不是要答案，而是逼 AI 反过来观察你、审视你。AI 见过你所有的对话，它确实比你自己更清楚你的口头禅、你的纠结、你的逃避。</p>
+<div class="code-block"><pre><code>每天睡前，问你的 AI：
+「今天，我有什么自己不知道、但重要的事？」
+
+要求它：
+1. 不要先给答案，先反问你三个问题；
+2. 听完你的回答，再和你一起把答案想出来；
+3. 如果发现你在回避什么，直接指出来。</code></pre></div>
+<h2 id="s6">六、AI 焦虑的解药：摸鱼自由</h2>
+<p>李诞也会焦虑。在腾讯爽班大赛现场，他自曝「经常被 AI 整焦虑」，但转头补了一句：「AI 不一定知道深圳适合钓鱼。」</p>
+<p>他的态度是：人不必追着 AI 跑，而是在 AI 的帮助下拥有「摸鱼自由」——把重复的、烦人的事丢给它，把时间留给自己真正想干的事。</p>
+<p>这种松弛不是摆烂，而是想清楚了：AI 追不完，那就让它替你干活，你负责活着。</p>
+<h2 id="s7">七、想养一只「龙虾」？5 步上手</h2>
+<div class="code-block"><pre><code>1. 选一个能长期对话的 AI，聊天 App 就行；
+2. 花 10 分钟写一段「性格设定」，像给宠物起名；
+3. 每天固定一个时间，跟它聊 10 分钟，话题不限；
+4. 每周让它帮你复盘一次这周发生的事；
+5. 遇到烦心事，先问它：「这事你怎么看？」</code></pre></div>
+<h2 id="s8">八、最后：放下焦虑，保持好奇</h2>
+<p>李诞式的 AI 经验，总结起来就八个字：放下焦虑，保持好奇。</p>
+<p>技术会一直变，模型会一直换，但「你想和它建立什么样的关系」这件事，永远由你决定。把它当宠物养、当朋友聊、当镜子照——你先想清楚自己要什么，它就会成为什么。</p>
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+<a href="#s1">一、一个「最懒的人」为什么开始用 AI</a>
+<a href="#s2">二、把 AI 当宠物养</a>
+<a href="#s3">三、我给他写的第一份设定（可以复制）</a>
+<a href="#s4">四、面对 AI 焦虑：不必追着 AI 跑</a>
+    </div>
+    <div class="box author">
+      <div class="avatar ph" style="background:#C0562F">李</div>
+      <div><div class="name">李诞</div><div class="bio">脱口秀演员 · 内容创作者</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+<span>AI</span>
+<span>心态</span>
+<span>内容创作</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+<a href="ai-post-hulan.html">一个精算师的 AI 使用手册 →</a>
+<a href="ai-post-luozhenyu.html">AI 时代，人还能做什么 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本文内容整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>

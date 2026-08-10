@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>不会写代码的文科生，怎么做出了 2.3 万星开源项目 | AI经验 · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:18px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:20px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:16px 0 8px;margin-top:10px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>不会写代码的文科生，怎么做出了 2.3 万星开源项目</h1>
+    <div class="meta"><span>2026-08-08</span><span>张咋啦</span><span>约 12 分钟</span></div>
+    <div class="cover" style="background-image:url('media/puzzle.jpg')"></div>
+<h2 id="s1">一、一个「不会写代码」的 AI 产品经理</h2>
+<p>张咋啦（Zara Zhang）的身份，放在一起看很有戏剧性：哈佛心理学本科、The Information 记者、真格和 GGV 的投资人、现在硅谷的 AI 产品经理——但她常挂在嘴边的一句话是：我不会写代码。</p>
+<p>就是这样一个文科生，靠 Coding Agent 做出了 2.3 万星的开源项目，还在小红书一年从 2 万粉涨到近 19 万粉。</p>
+<blockquote>文科生最好的时代——技术浪潮一来，一切归零，所有人回到同一起跑线。</blockquote>
+<h2 id="s2">二、她的路：记者 → 投资人 → AI 产品经理</h2>
+<p>她的职业路径本身就是一部「文科生怎么在科技圈立足」的教科书：先当记者，训练了「把复杂事讲清楚」的能力；再做投资人，训练了「判断什么值得押注」的眼光；最后下场做产品，把判断变成现实。</p>
+<p>心理学背景在她这里不是装饰。她做的是 AI 产品，而 AI 产品本质是「研究人怎么想」——人的注意力、信任、表达习惯，这些她大学就在研究。</p>
+<p>她还有一句很清醒的判断：</p>
+<blockquote>AI 让做产品变便宜了，但让营销变难了。</blockquote>
+<p>人人都能做产品之后，怎么让人相信你、记住你，成了最难的题。这也是她后面「活人感」理论的起点。</p>
+<h2 id="s3">三、从 0 到 2.3 万星：她怎么「不会写代码」做出开源项目</h2>
+<p>frontend-slides 是她靠 Coding Agent 做出来的开源项目，GitHub 上拿了 2.3 万星。她的自我介绍写着：code is a medium of self-expression（代码是自我表达的方式）。</p>
+<p>具体怎么干的？她把需求拆成一个个小步骤，每一步都让 AI 教她、帮她写，她在浏览器里看效果、提修改意见——她做的是「产品经理」，AI 做的是「程序员」。</p>
+<p>她的方法论就四个字：learn by doing。她常说「先把手弄脏」——不要等学会了再开始，而是先开始，在做的过程里学会。</p>
+<h2 id="s4">四、文科生第一次用 Coding Agent 的 prompt（可以复制）</h2>
+<p>如果你也想试试「不会写代码但做出东西」，可以照这个套路问 AI：</p>
+<div class="code-block"><pre><code>我是一个不会写代码的产品经理。
+我想做一个网页：＜描述你想要的东西，越具体越好＞
+
+请你：
+1. 先告诉我这个页面需要哪些文件；
+2. 帮我写完整的 HTML / CSS / JS；
+3. 写完后告诉我怎么在浏览器里打开；
+4. 每解释一步都用大白话，不要用术语。</code></pre></div>
+<p>描述得越具体，结果越好。先做个丑的能用的，再慢慢改。</p>
+<h2 id="s5">五、定位是折腾出来的，不是想出来的</h2>
+<p>张咋啦在小红书一年时间从 2 万涨到近 19 万粉，发了近 500 篇内容。她的经验很朴素：</p>
+<blockquote>定位是折腾出来的，不是想出来的。</blockquote>
+<p>先发了再说，边发边看数据、边调整方向。她做学习工具 LongCut、做信息聚合项目 Follow Builders，都是先做了再说。</p>
+<p>「你不需要任何人的许可」——这句话她重复过很多次。AI 时代做东西的成本前所未有地低，唯一缺的是「开始」。</p>
+<h2 id="s6">六、「活人感」：AI 时代最稀缺的竞争力</h2>
+<p>张咋啦判断「2025 是行动的一年，看视频和学习其实是一种懒惰」——看再多教程，不如动手做一个。</p>
+<p>她还提出了一个很火的词——「活人感」：社交媒体上全是 AI 写的内容，一看就不真诚。所以未来的竞争力不是「写得像 AI」，而是「写得像活人」。</p>
+<div class="code-block"><pre><code>这是我写的一段文案，请用「像不像一个真实的人写的」来审查：
+
+1. 有没有 AI 味很重的词？
+   （比如「赋能」「在这个时代」「值得注意的是」）
+2. 里面有没有你自己的真实细节？
+   （具体的时间、地点、数字、感受）
+3. 如果让一个真人来读，他会信吗？
+
+请逐条点评，然后给我一个「更像人话」的改写方向。</code></pre></div>
+<p>她的主张：Follow Builders, Not Influencers——去关注那些真正做出东西的人，而不是只会说的人。</p>
+<h2 id="s7">七、想复制她的路径？5 步</h2>
+<div class="code-block"><pre><code>1. 选一个你「真的想要」的最小东西（网页/表格/工具都行）；
+2. 用上面的 prompt 让 AI 帮你搭第一版，丑没关系；
+3. 每天花 30 分钟，让 AI 教你改一个细节；
+4. 把它发出去，先给 3 个朋友用，收集真实反馈；
+5. 根据反馈迭代，坚持一个月。</code></pre></div>
+<h2 id="s8">八、AI 应该帮人表达，而不是替人表达</h2>
+<p>张咋啦在 Substack 上的主张是 Humanistic perspectives on AI：AI 工具应该帮助人表达，而不是替代人表达。</p>
+<p>技术浪潮把所有人拉回同一起跑线，比的不再是谁会写代码，而是谁更知道自己要什么、谁更敢先把手弄脏。</p>
+<p>所以她的结尾总是一句：你不需要任何人的许可。开始吧。</p>
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+<a href="#s1">一、文科生最好的时代</a>
+<a href="#s2">二、不会写代码，靠 Coding Agent 做出 2.3 万星项目</a>
+<a href="#s3">三、定位是折腾出来的，不是想出来的</a>
+<a href="#s4">四、文科生第一次用 Coding Agent 的 prompt（可以复制）</a>
+<a href="#s5">五、「活人感」：AI 时代最稀缺的东西</a>
+    </div>
+    <div class="box author">
+      <div class="avatar ph" style="background:#3E8E5A">张</div>
+      <div><div class="name">张咋啦</div><div class="bio">AI 产品经理 · 小红书博主「张咋啦Zara」</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+<span>AI</span>
+<span>文科生</span>
+<span>开源</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+<a href="ai-post-hulan.html">一个精算师的 AI 使用手册 →</a>
+<a href="ai-post-banfo.html">AI 的土味胜利学 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本文内容整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>
