@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>警惕「表演式用 AI」：刘润的提醒 | AI经验 · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:18px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:20px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:16px 0 8px;margin-top:10px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>警惕「表演式用 AI」：刘润的提醒</h1>
+    <div class="meta"><span>2026-08-03</span><span>刘润</span><span>约 7 分钟</span></div>
+    <div class="cover" style="background-image:url('media/email.jpg')"></div>
+<h2 id="s1">一、AI 让「做出来」变便宜，值钱的是判断力</h2>
+<p>刘润在《AI 短剧为什么突然爆火》里讲过一个判断：AI 让「把东西做出来」的执行成本趋近于零，那未来值钱的是什么？是判断力。</p>
+<p>他的建议很具体：降本增效，要砍向「最贵的地方」——先用 AI 替换最贵的环节，而不是到处撒胡椒面。</p>
+<h2 id="s2">二、我的失败案例：拿着锤子找钉子</h2>
+<p>刘润在自己的「日课」栏目里自曝过失败：他曾经想用千万字的素材喂 AI，做一个「蒸馏版专家」，结果用户根本不买账。</p>
+<p>教训只有一句：拿着锤子找钉子，是找不到的。必须先看到钉子，再去找锤子——先有真问题，再上 AI。</p>
+<h2 id="s3">三、最典型的「表演式用 AI」</h2>
+<p>刘润描述过一个荒诞场景：员工用 AI 把 200 字周报扩成 2000 字，老板再压回 200 字。两头都忙，AI 白忙。</p>
+<p>他的判断：「把 AI 当外挂」没用，要「把公司为 AI 重写一遍」。AI 是副驾，方向盘不能交给它——流程不重写，AI 只是给内耗提速。</p>
+<h2 id="s4">四、反「表演」的周报压缩提示词（可以复制）</h2>
+<p>如果你想杜绝「表演式周报」，可以把压缩这事交给 AI：</p>
+<div class="code-block"><pre><code>以下是我写的周报，共 2000 字，请压缩到 200 字以内：
+
+1. 只保留三类内容：进展 / 问题 / 下一步；
+2. 删掉所有形容词，以及「努力」「赋能」「抓手」这类空词；
+3. 每句话都必须有信息量，不许出现废话；
+4. 压缩完，请标注你删掉了哪几类内容。</code></pre></div>
+<p>先找钉子，再找锤子——这句话值得贴在每个团队的墙上。</p>
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+<a href="#s1">一、AI 让「做出来」变便宜，值钱的是判断力</a>
+<a href="#s2">二、我的失败案例：拿着锤子找钉子</a>
+<a href="#s3">三、最典型的「表演式用 AI」</a>
+<a href="#s4">四、反「表演」的周报压缩提示词（可以复制）</a>
+    </div>
+    <div class="box author">
+      <div class="avatar ph" style="background:#2E5A7E">刘</div>
+      <div><div class="name">刘润</div><div class="bio">润米咨询创始人 · 商业顾问</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+<span>AI</span>
+<span>管理</span>
+<span>效率</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+<a href="ai-post-luoyonghao.html">不存在通用的 AI →</a>
+<a href="ai-post-tuobuhua.html">去做 AI 做不出来的东西 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本文内容整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>
