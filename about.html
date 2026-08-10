@@ -15,16 +15,15 @@
       font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
     a { color: inherit; text-decoration: none; }
 
-    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      display: flex; justify-content: center; align-items: flex-start; padding: 18px 16px 14px;
-      background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,0)); }
-    .top-nav .nav-item { position: relative; color: #fff; padding: 0 20px;
-      border-left: 1px solid rgba(255,255,255,.22); display: flex; flex-direction: column; align-items: center; }
-    .top-nav .nav-item:first-child { border-left: none; }
-    .top-nav .label { font-size: clamp(16px,2vw,22px); font-weight: 500; letter-spacing: 1px; transition: text-shadow .3s, color .3s; }
-    .top-nav .sub { font-size: 10px; opacity: 0; max-height: 0; overflow: hidden; margin-top: 3px; color: rgba(255,255,255,.8); transition: opacity .3s, max-height .3s; white-space: nowrap; }
-    .top-nav .nav-item:hover .label { text-shadow: 0 0 12px rgba(255,255,255,.85); }
-    .top-nav .nav-item:hover .sub { opacity: 1; max-height: 18px; }
+    .mini-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 24px 14px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0)); }
+    .mini-bar a { color: #fff; font-size: 15px; opacity: .85; letter-spacing: 1px;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55); transition: opacity .25s, text-shadow .25s; }
+    .mini-bar a:hover { opacity: 1; text-shadow: 0 0 14px rgba(255,255,255,.7); }
+    .mini-bar .left { display: inline-flex; align-items: center; gap: 6px; }
+    .mini-bar .left::before { content: '←'; font-size: 14px; opacity: .7; }
 
     .gallery { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
     .gsection { height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column;
@@ -44,13 +43,10 @@
   </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
-    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
-    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
-    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
-    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
-  </nav>
+  <div class="mini-bar">
+    <a class="left" href="index.html">返回主页</a>
+    <a href="services.html">商业合作</a>
+  </div>
   <div class="scrollhint">↓ 向下滚动 ↓</div>
   <div class="gallery">
     <div class="gsection" style="background-image:url('media/portrait.jpg')"><div class="inner">
