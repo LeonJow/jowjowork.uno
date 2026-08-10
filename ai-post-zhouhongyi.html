@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>把 AI 当「大活人」：周鸿祎的智能体生存论 | AI经验 · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:18px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:20px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:16px 0 8px;margin-top:10px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>把 AI 当「大活人」：周鸿祎的智能体生存论</h1>
+    <div class="meta"><span>2026-08-11</span><span>周鸿祎</span><span>约 11 分钟</span></div>
+    <div class="cover" style="background-image:url('media/server.jpg')"></div>
+<h2 id="s1">一、红衣大叔的三年认知变化</h2>
+<p>周鸿祎，360 集团创始人，常年穿红衣，人称「红衣大叔」，也是近两年最活跃的 AI 科普企业家之一。</p>
+<p>他的 AI 认知有一条清晰的进化线：从「ChatGPT 是地球上最聪明的'人'」的震撼，到 2025 年定调「智能体元年」、喊出 All in Agent 的押注。三年时间，他从「被 AI 震撼」到「教所有人用 AI」。</p>
+<h2 id="s2">二、观点一：先别恐惧，先会用</h2>
+<p>在央视《对话》节目里，周鸿祎说过两句很出名的话：ChatGPT-4.0 是「地球上最聪明的'人'」，「不会用 GPT 的人会被淘汰」。</p>
+<p>后来他考上清华读博，又主动改口：「企业不要觉得有了 GPT 就能裁员了。」</p>
+<p>这两句话放在一起看，才是他的完整态度：AI 很强，但不是用来吓你的，也不是用来偷懒的——先学会用，再说别的。</p>
+<h2 id="s3">三、观点二：把 AI 当大活人，别当软件</h2>
+<p>周鸿祎最核心的主张：智能体要当「大活人、数字实习生」，而不是软件。</p>
+<p>软件是你操作它，实习生是你带它。他给自己立了条铁律：「动我的东西之前，一定要提前告诉我；重大决策，由人确认。」</p>
+<p>这句话值得每个用 AI 的人抄下来——把 AI 当助手，但保留「人拍板」的权力。</p>
+<h2 id="s4">四、观点三：不是 AI 不够聪明，是你没用对它</h2>
+<p>「你觉得 AI 不够聪明，本质上是你没用对它。」周鸿祎在两会采访里说，大众对 AI 的探索远未到它的能力边界。</p>
+<p>他还给过一个很形象的公式：70 分的大模型，有了智能体的帮助，可以和 90 分的大模型能力相当。意思是——工具的水平是死的，怎么组织它才是活的。</p>
+<h2 id="s5">五、观点四：用 AI 管理 AI</h2>
+<p>周鸿祎主张「用 AI 管理 AI」：人应该从执行者转向规划者、决策者。</p>
+<p>他还抛过一个哲学命题：「AI 没有意识，但可能有意志。」AI 时代，人的位置不是退到旁边，而是站到更高一层——想清楚要什么、定规则、做决策。</p>
+<h2 id="s6">六、定制你的数字实习生（可以复制）</h2>
+<p>周鸿祎式的用法，是给 AI 定一个「实习生岗位」，而不是一个聊天窗口：</p>
+<div class="code-block"><pre><code>从今天起，你是我的「数字实习生」：
+1. 你的职责：____（只写一件具体的事）；
+2. 你的权限：只能动____，动之前先报告；
+3. 重大决策：一律由我确认，不许擅自执行；
+4. 每周给我一份 100 字以内的周报；
+5. 发现我说错了或你拿不准，直接说「这个得你定」。</code></pre></div>
+<h2 id="s7">七、自己的狗食自己吃</h2>
+<p>周鸿祎最可爱的一点：他自己短视频里大量用 AI 生成画面，而且主动标注「内容由 AI 生成」。他管这叫「自己的狗食自己吃」——自己推的东西，自己先用。</p>
+<p>敢用、会用、又懂得留一条「人拍板」的底线——这大概就是红衣大叔的 AI 生存论：把 AI 当大活人，别当软件。</p>
+
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+<a href="#s1">一、红衣大叔的三年认知变化</a><a href="#s2">二、观点一：先别恐惧，先会用</a><a href="#s3">三、观点二：把 AI 当大活人，别当软件</a><a href="#s4">四、观点三：不是 AI 不够聪明，是你没用对它</a><a href="#s5">五、观点四：用 AI 管理 AI</a><a href="#s6">六、定制你的数字实习生（可以复制）</a><a href="#s7">七、自己的狗食自己吃</a>
+    </div>
+    <div class="box author">
+      <div class="avatar ph" style="background:#A63A3A">周</div>
+      <div><div class="name">周鸿祎</div><div class="bio">360 集团创始人 · 董事长兼 CEO<br>🤖 360 智能体战略（All in Agent）<br>📺 AI 科普短视频（标注 AI 生成）</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+<span>AI</span><span>智能体</span><span>认知</span>
+    </div>
+<span>AI</span>
+<span>文科生</span>
+<span>开源</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+<a href="ai-post-luoyonghao.html">不存在通用的 AI →</a><a href="ai-post-liurun.html">警惕「表演式用 AI」 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本文内容整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>

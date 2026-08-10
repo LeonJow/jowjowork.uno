@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI 时代，活人感才是稀缺品：姜思达的对谈哲学 | AI经验 · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:18px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:20px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:16px 0 8px;margin-top:10px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>AI 时代，活人感才是稀缺品：姜思达的对谈哲学</h1>
+    <div class="meta"><span>2026-08-11</span><span>姜思达</span><span>约 10 分钟</span></div>
+    <div class="cover" style="background-image:url('media/notes.jpg')"></div>
+<h2 id="s1">一、一个反对被总结的人</h2>
+<p>姜思达有一句很「姜思达」的话：不总结自己，是对自己人生复杂的尊重。</p>
+<p>作为《奇葩说》辩手、《透明人》《仅三天可见》主理人，他做内容的核心动作从来不是「输出观点」，而是「和人真实地相处」。这件事，在 AI 时代反而成了最稀缺的能力。</p>
+<h2 id="s2">二、十年前他就站好了队</h2>
+<p>2017 年，姜思达在凤凰网「寻找未知的自己」论坛上说过一段话，放到今天依然成立：</p>
+<blockquote>不应该把科技当作我们的假想敌。一边享受科技的便利，一边骂科技不要脸，我做不到。</blockquote>
+<p>他还说，「机器人辩论赢不了我」，同时提醒大家：不要因为科技的傲慢，瞧不起那些还没进入科技时代的人。</p>
+<p>这种「既拥抱又清醒」的立场，他保持了近十年。</p>
+<h2 id="s3">三、从辩论到深度对谈</h2>
+<p>2026 年，姜思达做客《陈鲁豫·慢谈》，和鲁豫聊了 6 个半小时。这场长谈里，两个人聊到 AI 时代的「人味」——AI 生成的内容越来越多，两个真实的人深聊几小时的场景，反而越来越珍贵。</p>
+<p>（注：这段「真人深聊更珍贵」的说法在报道里有时被归于鲁豫、有时归于姜思达，这里不替他认领，只记录为这场对谈里聊到的共识。）</p>
+<p>他坦言，深度对谈走红、拿到商业赞助时，自己会有「原罪感」——这种复杂的真实，恰恰是 AI 模仿不来的部分。</p>
+<h2 id="s4">四、活人感从哪里来</h2>
+<p>姜思达式的「活人感」，不是装出来的松弛，而是三个允许：</p>
+<p>允许沉默。真实的人聊天会有停顿，不用每句话都接得上。允许尴尬。尴尬本身是关系的一部分，AI 只会流畅地回避它。允许矛盾。人可以一边享受科技一边骂科技，这种矛盾才是「人」。</p>
+<p>他把这些做成内容，观众记住的不是观点，是「一个人在我面前真实地活着」。</p>
+<h2 id="s5">五、深度对谈的提问法（可以复制）</h2>
+<p>如果你想在 AI 时代练出「真人感」的对话能力，可以从这几个问题开始：</p>
+<div class="code-block"><pre><code>和一个人深聊时，试试不问「你怎么看」，改问：
+
+1. 这件事，你当时心里其实是怎么想的？
+   （追问感受，而不是观点）
+2. 你刚刚提到____，能再多讲一点细节吗？
+   （抓细节，细节里才有真东西）
+3. 如果让你重来一次，你会改哪一步？
+   （逼出真实的遗憾和选择）
+
+全程允许沉默，允许对方说「我也不知道」。</code></pre></div>
+<h2 id="s6">六、他对 AI 的矛盾与坦然</h2>
+<p>2016 年，《奇葩说》有个辩题叫「爱上 AI 算不算爱情」，姜思达在场上讲过自己的网恋经历——他从不回避人和技术之间那些说不清的情感。</p>
+<p>他说过：「这个世界是有一点道理过剩的世界。」AI 时代最不缺的就是道理和观点，缺的是真实的感受和选择。</p>
+<h2 id="s7">七、最后：不总结自己</h2>
+<p>AI 能把一切整理得明明白白，但姜思达偏偏拒绝被总结。因为一个能轻易被总结的人，也可以轻易被替代。</p>
+<p>AI 时代，活人感才是稀缺品——这句话不是鸡汤，是做内容的人的生存策略：越多人写得像 AI，真人写的东西越值钱。</p>
+
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+<a href="#s1">一、一个反对被总结的人</a><a href="#s2">二、十年前他就站好了队</a><a href="#s3">三、从辩论到深度对谈</a><a href="#s4">四、活人感从哪里来</a><a href="#s5">五、深度对谈的提问法（可以复制）</a><a href="#s6">六、他对 AI 的矛盾与坦然</a><a href="#s7">七、最后：不总结自己</a>
+    </div>
+    <div class="box author">
+      <div class="avatar ph" style="background:#7B5EA7">姜</div>
+      <div><div class="name">姜思达</div><div class="bio">《奇葩说》辩手 ·《仅三天可见》主理人<br>🎬《透明人》《仅三天可见》<br>🎙️ 播客《姜思达》</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+<span>AI</span><span>内容</span><span>人味</span>
+    </div>
+<span>AI</span>
+<span>文科生</span>
+<span>开源</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+<a href="ai-post-yangtianzhen.html">AI 时代，「真人」才是稀缺品 →</a><a href="ai-post-dongyuhui.html">读书人在 AI 时代该守住什么 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本文内容整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>

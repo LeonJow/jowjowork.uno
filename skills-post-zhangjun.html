@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>创作边界设定法 | Skills · JowJo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.top-nav{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:46px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:26px;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:12px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article code{background:#1c1c1c;padding:2px 8px;border-radius:6px;font-size:13px;color:#9fc6ff;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;margin-bottom:18px;}
+.box .tt{font-size:12px;opacity:.55;letter-spacing:1px;margin-bottom:12px;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.avatar{width:56px;height:56px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.avatar.ph{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;}
+.author .name{font-size:17px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.big{font-size:15px;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:14px;}
+.contact a{display:block;font-size:14px;padding:10px 0;border-top:1px solid rgba(255,255,255,.08);color:#9fc6ff;}
+.contact a:first-child{border-top:none;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.code-block{position:relative;background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin:16px 0;overflow:hidden;}
+.code-block .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:12px;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:background .2s;}
+.code-block .copy-btn:hover{background:rgba(255,255,255,.25);}
+.code-block pre{margin:0;padding:18px 16px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#d8d8e0;}
+.disclaimer{grid-column:1/-1;font-size:12px;opacity:.45;line-height:1.8;border-top:1px solid rgba(255,255,255,.08);padding:14px 0 6px;margin-top:8px;}
+.foot{text-align:center;padding:16px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  </nav>
+<div class="container">
+  <article class="article">
+    <div class="cover" style="background-image:url('media/video-editing.jpg')"></div>
+    <h1>创作边界设定法</h1>
+    <div class="meta"><span>整理自 张骏 的 AI 经验</span><span>可一键复制</span></div>
+<h2>一、它解决什么</h2>
+<p>很多创作者用 AI 用着用着，内容越来越像 AI——因为让 AI 代劳太顺手了。张骏（计算机系出身的脱口秀演员）的态度很明确：不排斥 AI，但不会让它代劳写梗，那是唯一底线。</p>
+<h2>二、怎么用（可以复制）</h2>
+<div class="code-block"><pre><code>我是一名内容创作者，请帮我划清 AI 的边界：
+
+【AI 可以做的】
+1. 查资料、整理素材、校对错别字；
+2. 帮我从 10 个角度里挑出最扎心的 3 个；
+3. 给我反馈，指出哪里逻辑不通、哪里啰嗦。
+
+【AI 绝对不做的】
+1. 不许替我写正文里的「金句 / 梗 / 观点」；
+2. 不许模仿我的口吻写整段内容；
+3. 拿不准时，宁可说「这个得你自己想」。</code></pre></div>
+<h2>三、原则</h2>
+<p>关键不是「AI 能干什么」，而是「哪部分是我的」。把内容里「最像你的部分」列出来，设为禁区；查资料、改错、排版这类脏活全丢给 AI。</p>
+<p>定期问自己：这篇内容，换个人能写出来吗？如果能，说明你的「人味」还不够。</p>
+<h2>四、背后的故事</h2>
+<p>张骏说过「笑点应衍生自真实生活经验」「观众不是来看我表演手机的」。完整文章见：<a href="ai-post-zhangjun.html" style="color:#9fc6ff;">AI 可以提效，但不能替我写梗 →</a></p>
+
+  </article>
+  <aside class="aside">
+    <div class="box">
+      <div class="tt">关于这个 Skill</div>
+      <div class="author"><div class="avatar ph" style="background:#C0562F">张</div><div><div class="name">张骏</div><div class="bio">整理自「张骏 的 AI 经验」</div></div></div>
+      <div class="big">AI 越写越顺手，内容就越像 AI。把「最像你的部分」列为禁区，AI 提效、你保人味。</div>
+      <div class="tags"><span>AI</span><span>创作</span><span>边界</span></div>
+    </div>
+    <div class="box contact">
+      <div class="tt">拿到它 / 问问题</div>
+      <a href="mailto:contact@jowjowork.uno">邮箱联系 →</a>
+      <a href="skills.html">回到 Skills 列表 →</a>
+      <a href="ai-post-zhangjun.html">对应的 AI 经验文章 →</a>
+    </div>
+  </aside>
+  <div class="disclaimer">注：本 Skill 的方法整理自该人物公开发表的访谈、节目、文章及网络公开资料，仅供学习交流，不代表本网站立场。如涉及版权或肖像权问题，请与我们联系，确认后将立即下架。</div>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="media/codecopy.js"></script>
+</body>
+</html>
