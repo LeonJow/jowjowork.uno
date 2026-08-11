@@ -76,24 +76,18 @@
     .qr img { width: 100%; height: auto; display: block; border-radius: 8px; }
     .qr-cap { margin-top: 10px; color: #111; font-size: 14px; font-weight: 500; letter-spacing: 1px; }
 
-    .email { display: inline-block; margin-top: 4px; padding: 13px 30px; border-radius: 999px;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.35);
-      color: #fff; text-decoration: none; font-size: 15px; letter-spacing: 1px;
-      transition: background .2s, border-color .2s; }
-    .email:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.6); }
-
-    /* 社交名片卡片（替代原二维码区块） */
-    .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 720px; margin: 0 auto 36px; }
-    .card { display: flex; flex-direction: column; align-items: flex-start; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 26px; transition: transform .25s, background .25s, border-color .25s; text-decoration: none; }
-    .card:hover { transform: translateY(-4px); background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); }
-    .card .icon { width: 54px; height: 54px; border-radius: 14px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,.35); margin-bottom: 16px; }
-    .card .icon img { width: 62%; height: 62%; object-fit: contain; }
-    .card h3 { font-size: 19px; font-weight: 500; margin-bottom: 4px; letter-spacing: 1px; }
-    .card p { font-size: 13px; opacity: .6; margin-bottom: 16px; line-height: 1.6; }
-    .card .btn { display: inline-block; font-size: 12px; padding: 7px 16px; border-radius: 999px; background: rgba(255,255,255,.12); transition: background .25s; }
-    .card:hover .btn { background: rgba(255,255,255,.24); }
-    .card .id { font-size: 11px; opacity: .45; margin-top: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-    @media (max-width: 680px) { .card-grid { grid-template-columns: 1fr; } }
+    /* 社交 / 合作入口（B 版式：横条列表） */
+    .list-b { max-width: 680px; margin: 0 auto 36px; display: flex; flex-direction: column; gap: 14px; }
+    .row-b { display: flex; align-items: center; gap: 18px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 18px 22px; transition: background .25s, transform .2s, border-color .25s; text-decoration: none; }
+    .row-b:hover { background: rgba(255,255,255,.09); transform: translateX(4px); border-color: rgba(255,255,255,.25); }
+    .icon-circle { width: 52px; height: 52px; border-radius: 50%; background: #fff; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+    .icon-circle img { width: 60%; height: 60%; object-fit: contain; }
+    .meta { flex: 1 1 auto; }
+    .meta h3 { font-size: 19px; font-weight: 500; margin-bottom: 3px; }
+    .meta p { font-size: 13px; opacity: .55; line-height: 1.5; }
+    .meta .id { font-size: 11px; opacity: .4; margin-top: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .arrow { font-size: 22px; opacity: .5; transition: transform .25s, opacity .25s; }
+    .row-b:hover .arrow { transform: translateX(4px); opacity: .9; }
 
     .note { margin-top: 34px; font-size: 12px; opacity: .45; line-height: 1.7; }
     .foot { text-align: center; margin-top: 50px; font-size: 12px; opacity: .5; }
@@ -120,40 +114,36 @@
     <div class="page-sub">COOPERATION · 也许我能帮你解决一些问题</div>
     <p class="intro">如果你对我的内容、技能包或项目合作感兴趣，欢迎用下面的任意方式找到我。合作形式灵活，从内容共创到技术咨询都可以聊。</p>
 
-    <!-- 社交名片：替代原二维码区块 -->
-    <div class="card-grid">
-      <a class="card" href="https://www.douyin.com/user/MS4wLjABAAAAreuw3cVEK6Hp5cO9UyTVRpkyAs0yGbAmmy21T5seUypb1Mfq9Bc_qUqmY2ecqQWi" target="_blank" rel="noopener">
-        <div class="icon"><img src="media/social/douyin.png" alt="抖音"></div>
-        <h3>抖音</h3>
-        <p>短视频日常、AI 玩法、创作心得</p>
-        <span class="btn">去主页</span>
-        <span class="id">29568050004</span>
+    <!-- 商业合作：社交 / 联系入口（B 版式横条列表） -->
+    <div class="list-b">
+      <a class="row-b" href="https://www.douyin.com/user/MS4wLjABAAAAreuw3cVEK6Hp5cO9UyTVRpkyAs0yGbAmmy21T5seUypb1Mfq9Bc_qUqmY2ecqQWi" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/douyin.png" alt="抖音"></div>
+        <div class="meta"><h3>抖音</h3><p>短视频日常、AI 玩法、创作心得</p><div class="id">29568050004</div></div>
+        <span class="arrow">&rarr;</span>
       </a>
-      <a class="card" href="https://b23.tv/EZxcvcF" target="_blank" rel="noopener">
-        <div class="icon"><img src="media/social/bilibili.svg" alt="B 站"></div>
-        <h3>B 站</h3>
-        <p>读书、学习、旅行系列 · 易富体质</p>
-        <span class="btn">去主页</span>
-        <span class="id">@O鲨鱼Oo</span>
+      <a class="row-b" href="https://b23.tv/EZxcvcF" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/bilibili.svg" alt="B 站"></div>
+        <div class="meta"><h3>B 站</h3><p>读书、学习、旅行系列 · 易富体质</p><div class="id">@O鲨鱼Oo</div></div>
+        <span class="arrow">&rarr;</span>
       </a>
-      <a class="card" href="https://xhslink.com/m/A0GnUQ9rw0U" target="_blank" rel="noopener">
-        <div class="icon"><img src="media/social/xiaohongshu.svg" alt="小红书"></div>
-        <h3>小红书</h3>
-        <p>生活方式、成长笔记、好物灵感</p>
-        <span class="btn">去主页</span>
+      <a class="row-b" href="https://xhslink.com/m/A0GnUQ9rw0U" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/xiaohongshu.svg" alt="小红书"></div>
+        <div class="meta"><h3>小红书</h3><p>生活方式、成长笔记、好物灵感</p></div>
+        <span class="arrow">&rarr;</span>
       </a>
-      <a class="card" href="http://weixin.qq.com/r/mp/iRE5IU7EIRNerQpC90Sb" target="_blank" rel="noopener">
-        <div class="icon"><img src="media/social/wechat.svg" alt="微信"></div>
-        <h3>微信</h3>
-        <p>公众号 / 个人号 · 慢聊、长文、链接</p>
-        <span class="btn">打开微信</span>
+      <a class="row-b" href="http://weixin.qq.com/r/mp/iRE5IU7EIRNerQpC90Sb" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/wechat.svg" alt="微信"></div>
+        <div class="meta"><h3>微信</h3><p>公众号 / 个人号 · 慢聊、长文、链接</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="row-b" href="mailto:contact@jowjowork.uno">
+        <div class="icon-circle"><img src="media/social/email.svg" alt="邮箱"></div>
+        <div class="meta"><h3>邮箱</h3><p>商务合作、内容共创请邮件联系</p><div class="id">contact@jowjowork.uno</div></div>
+        <span class="arrow">&rarr;</span>
       </a>
     </div>
 
-    <!-- 邮箱直达：把 href 里的地址换成你的真实邮箱 -->
-    <a class="email" href="mailto:contact@jowjowork.uno">✉ 发邮件给我</a>
-
-    <p class="note">提示：上方是我的社交名片，点击任意卡片可跳转到对应平台主页；<br />下方邮箱按钮请把 <code>mailto:</code> 后的地址改成你的真实邮箱。</p>
+    <p class="note">提示：上方是我的社交 / 合作入口，点击任意一行即可跳转到对应平台；<br />邮箱为商务合作、内容共创的主要联系方式。</p>
 
     <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
   </div>
