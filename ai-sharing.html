@@ -15,11 +15,16 @@
     /* 顶部导航：与主页完全一致，保证点进栏目页无感衔接 */
     .top-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      
+      
+      
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
+    }
+    .nav-inner {
       display: flex; justify-content: center; align-items: flex-start;
       max-width: 1100px; margin: 0 auto;
       padding: 30px 24px 16px;
-      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
     }
     .top-nav .nav-item {
       position: relative; display: flex; flex-direction: column; align-items: center;
@@ -51,7 +56,7 @@
 
     /* 手机端：与主页一致，顶部紧凑、字号缩小（刚刚好） */
     @media (max-width: 600px) {
-      .top-nav { padding: 14px 8px 10px; max-width: none; }
+      .nav-inner { padding: 14px 8px 10px; max-width: none; }
       .top-nav .label { font-size: 12px; letter-spacing: .3px; }
       .top-nav .sub { font-size: 9px; margin-top: 4px; }
     }
@@ -76,13 +81,13 @@
   </style>
 </head>
 <body>
-  <nav class="top-nav">
+  <nav class="top-nav"><div class="nav-inner">
     <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
     <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
     <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
     <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
     <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
-  </nav>
+  </div></nav>
 
   <div class="wrap">
     <div class="page-title">AI经验</div>
