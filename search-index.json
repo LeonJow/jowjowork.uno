@@ -1,0 +1,531 @@
+[
+ {
+  "title": "AI 可以提效，但不能替我写梗：张骏的创作边界",
+  "url": "ai-post-zhangjun.html",
+  "date": "2026-08-11",
+  "desc": "计算机系出身的脱口秀演员：AI 提效，创作自己来。「观众不是来看我表演手机的」。",
+  "tags": [
+   "AI",
+   "创作",
+   "边界"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "AI 时代，活人感才是稀缺品：姜思达的对谈哲学",
+  "url": "ai-post-jiangsida.html",
+  "date": "2026-08-11",
+  "desc": "从「别把科技当假想敌」到「真人深聊更珍贵」——一个反对被总结的内容创作者。",
+  "tags": [
+   "AI",
+   "内容",
+   "人味"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "把 AI 当「大活人」：周鸿祎的智能体生存论",
+  "url": "ai-post-zhouhongyi.html",
+  "date": "2026-08-11",
+  "desc": "红衣大叔三年认知变化：从 AI 恐惧到 All in Agent，把 AI 当数字实习生而不是软件。",
+  "tags": [
+   "AI",
+   "智能体",
+   "认知"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "AI 时代，「真人」才是稀缺品：杨天真的清醒",
+  "url": "ai-post-yangtianzhen.html",
+  "date": "2026-08-11",
+  "desc": "AI 难被训练出感知力，人要捍卫人性。「拉开差距的是想象力、叙事与独立思考」。",
+  "tags": [
+   "AI",
+   "IP",
+   "人性"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "把 AI 当宠物养：李诞的 AI 相处之道",
+  "url": "ai-post-lidan.html",
+  "date": "2026-08-11",
+  "desc": "不写代码的「最懒的人」怎么把 AI 用成老师、朋友和宠物？附他的设定模板。",
+  "tags": [
+   "AI",
+   "心态",
+   "内容创作"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "一个精算师的 AI 使用手册：呼兰如何用 AI",
+  "url": "ai-post-hulan.html",
+  "date": "2026-08-10",
+  "desc": "从「用 AI 跑段子」失败，到每天重度使用 5 小时。精算师的冷静用法。",
+  "tags": [
+   "AI",
+   "创作",
+   "效率"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "去做 AI 做不出来的东西：脱不花的布局观",
+  "url": "ai-post-tuobuhua.html",
+  "date": "2026-08-09",
+  "desc": "得到 CEO 的 AI 时代判断：命题能力比知识本身更值钱。",
+  "tags": [
+   "AI",
+   "管理",
+   "学习"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "不会写代码的文科生，怎么做出了 2.3 万星开源项目",
+  "url": "ai-post-zhangzara.html",
+  "date": "2026-08-08",
+  "desc": "哈佛心理学出身的产品经理，靠 Coding Agent 做出 2.3 万星项目。",
+  "tags": [
+   "AI",
+   "文科生",
+   "开源"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "AI 时代，人还能做什么：罗振宇的答案",
+  "url": "ai-post-luozhenyu.html",
+  "date": "2026-08-07",
+  "desc": "AI 不是工具是伙伴。人的稀缺性，转移到了「你想要什么」。",
+  "tags": [
+   "AI",
+   "写作",
+   "思考"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "不存在通用的 AI：罗永浩的落地观",
+  "url": "ai-post-luoyonghao.html",
+  "date": "2026-08-06",
+  "desc": "从 AR 转向 AI 的偏执产品经理：AI 必须落在具体场景里才有用。",
+  "tags": [
+   "AI",
+   "创业",
+   "产品"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "读书人在 AI 时代该守住什么：董宇辉",
+  "url": "ai-post-dongyuhui.html",
+  "date": "2026-08-05",
+  "desc": "AI 能译出典故和梗，但「你不知道他说的是啥」——语言之下有冰山。",
+  "tags": [
+   "AI",
+   "读书",
+   "语言"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "AI 的土味胜利学：半佛仙人为什么说越下沉越牛",
+  "url": "ai-post-banfo.html",
+  "date": "2026-08-04",
+  "desc": "有人用，是衡量 AI 的唯一标准。以及，别被 AI 智商税收割。",
+  "tags": [
+   "AI",
+   "商业",
+   "反焦虑"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "警惕「表演式用 AI」：刘润的提醒",
+  "url": "ai-post-liurun.html",
+  "date": "2026-08-03",
+  "desc": "周报从 200 字扩成 2000 字再压回 200 字？两头都忙，AI 白忙。",
+  "tags": [
+   "AI",
+   "管理",
+   "效率"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "AI 要落到一个人的生活里：何同学的三个故事",
+  "url": "ai-post-hetongxue.html",
+  "date": "2026-08-02",
+  "desc": "从 AI 寻牛到单手键盘：技术最动人的时刻，是落进一个人的生活。",
+  "tags": [
+   "AI",
+   "科技",
+   "温度"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "用 AI 整理每天的信息流",
+  "url": "ai-post.html",
+  "date": "2026-08-09",
+  "desc": "我是怎么把公众号、视频、文档统一丢给 AI 做摘要的，附完整工作流与踩坑。",
+  "tags": [
+   "AI",
+   "效率",
+   "工作流"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "如何让 AI 做自己的健身教练",
+  "url": "ai-post-fitness.html",
+  "date": "2026-07-30",
+  "desc": "不请私教，用 AI 做计划、盯动作、算热量。一份能跑通三个月的实操方案。",
+  "tags": [
+   "健身",
+   "AI",
+   "效率"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "三个让我省下 10 小时的 Skill",
+  "url": "ai-post-skill.html",
+  "date": "2026-07-12",
+  "desc": "分享几个真正好用的 Skills，点进去能看到具体用法与下载方式。",
+  "tags": [
+   "Skills",
+   "自动化",
+   "效率"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "本地跑模型的显存翻车记",
+  "url": "ai-post-local.html",
+  "date": "2026-06-20",
+  "desc": "一次内存爆掉的排查过程，以及后来稳定的轻量化方案。",
+  "tags": [
+   "本地",
+   "模型",
+   "踩坑"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "用 AI 写出不尴尬的中文文案",
+  "url": "ai-post-writing.html",
+  "date": "2026-05-18",
+  "desc": "为什么 AI 写的中文总像机器？分享我的「去 AI 味」提示词与改稿流程。",
+  "tags": [
+   "写作",
+   "文案",
+   "AI"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "AI 改变生活的真正入口",
+  "url": "ai-post-entry.html",
+  "date": "2026-04-03",
+  "desc": "不是更聪明的模型，而是更顺手的日常流程。",
+  "tags": [
+   "AI",
+   "生活",
+   "流程"
+  ],
+  "cat": "AI经验"
+ },
+ {
+  "title": "创作边界设定法",
+  "url": "skills-post-zhangjun.html",
+  "date": "2026-08-11 · 整理自张骏",
+  "desc": "AI 越写越顺手，内容就越像 AI。把「最像你的部分」列为禁区，AI 提效、你保人味。",
+  "tags": [
+   "AI",
+   "创作",
+   "边界"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "深度对谈法",
+  "url": "skills-post-jiangsida.html",
+  "date": "2026-08-11 · 整理自姜思达",
+  "desc": "聊天别问「你怎么看」，改问感受和细节。允许沉默、尴尬、矛盾，真东西才出得来。",
+  "tags": [
+   "AI",
+   "对话",
+   "人味"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "数字实习生法",
+  "url": "skills-post-zhouhongyi.html",
+  "date": "2026-08-11 · 整理自周鸿祎",
+  "desc": "别把 AI 当聊天窗口，给它一个「实习生岗位」：职责单一、权限受限、重大决策人拍板。",
+  "tags": [
+   "AI",
+   "智能体",
+   "认知"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "真人 IP 护城河法",
+  "url": "skills-post-yangtianzhen.html",
+  "date": "2026-08-11 · 整理自杨天真",
+  "desc": "AI 能批量造内容后，「我是一个真实的人」就是最大壁垒。定期自查内容的「活人感」。",
+  "tags": [
+   "AI",
+   "IP",
+   "人性"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "AI 宠物设定法",
+  "url": "skills-post-lidan.html",
+  "date": "2026-08-11 · 整理自李诞",
+  "desc": "像给宠物起名一样给 AI 写性格设定，把工具养成有态度的伙伴。",
+  "tags": [
+   "AI",
+   "人设",
+   "心态"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "AI 反驳式提问",
+  "url": "skills-post-hulan.html",
+  "date": "2026-08-11 · 整理自呼兰",
+  "desc": "让 AI 用最严格的方式反驳你的判断，逼出反例——比「帮我看看对不对」有用得多。",
+  "tags": [
+   "AI",
+   "思考",
+   "验证"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "命题能力练习",
+  "url": "skills-post-tuobuhua.html",
+  "date": "2026-08-10 · 整理自脱不花",
+  "desc": "AI 时代会「问问题」比会「记知识」更值钱。三个问题，把模糊想法拆成下一步。",
+  "tags": [
+   "AI",
+   "提问",
+   "决策"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "文科生 Coding 法",
+  "url": "skills-post-zhangzara.html",
+  "date": "2026-08-10 · 整理自张咋啦",
+  "desc": "不会写代码也能做出东西：拆需求 → 让 AI 写 → 浏览器看效果 → 迭代。",
+  "tags": [
+   "AI",
+   "开源",
+   "文科生"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "AI 写作分工法",
+  "url": "skills-post-luozhenyu.html",
+  "date": "2026-08-09 · 整理自罗振宇",
+  "desc": "写事实，AI 来做；写自己，人来做。我起头、我选择、我收尾。",
+  "tags": [
+   "AI",
+   "写作",
+   "分工"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "单任务 AI 法",
+  "url": "skills-post-luoyonghao.html",
+  "date": "2026-08-09 · 整理自罗永浩",
+  "desc": "不存在通用的 AI。把 AI 绑到一个具体任务上，只做一件事，它才可靠。",
+  "tags": [
+   "AI",
+   "落地",
+   "产品"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "AI 共读伙伴",
+  "url": "skills-post-dongyuhui.html",
+  "date": "2026-08-08 · 整理自董宇辉",
+  "desc": "读书时让 AI 追问你，而不是替你答题——把单向输入变成双向思考。",
+  "tags": [
+   "AI",
+   "读书",
+   "思考"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "AI 智商税检查单",
+  "url": "skills-post-banfo.html",
+  "date": "2026-08-08 · 整理自半佛仙人",
+  "desc": "买任何 AI 课/工具之前，先让 AI 帮你「抬杠」三连问，少交智商税。",
+  "tags": [
+   "AI",
+   "防坑",
+   "清单"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "反表演周报法",
+  "url": "skills-post-liurun.html",
+  "date": "2026-08-07 · 整理自刘润",
+  "desc": "周报从 200 字扩成 2000 字再压回 200 字？两头都忙，AI 白忙。让 AI 帮你反注水。",
+  "tags": [
+   "AI",
+   "管理",
+   "效率"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "最小产品 Prompt",
+  "url": "skills-post-hetongxue.html",
+  "date": "2026-08-07 · 整理自何同学",
+  "desc": "把想法变成产品的最小路径：10 分钟搭出框架，先能用，再完美。",
+  "tags": [
+   "AI",
+   "创造",
+   "产品"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "信息流摘要 Skill",
+  "url": "skills-post.html",
+  "date": "2026-08-05",
+  "desc": "一键把公众号、视频、文档丢进去，自动产出结构化摘要与标签。附安装与使用说明。",
+  "tags": [
+   "自动化",
+   "效率"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "本地知识库检索 Skill",
+  "url": "skills-post-2.html",
+  "date": "2026-07-28",
+  "desc": "把个人笔记变成可对话的知识库，离线也能用，支持中文语义检索，隐私不出本机。",
+  "tags": [
+   "本地",
+   "检索"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "视频素材批量处理 Skill",
+  "url": "skills-post-3.html",
+  "date": "2026-07-15",
+  "desc": "自动压缩、裁剪、加封面，做短视频的人会喜欢。支持批量，一小时素材五分钟搞定。",
+  "tags": [
+   "视频",
+   "批处理"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "公众号排版 Skill",
+  "url": "skills-post-4.html",
+  "date": "2026-06-30",
+  "desc": "把随手写的 Markdown 一键排成好看的公众号样式，自动处理字号、间距与配图。",
+  "tags": [
+   "排版",
+   "写作"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "邮件自动分类 Skill",
+  "url": "skills-post-5.html",
+  "date": "2026-06-10",
+  "desc": "按发件人、关键词和紧急程度把收件箱自动分堆，每天少看一半无关邮件。",
+  "tags": [
+   "邮件",
+   "自动化"
+  ],
+  "cat": "SKILLS"
+ },
+ {
+  "title": "个人主页 v1",
+  "url": "works-post-1.html",
+  "date": "2021",
+  "desc": "从零搭起第一个静态站，学会了 GitHub Pages 部署、域名绑定和一点点 HTML/CSS。现在看很粗糙，但是一切的起点。",
+  "tags": [
+   "静态站",
+   "入门"
+  ],
+  "cat": "作品"
+ },
+ {
+  "title": "JowOS 工具套件",
+  "url": "works-post-2.html",
+  "date": "2022",
+  "desc": "面向手机终端的自动化脚本集，把开发环境初始化、备份、定时任务一键串起来，少掉很多重复操作。",
+  "tags": [
+   "自动化",
+   "终端"
+  ],
+  "cat": "作品"
+ },
+ {
+  "title": "AI 经验库",
+  "url": "works-post-3.html",
+  "date": "2023",
+  "desc": "把每天用 AI 踩的坑和技巧沉淀成可检索的笔记，后来长成了现在的「AI经验」栏目。",
+  "tags": [
+   "AI",
+   "沉淀"
+  ],
+  "cat": "作品"
+ },
+ {
+  "title": "Skills 分享站",
+  "url": "works-post-4.html",
+  "date": "2024",
+  "desc": "把好用的技能包归档、分类，做成可以一键复用的模板，省下反复造轮子的时间。",
+  "tags": [
+   "Skills",
+   "模板"
+  ],
+  "cat": "作品"
+ },
+ {
+  "title": "短视频剪辑流水线",
+  "url": "works-post.html",
+  "date": "2025",
+  "desc": "用 AI 做素材批量压缩、裁剪、加封面，把一条视频的后期从两小时压到二十分钟。",
+  "tags": [
+   "视频",
+   "批处理"
+  ],
+  "cat": "作品"
+ },
+ {
+  "title": "超认真工作室",
+  "url": "works-post-6.html",
+  "date": "2025",
+  "desc": "把个人品牌和项目统一收口，形成现在这个对外展示的窗口，也是你正在看的这个站。",
+  "tags": [
+   "品牌",
+   "聚合"
+  ],
+  "cat": "作品"
+ }
+]
