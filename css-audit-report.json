@@ -1,0 +1,545 @@
+{
+  "summary": {
+    "total_files": 53,
+    "total_style_blocks": 53,
+    "single_long_blocks": 0,
+    "files_with_position_absolute": 46,
+    "files_with_top_nav": 51,
+    "files_with_nav_search": 51,
+    "nav_search_format_issues": 0
+  },
+  "single_long_blocks": [],
+  "nav_search_format_issues": [],
+  "details": [
+    {
+      "file": "about.html",
+      "block": 1,
+      "chars": 3850,
+      "lines": 61,
+      "single_long": false,
+      "has_nav_search": false,
+      "has_top_nav": false,
+      "position_absolute": false
+    },
+    {
+      "file": "ai-post-banfo.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-dongyuhui.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-entry.html",
+      "block": 1,
+      "chars": 4181,
+      "lines": 43,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-fitness.html",
+      "block": 1,
+      "chars": 4181,
+      "lines": 43,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-hetongxue.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-hulan.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-jiangsida.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-lidan.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-liurun.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-local.html",
+      "block": 1,
+      "chars": 4181,
+      "lines": 43,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-luoyonghao.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-luozhenyu.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-skill.html",
+      "block": 1,
+      "chars": 4181,
+      "lines": 43,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-tuobuhua.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-writing.html",
+      "block": 1,
+      "chars": 4181,
+      "lines": 43,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-yangtianzhen.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-zhangjun.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-zhangzara.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post-zhouhongyi.html",
+      "block": 1,
+      "chars": 5085,
+      "lines": 49,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-post.html",
+      "block": 1,
+      "chars": 4181,
+      "lines": 43,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "ai-sharing.html",
+      "block": 1,
+      "chars": 3678,
+      "lines": 76,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": false
+    },
+    {
+      "file": "index-旧版备份.html",
+      "block": 1,
+      "chars": 2795,
+      "lines": 89,
+      "single_long": false,
+      "has_nav_search": false,
+      "has_top_nav": false,
+      "position_absolute": false
+    },
+    {
+      "file": "index.html",
+      "block": 1,
+      "chars": 5178,
+      "lines": 150,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": false
+    },
+    {
+      "file": "search.html",
+      "block": 1,
+      "chars": 4239,
+      "lines": 48,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "services.html",
+      "block": 1,
+      "chars": 3941,
+      "lines": 81,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": false
+    },
+    {
+      "file": "skills-post-2.html",
+      "block": 1,
+      "chars": 4298,
+      "lines": 45,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-3.html",
+      "block": 1,
+      "chars": 4298,
+      "lines": 45,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-4.html",
+      "block": 1,
+      "chars": 4298,
+      "lines": 45,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-5.html",
+      "block": 1,
+      "chars": 4298,
+      "lines": 45,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-banfo.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-dongyuhui.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-hetongxue.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-hulan.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-jiangsida.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-lidan.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-liurun.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-luoyonghao.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-luozhenyu.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-tuobuhua.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-yangtianzhen.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-zhangjun.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-zhangzara.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post-zhouhongyi.html",
+      "block": 1,
+      "chars": 4759,
+      "lines": 46,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills-post.html",
+      "block": 1,
+      "chars": 4017,
+      "lines": 41,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "skills.html",
+      "block": 1,
+      "chars": 4261,
+      "lines": 82,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": false
+    },
+    {
+      "file": "works-post-1.html",
+      "block": 1,
+      "chars": 3341,
+      "lines": 35,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "works-post-2.html",
+      "block": 1,
+      "chars": 3341,
+      "lines": 35,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "works-post-3.html",
+      "block": 1,
+      "chars": 3341,
+      "lines": 35,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "works-post-4.html",
+      "block": 1,
+      "chars": 3341,
+      "lines": 35,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "works-post-6.html",
+      "block": 1,
+      "chars": 3341,
+      "lines": 35,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "works-post.html",
+      "block": 1,
+      "chars": 3341,
+      "lines": 35,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": true
+    },
+    {
+      "file": "works.html",
+      "block": 1,
+      "chars": 4233,
+      "lines": 81,
+      "single_long": false,
+      "has_nav_search": true,
+      "has_top_nav": true,
+      "position_absolute": false
+    }
+  ]
+}
