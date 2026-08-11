@@ -79,10 +79,10 @@
 
     .foot { text-align: center; margin-top: 50px; font-size: 12px; opacity: .5; }
   
-/* 导航右上角搜索入口 */
-.nav-search{position:absolute;top:50%;right:28px;transform:translateY(-50%);color:#fff;opacity:.8;z-index:12;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));display:flex;}
-.nav-search:hover{opacity:1;transform:translateY(-50%) scale(1.1);}
-@media(max-width:600px){.nav-search{right:12px;}.nav-search svg{width:17px;height:17px;}}
+/* 导航右上角搜索入口（跟随"关于"平齐） */
+.nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
+.nav-search:hover{opacity:1;transform:scale(1.1);}
+@media(max-width:600px){.nav-search{margin-left:4px;}.nav-search svg{width:17px;height:17px;}.top-nav .nav-item{flex:0 1 auto;min-width:auto;}.nav-inner{gap:14px;}}
 </style>
 </head>
 <body>
@@ -92,7 +92,8 @@
     <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
     <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
     <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
-  </div><a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></nav>
+  <a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></div>
+  </nav>
 
   <div class="wrap">
     <div class="page-title">AI经验</div>
