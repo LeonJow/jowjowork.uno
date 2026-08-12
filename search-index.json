@@ -3,11 +3,12 @@
     "title": "我把 AI 搬回本地：一条跑在 Mac 上的创作流水线",
     "url": "ai-post-local-pipeline.html",
     "date": "2026-08-12",
-    "desc": "云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + LM Studio + 本地 TTS 串起来的本机创作流水线。",
+    "desc": "云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + LM Studio + 本地 TTS 串起来的本机创作流水线；再用 RAG 让 AI 真正读懂你的私房资料，本地与云端的分水岭在这里。",
     "tags": [
       "本地AI",
       "ComfyUI",
       "LM Studio",
+      "RAG",
       "隐私",
       "流水线"
     ],

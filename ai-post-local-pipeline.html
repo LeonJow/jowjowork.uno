@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>我把 AI 搬回本地：一条跑在 Mac 上的创作流水线 | AI经验 · JowJo</title>
-<meta name="description" content="云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + LM Studio + 本地 TTS 串起来的本机创作流水线。"/>
+<meta name="description" content="云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + LM Studio + 本地 TTS 串起来的本机创作流水线；再用 RAG 让 AI 真正读懂你的私房资料，本地与云端的分水岭在这里。"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -44,6 +44,11 @@ a{color:inherit;text-decoration:none;}
 .rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
 .rel a:hover{color:#9fc6ff;}
 .foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+.cmp{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:14px;}
+.cmp th,.cmp td{border:1px solid rgba(255,255,255,.14);padding:10px 12px;text-align:left;vertical-align:top;}
+.cmp th{background:rgba(159,198,255,.12);color:#cfe2ff;font-weight:500;}
+.cmp td:first-child{color:#9fc6ff;font-weight:500;white-space:nowrap;}
+.cmp td:nth-child(3){color:rgba(255,255,255,.92);}
 @media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
 
 /* 导航右上角搜索入口（跟随"关于"平齐） */
@@ -64,7 +69,7 @@ a{color:inherit;text-decoration:none;}
 <div class="container">
   <article class="article">
     <h1>我把 AI 搬回本地：一条跑在 Mac 上的创作流水线</h1>
-    <div class="meta"><span>2026-08-12</span><span>JowJo</span><span>约 9 分钟</span></div>
+    <div class="meta"><span>2026-08-12</span><span>JowJo</span><span>约 12 分钟</span></div>
     <div class="cover" style="background-image:url('media/laptop-code.jpg')"></div>
 <h2 id="s1">一、为什么要把 AI 搬回家</h2>
 <p>说白了，云端 AI 用着爽，但有三件事一直硌我：一是隐私，二是断网就废，三是按量收费像在租房子。我那台 Mac 是 M1 Max、64G 内存，放着也是放着——与其把数据一趟趟往别人服务器上送，不如让 AI 在我自己机器上跑。你懂我，就是那种「东西得攥自己手里才踏实」的劲。</p>
@@ -76,16 +81,30 @@ a{color:inherit;text-decoration:none;}
 <p>别以为本地只能玩玩图。Wan 能图生视频，Hunyuan3D 能直接出 glb 模型。我做短剧素材、产品展示小样，很多就在这台 Mac 上搞定，不用把素材传去云渲染。虽然比不过顶级算力，但「够用、随时、不泄露」这三样，它给齐了。</p>
 <h2 id="s5">五、文本和语音：LM Studio + 本地 TTS</h2>
 <p>LM Studio 我装的是 Qwen 的 GGUF 模型，跑文本推理——写东西、整理思路、私密聊天，全程不联网。再接本地 TTS，复刻微信读书那种「有人念给你听」的听书感，我自己攒的有声书 App 就是这么跑起来的。M 系列芯片的神经网络引擎不是摆设，念起来挺自然。</p>
-<h2 id="s6">六、为什么本地才是「真拥有」</h2>
-<p>云端 AI 像租车，本地 AI 像买房。租车方便但永远不是你的，涨价、停产、断服你都得认；买房一次投入，之后随便用。数据不出本机、断网照样干、长期算下来几乎零边际成本——AI 这时候才像是你家的一件家电，而不是租来的服务。</p>
-<h2 id="s7">七、想上手？先从这个起点开始</h2>
+<h2 id="s6">六、RAG：让本地 AI 真正「认得你的家底」</h2>
+<p>前面都是「让 AI 干活」，但有个更狠的东西叫 <strong>RAG</strong>。白话讲：普通 AI 靠「背过的东西」答题，RAG 是「开卷考试」——你先扔给它一摞自己的资料（合同、笔记、产品手册、客户聊天记录），它答题时当场翻这些资料，而不是凭记忆瞎编。所以 RAG 的答案，是基于你给的真资料，不是模型脑补的。</p>
+<p>为什么我说 RAG 是本地和云端之间最难跨的那道墙？因为 RAG 最值钱的，恰恰是你那堆「不能外传的私房资料」。这俩的区别，基本就一张表：</p>
+<table class="cmp">
+  <tr><th>维度</th><th>云端 RAG</th><th>本地 RAG（我这套）</th></tr>
+  <tr><td>资料放哪</td><td>上传到服务商服务器</td><td>留在自己这台 Mac</td></tr>
+  <tr><td>断网能用吗</td><td>不能</td><td>能</td></tr>
+  <tr><td>长期成本</td><td>按量 / 按席位收费</td><td>一次硬件投入</td></tr>
+  <tr><td>隐私</td><td>资料经第三方</td><td>一滴不出本机</td></tr>
+  <tr><td>上手难度</td><td>低（点几下）</td><td>中（要搭一下）</td></tr>
+  <tr><td>最适合</td><td>公开资料、demo</td><td>合同 / 客户 / 内部知识</td></tr>
+</table>
+<p>我的 Mac 接上 RAG 之后，等于在家里书房养了个「只认你资料、嘴还严」的助理：你问「去年我们卖得最好的三款是啥」，它翻的是你自己的销售表，不是网上搜来的。</p>
+<p>也正是这点卡住了很多人——他们知道 AI 能帮忙，但不知道 RAG 能把「自己的资料」变成「AI 的弹药」，更不知道这事儿本地也能搞。所以我这套本地 AI 流水线，其实是能直接拿去给别的小团队跑 RAG 的：你把资料交给我，或者我帮你把本地 RAG 搭起来，你的资料全程不进任何云。很多老板想要的「AI 懂我公司」，第一步就是先有一套本地 RAG——这事儿，我可以做咨询，也能帮你落地。想聊的，去 <a href="services.html" style="color:#9fc6ff;text-decoration:underline;">商业合作</a> 找我。</p>
+<h2 id="s7">七、为什么本地才是「真拥有」</h2>
+<p>云端 AI 像租车，本地 AI 像买房。租车方便但永远不是你的，涨价、停产、断服你都得认；买房一次投入，之后随便用。数据不出本机、断网照样干、长期算下来几乎零边际成本——AI 这时候才像是你家的一件家电，而不是租来的服务。RAG 更是把这条分水岭推到了极限：它能让 AI 用你的私房资料答题，而这件事一旦上云，你的家底就先交了出去。</p>
+<h2 id="s8">八、想上手？先从这个起点开始</h2>
 <p>别一上来就追顶配。最低门槛：一台带神经网络引擎的 Mac（M1 及以上都行），先装 LM Studio 跑个小模型感受「本地聊天」，再装 ComfyUI Desktop 跑通一次 Flux 出图。第一个小目标别设太大——「今天让本机帮我出一张图」，成了，流水线就算接通了。剩下的，是一点点往上面搭。</p>
 
   </article>
   <aside class="aside">
     <div class="box toc">
       <h4>目录</h4>
-      <a href="#s1">一、为什么要把 AI 搬回家</a><a href="#s2">二、这条流水线到底长啥样</a><a href="#s3">三、出图：从一句话到一张能用的图</a><a href="#s4">四、视频和 3D：本地也能玩</a><a href="#s5">五、文本和语音：LM Studio + 本地 TTS</a><a href="#s6">六、为什么本地才是「真拥有」</a><a href="#s7">七、想上手？先从这个起点开始</a>
+      <a href="#s1">一、为什么要把 AI 搬回家</a><a href="#s2">二、这条流水线到底长啥样</a><a href="#s3">三、出图：从一句话到一张能用的图</a><a href="#s4">四、视频和 3D：本地也能玩</a><a href="#s5">五、文本和语音：LM Studio + 本地 TTS</a><a href="#s6">六、RAG：让本地 AI 真正「认得你的家底」</a><a href="#s7">七、为什么本地才是「真拥有」</a><a href="#s8">八、想上手？先从这个起点开始</a>
     </div>
     <div class="box author">
       <div class="avatar" style="background-image:url('media/tiger-head.png')"></div>
@@ -93,7 +112,7 @@ a{color:inherit;text-decoration:none;}
     </div>
     <div class="box tags">
       <div class="tt">标签</div>
-      <span>本地AI</span><span>ComfyUI</span><span>LM Studio</span><span>隐私</span><span>流水线</span>
+      <span>本地AI</span><span>ComfyUI</span><span>LM Studio</span><span>RAG</span><span>隐私</span><span>流水线</span>
     </div>
     <div class="box rel">
       <h4>相关阅读</h4>
