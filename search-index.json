@@ -3,15 +3,15 @@
     "title": "我把 AI 搬回本地：一条跑在 Mac 上的创作流水线",
     "url": "ai-post-local-pipeline.html",
     "date": "2026-08-12",
-    "desc": "云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + Ollama + 本地 TTS 串起来的本机创作流水线；RAG 让 AI 读你的私房资料，再用「脱敏 + 混合」把隐私疑虑打消：敏感活留本地、聪明活交云端，本地 RAG 也能对外做咨询落地。",
+    "desc": "不画图、不发声，只跑文字和数据——一条成本几乎为零的本地 RAG 流水线；用「天一阁+文秘处」比喻讲清 RAG（开卷考试、让 AI 先读你的档案），再回答最朴素的担忧：把资料上云，隐私是不是就泄露了？脱敏+混合：敏感活留本地、聪明活交云。",
     "tags": [
       "本地AI",
-      "ComfyUI",
       "Ollama",
       "RAG",
       "隐私",
       "脱敏",
-      "流水线"
+      "语料",
+      "第二大脑"
     ],
     "cat": "AI经验",
     "py": "woba AI banhuibendi：yitiaopaozai Mac shangdechuangzuoliushuixian bendiAI ComfyUI LM Studio yinsi liushuixian AIjingyan wb AI bhbd：ytpz Mac sdczlsx bdAI ComfyUI LM Studio ys lsx AIjy"
