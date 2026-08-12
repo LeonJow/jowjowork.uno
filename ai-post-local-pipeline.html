@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>我把 AI 搬回本地：一台只处理文字数据的低成本「第二大脑」 | AI经验 · JowJo</title>
+<meta name="description" content="不画图、不发声，只跑文字和数据——一条成本几乎为零的本地 RAG 流水线；用「天一阁 + 文秘处」比喻讲清 RAG，再回答最朴素的担忧：把资料上云，隐私是不是就泄露了？"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}.nav-inner{display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.nav-inner{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article h3{font-size:17px;font-weight:500;margin:22px 0 8px;color:#cfe2ff;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+.cmp{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:14px;}
+.cmp th,.cmp td{border:1px solid rgba(255,255,255,.14);padding:10px 12px;text-align:left;vertical-align:top;}
+.cmp th{background:rgba(159,198,255,.12);color:#cfe2ff;font-weight:500;}
+.cmp td:first-child{color:#9fc6ff;font-weight:500;white-space:nowrap;}
+.cmp td:nth-child(3){color:rgba(255,255,255,.92);}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+
+/* 导航右上角搜索入口（跟随"关于"平齐） */
+.nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
+.nav-search:hover{opacity:1;transform:scale(1.1);}
+@media(max-width:600px){.nav-search{display:none;}.nav-inner{padding:12px 8px 10px;gap:0;}.top-nav .nav-item{flex:1 1 0;min-width:0;}.top-nav .label{font-size:11px;letter-spacing:.3px;}.top-nav .sub{left:0;transform:none;width:100%;margin-top:4px;font-size:9px;white-space:normal;text-align:center;opacity:0;transition:opacity .25s;}.top-nav .nav-item:hover .sub,.top-nav .nav-item:active .sub,.top-nav .nav-item:focus .sub{opacity:1;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav"><div class="nav-inner">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  <a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></div>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>我把 AI 搬回本地：一台只处理文字数据的低成本「第二大脑」</h1>
+    <div class="meta"><span>2026-08-12</span><span>JowJo</span><span>约 12 分钟</span></div>
+    <div class="cover" style="background-image:url('media/laptop-code.jpg')"></div>
+<h2 id="s1">一、为什么我把本地 AI「砍」到最省</h2>
+<p>很多人以为本地 AI 就是拿来画画、剪视频。我一开始也这么玩——ComfyUI 出图、Wan 做视频、Hunyuan3D 建模型，确实爽。但后来发现，我每天真离不开的，不是这些「做内容」的活，而是另一件事：让 AI 帮我翻资料、理数据。于是我把本地 AI 砍到最省——不画图、不发声，只处理文字和数据。一条纯文本的流水线，成本几乎为零，却是我最离不开的「第二大脑」。你懂我，就是那种「东西攥自己手里、还不用花冤枉钱」的踏实。</p>
+<p>砍掉图像和声音，省下的不只是显存，更是三笔账：<strong>成本</strong>——纯文字对算力要求低，我那台 M1 Max 跑 32B 的 Qwen Q4 绰绰有余，长期边际成本趋近于零，不像云端按 token 一直计费；<strong>隐私</strong>——文字数据里往往藏着合同、财务、客户聊天，这些最不能外传；<strong>刚需</strong>——我真正要 AI 干的，是「懂我的资料」，不是「给我生成一张图」。</p>
+<h2 id="s2">二、这条流水线长啥样（极简版）</h2>
+<p>主干就两块：<strong>Ollama</strong> 管「说话和推理」，再加一个<strong>本地向量库</strong>管「记性和翻找」。它们之间不联网，纯本机串起来。你丢进去的是语料和数据——Word、PDF、笔记导出、Excel 表，出来的就是「基于你这些真材料」的回答。没有图像、没有声音，干净利落。</p>
+<p>对比我那条「媒体流水线」（出图、剪片），这条文秘流水线便宜得多、私密得多，也更像一门能交付的生意。两条都是本地 AI，但今天聊后面这条——它更省、更稳、也更值钱。</p>
+<h2 id="s3">三、RAG：给大脑装一个「外挂记忆」</h2>
+<p>这套文秘流水线的核心，叫 <strong>RAG</strong>。我喜欢用一个老比喻讲它：<strong>天一阁 + 文秘处</strong>。天一阁你知道的，宁波那座古老的私人藏书楼——书不借外人，自己藏着、自己读。我的本地知识库就是一座「数字天一阁」：不存书，存我的语料、我的数据。RAG 就是我雇的「大臣」：我问一句，他进藏书楼翻找、研读，再出来禀报。所以 AI 答的，不是它脑子里背的东西，而是从我自己的藏书里翻出来的真材料。</p>
+<p>白话点说：普通 AI 靠「背过的东西」答题，叫闭卷考试，没背到就瞎编（幻觉）；RAG 是「开卷考试」——你先给它一摞自己的资料，它答题时当场翻，不靠记忆硬编。所以答案贴着你的真材料走。</p>
+<h2 id="s4">四、本地 RAG vs 云端 RAG</h2>
+<p>为什么我说 RAG 是本地和云端之间最难跨的那道墙？因为 RAG 最值钱的，恰恰是你那堆「不能外传的私房资料」。区别基本一张表：</p>
+<table class="cmp">
+  <tr><th>维度</th><th>云端 RAG</th><th>本地 RAG（我这套）</th></tr>
+  <tr><td>资料放哪</td><td>上传到服务商服务器</td><td>留在自己这台 Mac</td></tr>
+  <tr><td>断网能用吗</td><td>不能</td><td>能</td></tr>
+  <tr><td>长期成本</td><td>按量 / 按席位收费</td><td>一次硬件投入，近乎零</td></tr>
+  <tr><td>隐私</td><td>资料经第三方</td><td>一滴不出本机</td></tr>
+  <tr><td>上手难度</td><td>低（点几下）</td><td>中（要搭一下）</td></tr>
+  <tr><td>最适合</td><td>公开资料、demo</td><td>合同 / 客户 / 内部知识</td></tr>
+</table>
+<p>我的 Mac 接上 RAG，等于在书房养了个「只认你资料、嘴还严」的助理：你问「去年卖得最好的三款是啥」，它翻的是你自己的销售表，不是网上搜来的。</p>
+<h2 id="s5">五、上云的第一反应：隐私是不是泄露了？</h2>
+<p>一说「把资料交给 AI」，普通人第一反应根本不是什么「加密、脱敏、解密」——那是技术人才绕得过来的弯。绝大多数人脑子里蹦出来的就一句话：<strong>「我把资料传上云，那我的隐私是不是就泄露了？」</strong> 这个担心太正常了，因为它戳到了最朴素的痛点：我的东西，交出去了，还是我的吗？</p>
+<p>先给结论：你的直觉没错，把整本私密资料直接丢给公开云，确实等于交了出去。但 RAG 有个巧妙的地方——<strong>你不是把整座藏书楼搬去云上，而是先在自家书房里翻出「最相关的几页」，只把这几页 + 问题寄给云模型</strong>。大教授根本看不到你整本书。</p>
+<p>那如果资料敏感、连「几页」都不想外传呢？答案就两个字：<strong>脱敏</strong>。在把资料喂给 AI 之前，先把人名、身份证、金额、密码换成占位符（比如「客户A」「金额X」），本机留一张对照表。后面检索的、发出去的，都是脱敏版；答案回来，再换回真名。这一步放在最前面，比你先转向量再洗更稳。顺便说，加密不负责「让云看不懂」——它负责「防丢防偷」：本地磁盘加密（笔记本丢了别人也打不开）+ 传输走 HTTPS（自动加密）。真正的护城河，是「敏感的活留本地，聪明的活交给云」。</p>
+<p>完整顺序是这样的（本地全绿、数据不出门，只有生成那一步可越界）：① 准备材料 → ② 脱敏（人名/金额/密码→占位符，本地留对照表）→ ③ 切段（长文拆小段）→ ④ 转向量（每段变成一串能比对的编号）→ ⑤ 向量库（本地磁盘加密存放）→ ⑥ 检索（本地找最像的几段）→ ⑦ 生成（只送脱敏片段+问题给云模型，HTTPS 加密）→ ⑧ 还原（答案回来换回真名，本地）。你可能会问：转向量、建向量库我得懂吗？说实话，不用。你把它当「给每段话生成一个能比对的编号」就行；真正要你拍板的就两件事：资料放本地、敏感信息先脱敏。剩下的交给工具。</p>
+<h2 id="s6">六、谁真的离不开这套（刚需清单）</h2>
+<p>不是所有人都需要，但这几类人，它是刚需：</p>
+<p>① <strong>个人知识盘活</strong>：800G 素材、笔记、健康表、基金数据散落各处，问一句就翻出来，死资料变活知识。<br/>
+② <strong>隐私资料查询</strong>：合同、客户聊天、财务数据——不能上云，本地 RAG 家底不出门还能问。<br/>
+③ <strong>低成本持续用</strong>：纯文字算力要求低，长期成本近乎零，对比云端按 token 收费是「一次投入长期免单」。<br/>
+④ <strong>断网 / 内网 / 出差</strong>：信号差、客户内网、出国，云端不能用，本地照常。<br/>
+⑤ <strong>让 AI 真懂「我」</strong>：通用 AI 不懂你的基金策略、健康节奏、短剧分发数据；RAG 让 AI 基于你的真材料答。<br/>
+⑥ <strong>对外服务 / 咨询</strong>：很多人不懂 RAG 但手里有资料想用好——我能帮别人搭本地知识库、做 RAG 咨询。想聊的，去 <a href="services.html" style="color:#9fc6ff;text-decoration:underline;">商业合作</a> 找我。</p>
+<h2 id="s7">七、想上手？最低门槛起步</h2>
+<p>别追顶配。最低门槛：一台带神经网络引擎的 Mac（M1 及以上都行），先装 Ollama 跑个小模型感受「本地聊天」，再接一个本地向量库（Chroma / Qdrant 这类），把一两个文件夹的笔记丢进去，问它一句话试试。第一个小目标别设太大——「今天让本机基于我的笔记答我一题」，成了，第二大脑就算接通了。</p>
+<h2 id="s8">八、为什么本地才是「真拥有」</h2>
+<p>云端 AI 像租车，本地 AI 像买房。租车方便但永远不是你的，涨价、停产、断服你都得认；买房一次投入，之后随便用。数据不出本机、断网照样干、长期算下来几乎零边际成本——AI 这时候才像你家的一件家电。RAG 把这条分水岭推到极限：它能让 AI 用你的私房资料答题，而这件事一旦上云，家底就先交了出去。所以我的第二大脑，始终留在自己这台 Mac 上。</p>
+
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+      <a href="#s1">一、为什么我把本地 AI「砍」到最省</a><a href="#s2">二、这条流水线长啥样（极简版）</a><a href="#s3">三、RAG：给大脑装一个「外挂记忆」</a><a href="#s4">四、本地 RAG vs 云端 RAG</a><a href="#s5">五、上云的第一反应：隐私是不是泄露了？</a><a href="#s6">六、谁真的离不开这套（刚需清单）</a><a href="#s7">七、想上手？最低门槛起步</a><a href="#s8">八、为什么本地才是「真拥有」</a>
+    </div>
+    <div class="box author">
+      <div class="avatar" style="background-image:url('media/tiger-head.png')"></div>
+      <div><div class="name">JowJo</div><div class="bio">超认真工作室 · 用 AI 把日常变顺手</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+      <span>本地AI</span><span>Ollama</span><span>RAG</span><span>隐私</span><span>脱敏</span><span>语料</span><span>第二大脑</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+      <a href="ai-post-local.html">本地跑模型的显存翻车记 →</a><a href="ai-post-fitness.html">如何让 AI 做自己的健身教练 →</a>
+    </div>
+  </aside>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+</body>
+</html>
