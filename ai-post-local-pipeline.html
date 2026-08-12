@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>我把 AI 搬回本地：一条跑在 Mac 上的创作流水线 | AI经验 · JowJo</title>
+<meta name="description" content="云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + LM Studio + 本地 TTS 串起来的本机创作流水线。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}.nav-inner{display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.nav-inner{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+
+/* 导航右上角搜索入口（跟随"关于"平齐） */
+.nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
+.nav-search:hover{opacity:1;transform:scale(1.1);}
+@media(max-width:600px){.nav-search{display:none;}.nav-inner{padding:12px 8px 10px;gap:0;}.top-nav .nav-item{flex:1 1 0;min-width:0;}.top-nav .label{font-size:11px;letter-spacing:.3px;}.top-nav .sub{left:0;transform:none;width:100%;margin-top:4px;font-size:9px;white-space:normal;text-align:center;opacity:0;transition:opacity .25s;}.top-nav .nav-item:hover .sub,.top-nav .nav-item:active .sub,.top-nav .nav-item:focus .sub{opacity:1;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav"><div class="nav-inner">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  <a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></div>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>我把 AI 搬回本地：一条跑在 Mac 上的创作流水线</h1>
+    <div class="meta"><span>2026-08-12</span><span>JowJo</span><span>约 9 分钟</span></div>
+    <div class="cover" style="background-image:url('media/laptop-code.jpg')"></div>
+<h2 id="s1">一、为什么要把 AI 搬回家</h2>
+<p>说白了，云端 AI 用着爽，但有三件事一直硌我：一是隐私，二是断网就废，三是按量收费像在租房子。我那台 Mac 是 M1 Max、64G 内存，放着也是放着——与其把数据一趟趟往别人服务器上送，不如让 AI 在我自己机器上跑。你懂我，就是那种「东西得攥自己手里才踏实」的劲。</p>
+<h2 id="s2">二、这条流水线到底长啥样</h2>
+<p>我现在的本地 AI 工作台，主干是三块：ComfyUI Desktop 管「看图 / 做图 / 做视频 / 做 3D」，LM Studio 管「说话和写作」，再加一个本地 TTS 管「念出来」。它们之间不用联上网，纯本机串起来，就是一条从想法到成品的流水线。一个活干完，结果直接喂给下一个，全程数据不出这台电脑。</p>
+<h2 id="s3">三、出图：从一句话到一张能用的图</h2>
+<p>ComfyUI 里我主要用 Flux 文生图，和 Qwen Image Edit 做局部改图。以前做个封面、配个插图得等设计师排期，现在自己描述一句就出几版，挑一张能用的。改图也很爽——「把背景换成雨天、人物不变」，它真能只动背景。就是就是，这种「我说了算」的感觉，云端给不了。</p>
+<h2 id="s4">四、视频和 3D：本地也能玩</h2>
+<p>别以为本地只能玩玩图。Wan 能图生视频，Hunyuan3D 能直接出 glb 模型。我做短剧素材、产品展示小样，很多就在这台 Mac 上搞定，不用把素材传去云渲染。虽然比不过顶级算力，但「够用、随时、不泄露」这三样，它给齐了。</p>
+<h2 id="s5">五、文本和语音：LM Studio + 本地 TTS</h2>
+<p>LM Studio 我装的是 Qwen 的 GGUF 模型，跑文本推理——写东西、整理思路、私密聊天，全程不联网。再接本地 TTS，复刻微信读书那种「有人念给你听」的听书感，我自己攒的有声书 App 就是这么跑起来的。M 系列芯片的神经网络引擎不是摆设，念起来挺自然。</p>
+<h2 id="s6">六、为什么本地才是「真拥有」</h2>
+<p>云端 AI 像租车，本地 AI 像买房。租车方便但永远不是你的，涨价、停产、断服你都得认；买房一次投入，之后随便用。数据不出本机、断网照样干、长期算下来几乎零边际成本——AI 这时候才像是你家的一件家电，而不是租来的服务。</p>
+<h2 id="s7">七、想上手？先从这个起点开始</h2>
+<p>别一上来就追顶配。最低门槛：一台带神经网络引擎的 Mac（M1 及以上都行），先装 LM Studio 跑个小模型感受「本地聊天」，再装 ComfyUI Desktop 跑通一次 Flux 出图。第一个小目标别设太大——「今天让本机帮我出一张图」，成了，流水线就算接通了。剩下的，是一点点往上面搭。</p>
+
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+      <a href="#s1">一、为什么要把 AI 搬回家</a><a href="#s2">二、这条流水线到底长啥样</a><a href="#s3">三、出图：从一句话到一张能用的图</a><a href="#s4">四、视频和 3D：本地也能玩</a><a href="#s5">五、文本和语音：LM Studio + 本地 TTS</a><a href="#s6">六、为什么本地才是「真拥有」</a><a href="#s7">七、想上手？先从这个起点开始</a>
+    </div>
+    <div class="box author">
+      <div class="avatar" style="background-image:url('media/tiger-head.png')"></div>
+      <div><div class="name">JowJo</div><div class="bio">超认真工作室 · 用 AI 把日常变顺手</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+      <span>本地AI</span><span>ComfyUI</span><span>LM Studio</span><span>隐私</span><span>流水线</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+      <a href="ai-post-local.html">本地跑模型的显存翻车记 →</a><a href="ai-post-fitness.html">如何让 AI 做自己的健身教练 →</a>
+    </div>
+  </aside>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+</body>
+</html>

@@ -1,5 +1,20 @@
 [
   {
+    "title": "我把 AI 搬回本地：一条跑在 Mac 上的创作流水线",
+    "url": "ai-post-local-pipeline.html",
+    "date": "2026-08-12",
+    "desc": "云端 AI 像租车，本地 AI 像买房——数据不出本机、断网照干，一条由 ComfyUI + LM Studio + 本地 TTS 串起来的本机创作流水线。",
+    "tags": [
+      "本地AI",
+      "ComfyUI",
+      "LM Studio",
+      "隐私",
+      "流水线"
+    ],
+    "cat": "AI经验",
+    "py": "woba AI banhuibendi：yitiaopaozai Mac shangdechuangzuoliushuixian bendiAI ComfyUI LM Studio yinsi liushuixian AIjingyan wb AI bhbd：ytpz Mac sdczlsx bdAI ComfyUI LM Studio ys lsx AIjy"
+  },
+  {
     "title": "AI 可以提效，但不能替我写梗：张骏的创作边界",
     "url": "ai-post-zhangjun.html",
     "date": "2026-08-10",
