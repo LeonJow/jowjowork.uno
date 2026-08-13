@@ -1,5 +1,22 @@
 [
   {
+    "title": "我怎么用 AI 整理 800G 素材库：从「数字垃圾堆」到「随问随答」",
+    "url": "ai-post-library.html",
+    "date": "2026-08-13",
+    "desc": "800G 素材越攒越乱、越搜越找不到？别先分类，先用 AI 给每样东西写句人话摘要和标签，再丢进本地向量库——和上篇「第二大脑」是同一套本地流水线的前后脚：素材库是食材，RAG 是厨子。",
+    "tags": [
+      "素材库",
+      "知识管理",
+      "AI整理",
+      "本地AI",
+      "RAG",
+      "第二大脑",
+      "检索"
+    ],
+    "cat": "AI经验",
+    "py": "wozenmeyong AI zhengli 800G sucaiku：cong「shuzilajidui」dao「suiwensuida」 sucaiku zhishiguanli AIzhengli bendiAI RAG dierdanao jiansuo AIjingyan wzmy AI zl 800G sck：c「szljd」d「swsd」 sck zsgl AIzl bdAI RAG dedn js AIjy"
+  },
+  {
     "title": "我把 AI 搬回本地：一条跑在 Mac 上的创作流水线",
     "url": "ai-post-local-pipeline.html",
     "date": "2026-08-12",
@@ -14,7 +31,7 @@
       "第二大脑"
     ],
     "cat": "AI经验",
-    "py": "woba AI banhuibendi：yitiaopaozai Mac shangdechuangzuoliushuixian bendiAI ComfyUI LM Studio yinsi liushuixian AIjingyan wb AI bhbd：ytpz Mac sdczlsx bdAI ComfyUI LM Studio ys lsx AIjy"
+    "py": "woba AI banhuibendi：yitiaopaozai Mac shangdechuangzuoliushuixian bendiAI Ollama RAG yinsi tuomin yuliao dierdanao AIjingyan wb AI bhbd：ytpz Mac sdczlsx bdAI Ollama RAG ys tm yl dedn AIjy"
   },
   {
     "title": "AI 可以提效，但不能替我写梗：张骏的创作边界",

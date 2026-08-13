@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>我怎么用 AI 整理 800G 素材库：从「数字垃圾堆」到「随问随答」 | AI经验 · JowJo</title>
+<meta name="description" content="800G 素材越攒越乱、越搜越找不到？别先分类，先用 AI 给每样东西写句人话摘要和标签，再丢进本地向量库——和上篇「第二大脑」是同一套本地流水线的前后脚：素材库是食材，RAG 是厨子。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}.nav-inner{display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.nav-inner{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article h3{font-size:17px;font-weight:500;margin:22px 0 8px;color:#cfe2ff;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+.cmp{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:14px;}
+.cmp th,.cmp td{border:1px solid rgba(255,255,255,.14);padding:10px 12px;text-align:left;vertical-align:top;}
+.cmp th{background:rgba(159,198,255,.12);color:#cfe2ff;font-weight:500;}
+.cmp td:first-child{color:#9fc6ff;font-weight:500;white-space:nowrap;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+
+/* 导航右上角搜索入口（跟随"关于"平齐） */
+.nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
+.nav-search:hover{opacity:1;transform:scale(1.1);}
+@media(max-width:600px){.nav-search{display:none;}.nav-inner{padding:12px 8px 10px;gap:0;}.top-nav .nav-item{flex:1 1 0;min-width:0;}.top-nav .label{font-size:11px;letter-spacing:.3px;}.top-nav .sub{left:0;transform:none;width:100%;margin-top:4px;font-size:9px;white-space:normal;text-align:center;opacity:0;transition:opacity .25s;}.top-nav .nav-item:hover .sub,.top-nav .nav-item:active .sub,.top-nav .nav-item:focus .sub{opacity:1;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav"><div class="nav-inner">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  <a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></div>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>我怎么用 AI 整理 800G 素材库：从「数字垃圾堆」到「随问随答」</h1>
+    <div class="meta"><span>2026-08-13</span><span>JowJo</span><span>约 11 分钟</span></div>
+    <div class="cover" style="background-image:url('media/library.jpg')"></div>
+<h2 id="s1">一、我有座 800G 的「数字仓库」，但它快成垃圾堆了</h2>
+<p>我电脑里大概攒了 800G 的东西——截图、视频片段、PDF、笔记导出、各种下载了没看的资料、聊天里顺手存下的图。它们散在十几个文件夹里，名字不是「未命名 3」「新建文件夹 (12)」，就是一串日期加乱码。每次我想找「上次那张宁波货源的参考图」，都得靠记忆在几个盘之间来回翻，翻半天还不一定找着。东西越多，越不敢动，最后就堆成一座「数字垃圾堆」：明明是我自己的东西，却用不起来。</p>
+<p>这就是大多数人的素材库现状：<strong>攒的时候爽，用的时候废</strong>。你以为存下来就等于拥有了，其实存下来只是「暂时没丢」，离「用得上」还差十万八千里。</p>
+<h2 id="s2">二、素材库为什么越攒越废</h2>
+<p>我琢磨了很久，素材库烂掉基本是三个病叠在一起：</p>
+<p>① <strong>命名乱</strong>：下载时懒得起名，事后根本想不起里面是啥。<br/>
+② <strong>分类崩</strong>：一开始分了「工作 / 生活 / 学习」，用着用着啥都往里塞，分类就成了摆设。<br/>
+③ <strong>检索靠人脑</strong>：找东西全凭「我记得它大概在哪儿」——可 800G 的东西，人脑哪记得住。</p>
+<p>最坑的是：你越想「好好整理一次」，越容易卡在第一步。因为传统的整理法是先定一套完美分类，再逐件归类——光想分类体系就能劝退，归类更是无底洞。所以我后来换了个思路：<strong>别先整理，先编目</strong>。</p>
+<h2 id="s3">三、别整理，先「编目」——用 AI 给素材写摘要和标签</h2>
+<p>「编目」和「整理」不一样。整理是「把东西挪到正确的格子」，编目是「给每样东西写张身份证」——一句话说明它是啥、几个关键词标签。格子可以乱，身份证不能少。</p>
+<p>我让 AI（本地跑的小模型就行）批量扫一遍文件夹，对每张图、每个文档生成：① 一句话人话摘要（「这是一张宁波小商品市场的货源参考图，拍的是日用百货货架」）；② 3~5 个关键词标签（宁波 / 货源 / 日用百货 / 参考）。这一步极便宜——纯文字、本地跑、不联网，几千个文件也就是电费。而且它不需要你做分类决策，AI 自己读、自己写，你只管批量跑。</p>
+<p>关键心态：<strong>先让每样东西「能被描述」，比「被放到哪」重要一百倍</strong>。描述有了，后面怎么归类、怎么找，都好办。</p>
+<h2 id="s4">四、建索引，让素材能被「搜」和「问」</h2>
+<p>摘要和标签生成完，别存成 Excel 就完事——那又变成「另一个要翻的表」。把它们丢进一个<strong>本地向量库</strong>（就是我上篇说的那个「记性和翻找」的部件）。向量库干的事很简单：把你每样素材的摘要变成一串能比对的编号，以后你问「宁波货源的图有哪些」，它就按意思找最像的那几条，而不是死板地搜文件名里有没有「宁波」两个字。</p>
+<p>到这儿，素材库就从「死存档」变成了「活索引」：你不用记得东西放哪，只要会用大白话说出你想要啥，它就把对应的素材翻出来。这跟我上篇写的「第二大脑」是同一套本地流水线——<strong>素材库是食材，RAG 是厨子</strong>。本篇讲食材怎么备，上篇讲厨子怎么炒。</p>
+<h2 id="s5">五、和第二大脑配合：素材库 + RAG = 活知识</h2>
+<p>把两篇串起来看就清楚了：上篇《我把 AI 搬回本地》讲的是 RAG——让 AI 基于「你的真材料」答题，而不是瞎编；这篇讲的是，那些「真材料」从哪来、怎么变成 AI 读得懂的样子。没有素材库，RAG 就是空灶台；没有 RAG，素材库就是一堆带标签的死文件。两者一接，你的 800G 才真正「活」过来：问一句，它从你自己的仓库里翻出东西，再组织成答案。</p>
+<p>而且全程本地——素材不出本机，摘要和标签也只躺在你这台 Mac 上。这正好接上上篇说的「敏感活留本地」：你整理的是自己的东西，没必要为了「让 AI 帮忙归类」就把整座仓库传上云。</p>
+<h2 id="s6">六、普通人怎么起步（低成本、不私密）</h2>
+<p>别被「800G」吓到，起步根本不用动全部。最低门槛：</p>
+<p>① 挑<strong>一个最乱的文件夹</strong>（比如「桌面 / 临时」），别一上来整理全盘；<br/>
+② 用本地 AI 给里面每样东西生成一句话摘要 + 标签（不想写脚本，就一张张丢给 Ollama 本地模型问「用一句话描述这个文件，给三个标签」也行）；<br/>
+③ 把结果存成一个 <code>index</code> 文件（JSON 或 Markdown 都行）；<br/>
+④ 想进阶再接向量库，让它能「问」。这一步才需要上篇那套 RAG 工具。</p>
+<p>整个过程<strong>不上云就不涉密</strong>——你只是在自己电脑上，给自己的文件写描述。成本？基本等于零，模型本地跑、电费忽略不计。比订阅一堆云笔记划得来多了。</p>
+<h2 id="s7">七、我的日常用法（几个真实场景）</h2>
+<p>接通之后，素材库成了我每天真离不开的东西：</p>
+<p>· <strong>找东西</strong>：「上次那张短剧分发数据的截图是哪个？」——问一句，它从 800G 里把那张翻出来，不用我记文件名。<br/>
+· <strong>写文章找论据</strong>：写这篇时我让 AI 从我素材里翻「之前聊本地 AI 的笔记」，它把几段相关记录拎出来，我直接引用，不用重新想。<br/>
+· <strong>跨项目串联</strong>：宁波货源的图、闲鱼玩法笔记、短剧数据表，本来各在各的角落，现在「问一句」就能把它们摆到一起，灵感就出来了。</p>
+<p>说白了，它把我脑子的「记东西放哪」这块活儿，整个外包了。脑容量腾出来想正事。</p>
+<h2 id="s8">八、想上手？从这个起点开始</h2>
+<p>别追求完美分类，那是无底洞。第一个小目标定得越小越好：<strong>「一周后，我能用一句话找到这个文件夹里任何东西」</strong>。先抓一个最乱的文件夹，让 AI 给每样东西写句人话描述，存成 index。成了，你的素材库就算「通电」了；之后再慢慢接 RAG，让它能答、能串。一步一步来，800G 的垃圾堆，迟早变成你随问随答的第二大脑库存。</p>
+<p>上篇讲了大脑怎么想，这篇讲了肚子里的货怎么备——两篇凑齐，本地 AI 这盘棋，你也就真正落子了。</p>
+
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+      <a href="#s1">一、我有座 800G 的「数字仓库」，但它快成垃圾堆了</a><a href="#s2">二、素材库为什么越攒越废</a><a href="#s3">三、别整理，先「编目」——用 AI 给素材写摘要和标签</a><a href="#s4">四、建索引，让素材能被「搜」和「问」</a><a href="#s5">五、和第二大脑配合：素材库 + RAG = 活知识</a><a href="#s6">六、普通人怎么起步（低成本、不私密）</a><a href="#s7">七、我的日常用法（几个真实场景）</a><a href="#s8">八、想上手？从这个起点开始</a>
+    </div>
+    <div class="box author">
+      <div class="avatar" style="background-image:url('media/tiger-head.png')"></div>
+      <div><div class="name">JowJo</div><div class="bio">超认真工作室 · 用 AI 把日常变顺手</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+      <span>素材库</span><span>知识管理</span><span>AI整理</span><span>本地AI</span><span>RAG</span><span>第二大脑</span><span>检索</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+      <a href="ai-post-local-pipeline.html">我把 AI 搬回本地：一台只处理文字数据的低成本「第二大脑」 →</a><a href="ai-post-local.html">本地跑模型的显存翻车记 →</a>
+    </div>
+  </aside>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+</body>
+</html>
