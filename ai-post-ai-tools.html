@@ -50,6 +50,11 @@ a{color:inherit;text-decoration:none;}
 .cmp th{background:rgba(159,198,255,.12);color:#cfe2ff;font-weight:500;}
 .cmp td:first-child{color:#9fc6ff;font-weight:500;white-space:nowrap;}
 @media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+.mm-wrap{background:#131316;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;margin:18px 0;overflow:auto;}
+.mermaid{text-align:center;}
+.mm-code{margin:4px 0 18px;font-size:13px;}
+.mm-code summary{cursor:pointer;opacity:.7;color:#9fc6ff;user-select:none;}
+.mm-code pre{background:#0c0c0e;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;margin-top:8px;overflow:auto;color:#cfe2ff;font-size:12.5px;line-height:1.6;white-space:pre;}
 
 /* 导航右上角搜索入口（跟随"关于"平齐） */
 .nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
@@ -143,11 +148,68 @@ a{color:inherit;text-decoration:none;}
 · 隐私/离线/私房资料 → <strong>Ollama 本地 + 本地 RAG</strong></p>
 <p><strong>最后一句提醒</strong>：AI 工具榜像手机跑分，看个乐就行。我写这篇时，Claude Opus 5 刚抢下编程王冠、DeepSeek V4-Flash 七月底才出、Sora 已经在退场。把工具当成"会过期的技能"——<strong>会换、要常试、别上头</strong>。真正值钱的是你"知道什么活儿该交给谁"的判断力，那玩意儿比任何单一模型都保值。</p>
 
+<h2 id="s9">九、一张图看懂：我的 AI 工具全景（Mermaid 思维导图）</h2>
+<p>前面八节拆得细，最后用一张图收个尾——这是用 <strong>Mermaid</strong> 画的思维导图：它看上去是图，本质却是一段「文本代码」，浏览器会把它实时渲染成下面这张图。你改文字、加分支，刷新就变，比 PPT 还好使。</p>
+<div class="mm-wrap"><div class="mermaid">
+mindmap
+  root((AI工具全景))
+    对话大模型
+      ChatGPT
+      Claude
+      Gemini
+      DeepSeek
+    图像生成
+      GPT Image 2
+      即梦
+      ComfyUI·Flux
+    视频生成
+      可灵
+      即梦
+      Runway
+    编程助手
+      Claude Code
+      Cursor
+    本地与隐私
+      Ollama
+      本地RAG
+    搜索研究
+      Perplexity
+      NotebookLM
+</div></div>
+<details class="mm-code"><summary>查看这张图的 Mermaid 代码（就是这堆文本生成了上面的图）</summary>
+<pre>
+mindmap
+  root((AI工具全景))
+    对话大模型
+      ChatGPT
+      Claude
+      Gemini
+      DeepSeek
+    图像生成
+      GPT Image 2
+      即梦
+      ComfyUI·Flux
+    视频生成
+      可灵
+      即梦
+      Runway
+    编程助手
+      Claude Code
+      Cursor
+    本地与隐私
+      Ollama
+      本地RAG
+    搜索研究
+      Perplexity
+      NotebookLM
+</pre>
+</details>
+
   </article>
   <aside class="aside">
     <div class="box toc">
       <h4>目录</h4>
-      <a href="#s1">一、先给结论：按活儿选，别按榜单选</a><a href="#s2">二、对话大模型：四个常驻选手</a><a href="#s3">三、图像生成：生图这件事已经卷疯了</a><a href="#s4">四、视频生成：这里换代最快，也最容易踩坑</a><a href="#s5">五、编程助手：Claude 代码王座，Cursor 是主场</a><a href="#s6">六、本地与隐私那条线（呼应前两篇）</a><a href="#s7">七、搜索与研究：要「有出处」就别只靠聊天</a><a href="#s8">八、我的日常搭配 + 一个提醒</a>
+      <a href="#s1">一、先给结论：按活儿选，别按榜单选</a><a href="#s2">二、对话大模型：四个常驻选手</a><a href="#s3">三、图像生成：生图这件事已经卷疯了</a><a href="#s4">四、视频生成：这里换代最快，也最容易踩坑</a><a href="#s5">五、编程助手：Claude 代码王座，Cursor 是主场</a><a href="#s6">六、本地与隐私那条线（呼应前两篇）</a><a href="#s7">七、搜索与研究：要「有出处」就别只靠聊天</a><a href="#s8">八、我的日常搭配 + 一个提醒</a><a href="#s9">九、一张图看懂：AI 工具全景导图</a>
     </div>
     <div class="box author">
       <div class="avatar" style="background-image:url('media/tiger-head.png')"></div>
@@ -164,5 +226,11 @@ a{color:inherit;text-decoration:none;}
   </aside>
   <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { fontFamily: "'Noto Sans SC', sans-serif", fontSize: '15px' } });
+  }
+</script>
 </body>
 </html>
