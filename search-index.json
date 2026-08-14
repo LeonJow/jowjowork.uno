@@ -1,5 +1,23 @@
 [
   {
+    "title": "我实际用下来的主流 AI 工具横评（2026 年 8 月版）",
+    "url": "ai-post-ai-tools.html",
+    "date": "2026-08-14",
+    "desc": "2026 年 8 月的主流 AI 工具到底怎么选？对话大模型、图像、视频、编程、本地部署、搜索研究一篇讲清：谁强在哪、谁别碰，以及我自己的日常搭配。",
+    "tags": [
+      "主流AI工具",
+      "AI横评",
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "DeepSeek",
+      "工具对比",
+      "本地AI"
+    ],
+    "cat": "AI经验",
+    "py": "woshijiyongxialaidezhuliu AI gongjuhengping（2026 nian 8 yueban） zhuliuAIgongju AIhengping ChatGPT Claude Gemini DeepSeek gongjuduibi bendiAI AIjingyan wsjyxldzl AI gjhp（2026 n 8 yb） zlAIgj AIhp ChatGPT Claude Gemini DeepSeek gjdb bdAI AIjy"
+  },
+  {
     "title": "我怎么用 AI 整理 800G 素材库：从「数字垃圾堆」到「随问随答」",
     "url": "ai-post-library.html",
     "date": "2026-08-13",

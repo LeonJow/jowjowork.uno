@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>我实际用下来的主流 AI 工具横评（2026 年 8 月版） | AI经验 · JowJo</title>
+<meta name="description" content="2026 年 8 月的主流 AI 工具到底怎么选？我用下来的真实体验：对话大模型、图像、视频、编程、本地部署、搜索研究，一篇讲清谁强在哪、谁别碰，以及我自己的日常搭配。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0e0e0e;color:#f2f2f2;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:10;font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);}.nav-inner{display:flex;justify-content:center;align-items:flex-start;max-width:1100px;margin:0 auto;padding:30px 24px 16px;}
+.top-nav .nav-item{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;color:#fff;white-space:nowrap;border-left:1px solid rgba(255,255,255,.32);}
+.top-nav .nav-item:first-child{border-left:none;}
+.top-nav .label{font-size:clamp(18px,2.2vw,25px);letter-spacing:1.5px;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.55);transition:opacity .25s,text-shadow .25s;}
+.top-nav .nav-item:hover .label{opacity:1;text-shadow:0 0 14px rgba(255,255,255,.7);}
+.top-nav .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.top-nav .nav-item:hover .sub{opacity:1;}
+@media(max-width:600px){.nav-inner{padding:14px 8px 10px;max-width:none;}.top-nav .label{font-size:12px;letter-spacing:.3px;}.top-nav .sub{font-size:9px;margin-top:4px;}}
+.container{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:980px;margin:0 auto;padding:120px 36px 40px;}
+.article{min-width:0;}
+.article h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:1px;margin-bottom:14px;line-height:1.3;}
+.meta{display:flex;gap:16px;font-size:13px;opacity:.55;margin-bottom:24px;flex-wrap:wrap;}
+.cover{height:300px;border-radius:14px;background:#1a1a1a center/cover no-repeat;margin-bottom:28px;}
+.article p{font-size:15.5px;margin-bottom:18px;color:rgba(255,255,255,.82);}
+.article h2{font-size:21px;font-weight:500;margin:30px 0 12px;scroll-margin-top:120px;}
+.article h3{font-size:17px;font-weight:500;margin:22px 0 8px;color:#cfe2ff;scroll-margin-top:120px;}
+.article blockquote{border-left:3px solid #9fc6ff;padding:6px 18px;margin:18px 0;opacity:.8;font-style:italic;}
+.aside{position:sticky;top:110px;align-self:start;}
+.box{background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px;}
+.toc h4{font-size:13px;opacity:.6;margin-bottom:12px;letter-spacing:1px;font-weight:500;}
+.toc a{display:block;font-size:13.5px;padding:7px 0 7px 12px;color:rgba(255,255,255,.8);border-left:2px solid transparent;transition:.2s;}
+.toc a:hover{color:#9fc6ff;border-left-color:#9fc6ff;}
+.author{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{width:52px;height:52px;border-radius:18px;background:transparent center/contain no-repeat;flex:0 0 auto;}
+.author .name{font-size:16px;font-weight:500;}
+.author .bio{font-size:12.5px;opacity:.6;line-height:1.5;}
+.tags .tt{font-size:12px;opacity:.6;margin-bottom:8px;letter-spacing:1px;}
+.tags span{display:inline-block;font-size:11px;padding:3px 10px;margin:0 6px 6px 0;border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.75);}
+.rel h4{font-size:13px;opacity:.6;margin-bottom:10px;letter-spacing:1px;font-weight:500;}
+.rel a{display:block;font-size:13.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85);transition:color .2s;}
+.rel a:hover{color:#9fc6ff;}
+.foot{text-align:center;padding:24px 0 40px;font-size:12px;opacity:.5;grid-column:1/-1;}
+.cmp{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:14px;}
+.cmp th,.cmp td{border:1px solid rgba(255,255,255,.14);padding:10px 12px;text-align:left;vertical-align:top;}
+.cmp th{background:rgba(159,198,255,.12);color:#cfe2ff;font-weight:500;}
+.cmp td:first-child{color:#9fc6ff;font-weight:500;white-space:nowrap;}
+@media(max-width:860px){.container{grid-template-columns:1fr;}.aside{position:static;}}
+.mm-wrap{background:#131316;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;margin:18px 0;overflow:auto;}
+.mermaid{text-align:center;}
+.mm-code{margin:4px 0 18px;font-size:13px;}
+.mm-code summary{cursor:pointer;opacity:.7;color:#9fc6ff;user-select:none;}
+.mm-code pre{background:#0c0c0e;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;margin-top:8px;overflow:auto;color:#cfe2ff;font-size:12.5px;line-height:1.6;white-space:pre;}
+
+/* 导航右上角搜索入口（跟随"关于"平齐） */
+.nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
+.nav-search:hover{opacity:1;transform:scale(1.1);}
+@media(max-width:600px){.nav-search{display:none;}.nav-inner{padding:12px 8px 10px;gap:0;}.top-nav .nav-item{flex:1 1 0;min-width:0;}.top-nav .label{font-size:11px;letter-spacing:.3px;}.top-nav .sub{left:0;transform:none;width:100%;margin-top:4px;font-size:9px;white-space:normal;text-align:center;opacity:0;transition:opacity .25s;}.top-nav .nav-item:hover .sub,.top-nav .nav-item:active .sub,.top-nav .nav-item:focus .sub{opacity:1;}}
+</style>
+</head>
+<body>
+  <nav class="top-nav"><div class="nav-inner">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  <a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></div>
+  </nav>
+<div class="container">
+  <article class="article">
+    <h1>我实际用下来的主流 AI 工具横评（2026 年 8 月版）</h1>
+    <div class="meta"><span>2026-08-14</span><span>JowJo</span><span>约 14 分钟</span></div>
+    <div class="cover" style="background-image:url('media/ai-tools-cover.png')"></div>
+<p>网上「2026 最好用的 AI」榜单一抓一大把，但大部分是表面功夫——列一堆功能就叫对比。我更想给你一份<strong>我自己真在用的清单</strong>：哪些我天天开、哪些我踩过坑、哪些我劝你别碰。AI 这行换代快得离谱，所以这篇只讲"当下"（2026 年 8 月）的状态，数字和名次过两个月可能就变，但<strong>选工具的逻辑不会变</strong>：别迷信一个全能王，按活儿挑工具。</p>
+
+<h2 id="s1">一、先给结论：按活儿选，别按榜单选</h2>
+<p>先把最重要的话说前面：<strong>没有「最好的 AI」，只有「最对你这个活儿最好的 AI」</strong>。我试过同一批提示词跑四个大模型，结果天差地别——写长文 Claude 更顺，算数推理 GPT 更稳，中文免费活儿 DeepSeek 真香，住在 Google 里就 Gemini 最省事。</p>
+<p>所以别问"该用哪个"，先问"我今天是干嘛"。这篇后面就按这个思路拆：对话、图像、视频、编程、本地/隐私、搜索研究，每类告诉你谁强在哪、谁别碰，最后给一份我自己的日常搭配。</p>
+
+<h2 id="s2">二、对话大模型：四个常驻选手</h2>
+<p>这是大多数人每天第一个打开的。2026 年 8 月，头部就是这四家，各有各的脾气：</p>
+<table class="cmp">
+<tr><th>工具</th><th>最强项</th><th>短板</th><th>适合谁</th></tr>
+<tr><td>ChatGPT（GPT-5.6）</td><td>全能、生态最全（语音/生图/代码解释器/记忆跨会话），生图第一</td><td>长文偶尔有"AI 味"，高级模型有额度上限</td><td>想要"一个工具搞定一切"的普通人</td></tr>
+<tr><td>Claude（Fable 5 / Opus 5）</td><td>写作第一、编程刚拿下王冠（WebDev/agent 多榜第一），1M 上下文</td><td>不能生图、没语音、免费档更严</td><td>写长文、啃代码库、做分析的人</td></tr>
+<tr><td>Gemini（3.1 Pro）</td><td>准确度顶尖、深度集成 Google 全家桶、实时联网、免费档最大方</td><td>独立 App 体验不如前两家顺手</td><td>住在 Gmail/Drive/Docs 里的人</td></tr>
+<tr><td>DeepSeek（V4-Flash）</td><td>性价比之王（约 1/10 价格逼近中端旗舰），开源免费</td><td>企业敏感数据有合规顾虑</td><td>省钱、中文日常、能自托管的玩家</td></tr>
+</table>
+<p><strong>我的判断</strong>：ChatGPT 是"默认打开的那个"，什么都能凑合干；Claude 是"要出活质量时的那把刀"；Gemini 是"在 Google 里随手问"；DeepSeek 是"不想花钱又想要好效果"的退路。Grok 算半个选手——实时 X 上下文、限制最少，特定场景好用，但我用得少。</p>
+<blockquote>小提醒：OpenAI 在 7 月 30 日把 GPT-5.6 大幅降价了，Claude Opus 5 也在 8 月初刚把编程王冠从 GPT 手里抢过来。所以"谁第一"每个月都在动，盯着活儿比盯着名次靠谱。</blockquote>
+
+<h2 id="s3">三、图像生成：生图这件事已经卷疯了</h2>
+<p>2026 年的图像模型，按"用途"而不是"谁最强"来分更清楚：</p>
+<p>· <strong>ChatGPT Images 2.0（GPT Image 2）</strong>：公开图像榜 Elo 第一，最大的杀手锏是<strong>图里写字准</strong>——做带 logo、带标语的图不再糊字。日常出图我首选它。<br/>
+· <strong>Midjourney V7</strong>：艺术质感还是天花板，概念图、氛围图最稳，但要订阅、且不能精准控字。<br/>
+· <strong>Flux / Stable Diffusion（开源）</strong>：能本地跑、能自定义（LoRA/ControlNet）、文字渲染也好，关键是<strong>数据不出本机</strong>——和我后面说的本地线完美契合。<br/>
+· <strong>即梦 / Seedream（国内）</strong>：中文场景、免费额度友好，做社媒封面很顺手。<br/>
+· <strong>Adobe Firefly</strong>：商用最安全，给客户出片不怕版权扯皮。</p>
+<p>一句话：要省事用 GPT Image 2，要艺术用 Midjourney，要可控/免费/本地用 Flux+SD，要商用安全用 Firefly。</p>
+
+<h2 id="s4">四、视频生成：这里换代最快，也最容易踩坑</h2>
+<p>视频是 2026 年最热的战场，但也是"榜单最不值钱"的战场——上个月的第一，这个月可能就换人了。</p>
+<p>· <strong>字节 Dreamina Seedance 2.0</strong>：带音频的视频榜目前第一，国内可用、出片快。<br/>
+· <strong>可灵（Kling）</strong>：性价比高，能拉长到 2 分钟，我做短视频首选。<br/>
+· <strong>Google Veo 3.1</strong>：西方阵营最强、原生带音，但公开榜排名其实没那么前；企业级更稳。<br/>
+· <strong>Runway Gen-4</strong>：专业剪辑套件，真要精修片子就它。<br/>
+· <strong>Sora（OpenAI）</strong>：<strong>劝你别押注</strong>——消费者 App 已经在 2026 年 4 月下线，API 也定在 9 月关停。把工作流建在它上面等于建在沙地上。</p>
+<p>我的用法：短视频量大的活儿走可灵/即梦，要电影感或精修走 Runway，别碰 Sora。</p>
+
+<h2 id="s5">五、编程助手：Claude 代码王座，Cursor 是主场</h2>
+<p>如果你写代码，这一块值得单独说：</p>
+<p>· <strong>Claude Opus 5 + Claude Code</strong>：2026 年 8 月刚拿下编程多项第一（WebDev、image-to-WebDev、agent 榜），多文件重构、长上下文是真强，开发者圈默认标配。<br/>
+· <strong>Cursor</strong>：AI-native 编辑器，代码库一大就它最顺手，agent 模式能自己改多文件。<br/>
+· <strong>GitHub Copilot</strong>：最稳的"自动补全"，用户基数最大，适合在公司 IDE 里老老实实用。<br/>
+· <strong>Windsurf</strong>：性价比高（约 $15/月），小项目够用。<br/>
+· <strong>Muse Code（Meta）</strong>：刚出的终端编程 agent，可以观望。</p>
+<p>我用的是 Claude Code 干"外科手术"式的活（重构、debug），Cursor 干日常大库编辑，偶尔 Copilot 补补全。</p>
+
+<h2 id="s6">六、本地与隐私那条线（呼应前两篇）</h2>
+<p>前面四篇里我专门写过《我把 AI 搬回本地》和《800G 素材库》——本地这条线不是噱头，是<strong>把"敏感活"留在本机</strong>的底线。</p>
+<p>· <strong>Ollama / LM Studio / ComfyUI</strong>：我机器上跑本地模型（Ollama 管对话、ComfyUI 管出图）的主角。断网照干、数据不出门。<br/>
+· <strong>DeepSeek / Llama / Qwen 自托管</strong>：开源权重自己跑，既免费又合规，企业怕数据出境的可以用这招。<br/>
+· <strong>本地 RAG + 向量库</strong>：上两篇讲过的"第二大脑"——你的私房资料在本地被检索，只把几段脱敏内容交给云模型，敏感和聪明两头都占。</p>
+<p>所以我的原则很简单：<strong>能本地解决的，不往上云；非上云不可的，先脱敏</strong>。这不耽误用最强模型，只是多一道心眼。</p>
+
+<h2 id="s7">七、搜索与研究：要"有出处"就别只靠聊天</h2>
+<p>纯聊天模型容易"自信地编"，真要做研究，这几样更靠谱：</p>
+<p>· <strong>Perplexity</strong>：每个结论都带引用链接，查"现在发生了啥"最快。<br/>
+· <strong>NotebookLM</strong>：把你的 PDF/笔记丢进去，它给你生成音频概览、思维导图、小测——学习研究神器，免费。<br/>
+· <strong>Gemini + Google 搜索</strong>：实时联网、能同时翻 Gmail/Drive，活在 Google 里的人首选。<br/>
+· <strong>ChatGPT Deep Research</strong>：深一点的课题，让它自己查一轮再写简报。</p>
+
+<h2 id="s8">八、我的日常搭配 + 一个提醒</h2>
+<p>把上面揉成我自己的日常，大概是这样：</p>
+<p>· 日常问答/什么都能凑合 → <strong>ChatGPT</strong><br/>
+· 写长文、啃代码、做分析 → <strong>Claude</strong><br/>
+· 住在 Google 里、要联网 → <strong>Gemini</strong><br/>
+· 省钱、中文日常、能自托管 → <strong>DeepSeek</strong><br/>
+· 出图 → <strong>GPT Image 2</strong>（省事）+ <strong>即梦</strong>（国内）；本地玩用 <strong>ComfyUI + Flux</strong><br/>
+· 短视频 → <strong>可灵 / 即梦</strong>，精修走 <strong>Runway</strong><br/>
+· 写代码 → <strong>Claude Code + Cursor</strong><br/>
+· 研究/要出处 → <strong>Perplexity + NotebookLM</strong><br/>
+· 隐私/离线/私房资料 → <strong>Ollama 本地 + 本地 RAG</strong></p>
+<p><strong>最后一句提醒</strong>：AI 工具榜像手机跑分，看个乐就行。我写这篇时，Claude Opus 5 刚抢下编程王冠、DeepSeek V4-Flash 七月底才出、Sora 已经在退场。把工具当成"会过期的技能"——<strong>会换、要常试、别上头</strong>。真正值钱的是你"知道什么活儿该交给谁"的判断力，那玩意儿比任何单一模型都保值。</p>
+
+<h2 id="s9">九、一张图看懂：我的 AI 工具全景（Mermaid 思维导图）</h2>
+<p>前面八节拆得细，最后用一张图收个尾——这是用 <strong>Mermaid</strong> 画的思维导图：它看上去是图，本质却是一段「文本代码」，浏览器会把它实时渲染成下面这张图。你改文字、加分支，刷新就变，比 PPT 还好使。</p>
+<div class="mm-wrap"><div class="mermaid">
+mindmap
+  root((AI工具全景))
+    对话大模型
+      ChatGPT
+      Claude
+      Gemini
+      DeepSeek
+    图像生成
+      GPT Image 2
+      即梦
+      ComfyUI·Flux
+    视频生成
+      可灵
+      即梦
+      Runway
+    编程助手
+      Claude Code
+      Cursor
+    本地与隐私
+      Ollama
+      本地RAG
+    搜索研究
+      Perplexity
+      NotebookLM
+</div></div>
+<details class="mm-code"><summary>查看这张图的 Mermaid 代码（就是这堆文本生成了上面的图）</summary>
+<pre>
+mindmap
+  root((AI工具全景))
+    对话大模型
+      ChatGPT
+      Claude
+      Gemini
+      DeepSeek
+    图像生成
+      GPT Image 2
+      即梦
+      ComfyUI·Flux
+    视频生成
+      可灵
+      即梦
+      Runway
+    编程助手
+      Claude Code
+      Cursor
+    本地与隐私
+      Ollama
+      本地RAG
+    搜索研究
+      Perplexity
+      NotebookLM
+</pre>
+</details>
+
+  </article>
+  <aside class="aside">
+    <div class="box toc">
+      <h4>目录</h4>
+      <a href="#s1">一、先给结论：按活儿选，别按榜单选</a><a href="#s2">二、对话大模型：四个常驻选手</a><a href="#s3">三、图像生成：生图这件事已经卷疯了</a><a href="#s4">四、视频生成：这里换代最快，也最容易踩坑</a><a href="#s5">五、编程助手：Claude 代码王座，Cursor 是主场</a><a href="#s6">六、本地与隐私那条线（呼应前两篇）</a><a href="#s7">七、搜索与研究：要「有出处」就别只靠聊天</a><a href="#s8">八、我的日常搭配 + 一个提醒</a><a href="#s9">九、一张图看懂：AI 工具全景导图</a>
+    </div>
+    <div class="box author">
+      <div class="avatar" style="background-image:url('media/tiger-head.png')"></div>
+      <div><div class="name">JowJo</div><div class="bio">超认真工作室 · 用 AI 把日常变顺手</div></div>
+    </div>
+    <div class="box tags">
+      <div class="tt">标签</div>
+      <span>主流AI工具</span><span>AI横评</span><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>DeepSeek</span><span>工具对比</span><span>本地AI</span>
+    </div>
+    <div class="box rel">
+      <h4>相关阅读</h4>
+      <a href="ai-post-local-pipeline.html">我把 AI 搬回本地：一台只处理文字数据的低成本「第二大脑」 →</a><a href="ai-post-library.html">我怎么用 AI 整理 800G 素材库 →</a>
+    </div>
+  </aside>
+  <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { fontFamily: "'Noto Sans SC', sans-serif", fontSize: '15px' } });
+  }
+</script>
+</body>
+</html>
