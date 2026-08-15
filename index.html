@@ -7,8 +7,8 @@
   <meta name="description" content="JowJo — AI 探索者的个人工作站。探索 AI 改变生活的每一刻。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -162,7 +162,7 @@
 </head>
 <body>
   <div class="video-wrap">
-    <video id="bg" autoplay muted loop playsinline preload="auto">
+    <video id="bg" autoplay muted loop playsinline preload="metadata" poster="media/hero-poster.jpg">
       <source src="media/hero.mp4" type="video/mp4" />
       你的浏览器不支持视频播放。
     </video>
