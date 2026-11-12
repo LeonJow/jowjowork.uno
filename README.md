@@ -13,7 +13,10 @@
 | `hobbies.html` | 半桶水 · 17 项，每项含怎么入门 / 条件 / 花费 / 先学什么 |
 | `places.html` | 一些店 · 按城市分 |
 | `thoughts.html` | 一些思考 · 4 个主题 |
-| `post.html` | 文章详情模板，复制改名复用 |
+| `notes-eat.html` | 吃饭的需求 |
+| `notes-work.html` | 关于工作 |
+| `notes-fit.html` | 关于健身 |
+| `notes-life.html` | 关于生活 |
 | `social.html` | 自媒体 · 8 个平台 |
 | `about.html` | 关于 · 参数表 |
 | `assets/style.css` | 全站配色与字体，顶部变量可改 |
