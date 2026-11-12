@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商业合作 | JowJo</title>
+  <meta name="description" content="与 JowJo / 超认真工作室建立商业合作 — 微信、打赏与邮箱直达。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    body { background: #070707; color: #fff; min-height: 100%;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+    /* 顶部导航（与首页一致的 5 项顺序） */
+    /* 顶部导航：与主页完全一致，保证点进栏目页无感衔接 */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      
+      
+      
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
+    }
+    .nav-inner {
+      display: flex; justify-content: center; align-items: flex-start;
+      max-width: 1100px; margin: 0 auto;
+      padding: 30px 24px 16px;
+    }
+    .top-nav .nav-item {
+      position: relative; display: flex; flex-direction: column; align-items: center;
+      flex: 1 1 0; min-width: 0;
+      color: #fff; text-decoration: none; white-space: nowrap;
+      border-left: 1px solid rgba(255,255,255,.32);
+    }
+    .top-nav .nav-item:first-child { border-left: none; }
+    .top-nav .label {
+      font-size: clamp(18px, 2.2vw, 25px); letter-spacing: 1.5px;
+      opacity: .82;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55);
+      transition: opacity .25s, text-shadow .25s;
+    }
+    .top-nav .nav-item:hover .label {
+      opacity: 1;
+      text-shadow: 0 0 14px rgba(255,255,255,.7);
+    }
+    .top-nav .sub {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      margin-top: 8px;
+      font-size: 12px; letter-spacing: 1px; white-space: nowrap;
+      color: rgba(255,255,255,.82);
+      opacity: 0; transition: opacity .25s;
+      pointer-events: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,.75);
+    }
+    .top-nav .nav-item:hover .sub { opacity: 1; }
+
+    /* 手机端：与主页一致，顶部紧凑、字号缩小（刚刚好） */
+    @media (max-width: 600px) {
+      .nav-inner { padding: 14px 8px 10px; max-width: none; }
+      .top-nav .label { font-size: 12px; letter-spacing: .3px; }
+      .top-nav .sub { font-size: 9px; margin-top: 4px; }
+    }
+
+    .wrap { padding: 120px 36px 60px; max-width: 980px; margin: 0 auto; text-align: center; }
+    .page-title { font-size: clamp(34px, 6vw, 56px); margin-bottom: 6px; font-weight: 700; letter-spacing: 2px; }
+    .page-sub { opacity: .6; font-size: 14px; letter-spacing: 3px; margin-bottom: 36px; }
+    .intro { font-size: 15px; opacity: .7; line-height: 1.8; max-width: 520px; margin: 0 auto 44px; }
+
+    /* 联系方式：两个二维码 + 邮箱 */
+    .contact { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .qr { background: #fff; border-radius: 16px; padding: 14px; width: 200px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+    .qr img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    .qr-cap { margin-top: 10px; color: #111; font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+
+    /* 社交 / 合作入口（B 版式：横条列表） */
+    .list-b { max-width: 680px; margin: 0 auto 36px; display: flex; flex-direction: column; gap: 14px; }
+    .row-b { display: flex; align-items: center; gap: 18px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 18px 22px; transition: background .25s, transform .2s, border-color .25s; text-decoration: none; }
+    .row-b:hover { background: rgba(255,255,255,.09); transform: translateX(4px); border-color: rgba(255,255,255,.25); }
+    .icon-circle { width: 52px; height: 52px; border-radius: 50%; background: #fff; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+    .icon-circle img { width: 60%; height: 60%; object-fit: contain; }
+    .meta { flex: 1 1 auto; }
+    .meta h3 { font-size: 19px; font-weight: 500; margin-bottom: 3px; }
+    .meta p { font-size: 13px; opacity: .55; line-height: 1.5; }
+    .meta .id { font-size: 11px; opacity: .4; margin-top: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .arrow { font-size: 22px; opacity: .5; transition: transform .25s, opacity .25s; }
+    .row-b:hover .arrow { transform: translateX(4px); opacity: .9; }
+
+    .note { margin-top: 34px; font-size: 12px; opacity: .45; line-height: 1.7; }
+    .foot { text-align: center; margin-top: 50px; font-size: 12px; opacity: .5; }
+  
+/* 导航右上角搜索入口（跟随"关于"平齐） */
+.nav-search{display:flex;align-items:center;justify-content:center;color:#fff;opacity:.8;transition:opacity .25s,transform .25s;filter:drop-shadow(0 1px 6px rgba(0,0,0,.6));align-self:center;margin-left:10px;}
+.nav-search:hover{opacity:1;transform:scale(1.1);}
+@media(max-width:600px){.nav-search{display:none;}.nav-inner{padding:12px 8px 10px;gap:0;}.top-nav .nav-item{flex:1 1 0;min-width:0;}.top-nav .label{font-size:11px;letter-spacing:.3px;}.top-nav .sub{left:0;transform:none;width:100%;margin-top:4px;font-size:9px;white-space:normal;text-align:center;opacity:0;transition:opacity .25s;}.top-nav .nav-item:hover .sub,.top-nav .nav-item:active .sub,.top-nav .nav-item:focus .sub{opacity:1;}}
+</style>
+</head>
+<body>
+  <!-- 顶部导航：顺序固定为 AI经验 · 作品 · Skills · 商业合作 · 关于 -->
+      <nav class="top-nav"><div class="nav-inner">
+    <a href="ai-sharing.html" class="nav-item"><span class="label">AI经验</span><span class="sub">日常中的一些AI经验分享</span></a>
+    <a href="skills.html" class="nav-item"><span class="label">SKILLS</span><span class="sub">一些好用的Skills</span></a>
+    <a href="works.html" class="nav-item"><span class="label">作品</span><span class="sub">我做过的一些项目与案例</span></a>
+    <a href="services.html" class="nav-item"><span class="label">商业合作</span><span class="sub">JowJo也许可以解决你的一些问题</span></a>
+    <a href="about.html" class="nav-item"><span class="label">关于</span><span class="sub">关于JowJo与超认真工作室</span></a>
+  <a class="nav-search" href="search.html" title="搜索" aria-label="搜索"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg></a></div>
+  </nav>
+
+  <div class="wrap">
+    <div class="page-title">商业合作</div>
+    <div class="page-sub">COOPERATION · 也许我能帮你解决一些问题</div>
+    <p class="intro">如果你对我的内容、技能包或项目合作感兴趣，欢迎用下面的任意方式找到我。合作形式灵活，从内容共创到技术咨询都可以聊。</p>
+
+    <!-- 商业合作：社交 / 联系入口（B 版式横条列表） -->
+    <div class="list-b">
+      <a class="row-b" href="https://www.douyin.com/user/MS4wLjABAAAAreuw3cVEK6Hp5cO9UyTVRpkyAs0yGbAmmy21T5seUypb1Mfq9Bc_qUqmY2ecqQWi" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/douyin.png" alt="抖音"></div>
+        <div class="meta"><h3>抖音</h3><p>短视频日常、AI 玩法、创作心得</p><div class="id">29568050004</div></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="row-b" href="https://b23.tv/EZxcvcF" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/bilibili.svg" alt="B 站"></div>
+        <div class="meta"><h3>B 站</h3><p>读书、学习、旅行系列 · 易富体质</p><div class="id">@O鲨鱼Oo</div></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="row-b" href="https://xhslink.com/m/A0GnUQ9rw0U" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/xiaohongshu.svg" alt="小红书"></div>
+        <div class="meta"><h3>小红书</h3><p>生活方式、成长笔记、好物灵感</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="row-b" href="http://weixin.qq.com/r/mp/iRE5IU7EIRNerQpC90Sb" target="_blank" rel="noopener">
+        <div class="icon-circle"><img src="media/social/wechat.svg" alt="微信"></div>
+        <div class="meta"><h3>微信</h3><p>公众号 / 个人号 · 慢聊、长文、链接</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="row-b" href="mailto:contact@jowjowork.uno">
+        <div class="icon-circle"><img src="media/social/email.svg" alt="邮箱"></div>
+        <div class="meta"><h3>邮箱</h3><p>商务合作、内容共创请邮件联系</p><div class="id">contact@jowjowork.uno</div></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+
+    <p class="note">提示：上方是我的社交 / 合作入口，点击任意一行即可跳转到对应平台；<br />邮箱为商务合作、内容共创的主要联系方式。</p>
+
+    <div class="foot">Copyright by <a href="index.html" style="color:inherit;text-decoration:underline;">超认真工作室</a></div>
+  </div>
+</body>
+</html>

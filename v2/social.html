@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>自媒体 · JowJoWork</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .list{border-top:1px solid var(--line);padding-bottom:20px}
+  .s{
+    display:grid;grid-template-columns:150px 1fr 110px 26px;gap:22px;align-items:center;
+    padding:24px 6px;border-bottom:1px solid var(--line);
+    transition:background .22s,padding-left .3s var(--ease);
+  }
+  .s:hover{background:rgba(0,0,0,.03);padding-left:14px}
+  .s .nm{font-size:17px;font-weight:600}
+  .s .nm small{display:block;font-size:11.5px;color:var(--ink3);font-weight:400;letter-spacing:.06em;margin-top:2px}
+  .s .ds{font-size:13.5px;color:var(--ink3);line-height:1.75}
+  .s .fr{font-size:12px;color:rgba(0,0,0,.34);text-align:right;white-space:nowrap}
+  .s .ar{font-size:14px;color:rgba(0,0,0,.26);text-align:right;transition:color .25s,transform .3s var(--ease)}
+  .s:hover .ar{color:var(--accent);transform:translateX(4px)}
+  @media(max-width:760px){
+    .s{grid-template-columns:1fr 24px;gap:10px;padding:18px 2px}
+    .s .fr{display:none}
+    .s .ds{grid-column:1}
+  }
+  .note{margin:38px 0 0;padding:20px 22px;border:1px dashed rgba(0,0,0,.14);border-radius:var(--r);font-size:13.5px;color:var(--ink3);line-height:1.9}
+  .note b{color:var(--ink2);font-weight:600}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html"><i></i>JowJoWork</a>
+    <nav>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html" class="on">自媒体</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="crumb">ELSEWHERE</div>
+    <h1>自媒体</h1>
+    <p class="lead">在哪儿发东西，以及哪个更值得看。更新频率不一样，我按频率排。</p>
+    <div class="count"><span><b>8</b> 个平台</span><span>常更新 <b>3</b></span></div>
+  </div>
+
+  <div class="list">
+    <!-- 改这里：把 href="#" 换成你的主页链接 -->
+    <a class="s rise" href="#" target="_blank" rel="noopener">
+      <div class="nm">小红书<small>XIAOHONGSHU</small></div>
+      <div class="ds">图文为主，店里和日常都发这里</div>
+      <div class="fr">经常更新</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:1" href="#" target="_blank" rel="noopener">
+      <div class="nm">抖音<small>DOUYIN</small></div>
+      <div class="ds">短视频，随手拍的居多</div>
+      <div class="fr">经常更新</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:2" href="#" target="_blank" rel="noopener">
+      <div class="nm">哔哩哔哩<small>BILIBILI</small></div>
+      <div class="ds">长一点的，剪辑过的</div>
+      <div class="fr">偶尔更新</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:3" href="#" target="_blank" rel="noopener">
+      <div class="nm">公众号<small>WECHAT</small></div>
+      <div class="ds">长文字，一个月一到两篇</div>
+      <div class="fr">偶尔更新</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:4" href="#" target="_blank" rel="noopener">
+      <div class="nm">Instagram<small>IG</small></div>
+      <div class="ds">只有照片，旅行时用得最多</div>
+      <div class="fr">看旅程</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:5" href="#" target="_blank" rel="noopener">
+      <div class="nm">YouTube<small>YT</small></div>
+      <div class="ds">还没开始更新</div>
+      <div class="fr">占位</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:6" href="#" target="_blank" rel="noopener">
+      <div class="nm">TikTok<small>TT</small></div>
+      <div class="ds">还没开始更新</div>
+      <div class="fr">占位</div>
+      <div class="ar">→</div>
+    </a>
+
+    <a class="s rise" style="--i:7" href="#" target="_blank" rel="noopener">
+      <div class="nm">X<small>TWITTER</small></div>
+      <div class="ds">还没开始更新</div>
+      <div class="fr">占位</div>
+      <div class="ar">→</div>
+    </a>
+  </div>
+
+  <div class="note">
+    <b>这一页要填的东西很少，但很关键</b><br>
+    每个平台把 <code style="font-size:12.5px;background:rgba(0,0,0,.04);padding:1px 5px;border-radius:4px">href="#"</code> 换成你的主页地址就行。右边那列「更新频率」建议照实写——写「经常更新」却三个月没动，比写「很少更新」更掉分。
+  </div>
+
+  <footer>
+    <div class="row">
+      <a href="index.html">首页</a>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </div>
+    <div class="copy"><span>© 2026 JowJoWork</span><span>All rights reserved</span></div>
+  </footer>
+
+</main>
+<script src="assets/site.js"></script>
+</body>
+</html>
