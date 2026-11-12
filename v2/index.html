@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JowJoWork · 樂</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* 首页只留一句话。整页撑满一屏，页脚贴底。 */
+  body{min-height:100vh;display:flex;flex-direction:column}
+  header{flex:0 0 auto}
+  main.wrap{flex:1;display:flex;flex-direction:column}
+  footer{flex:0 0 auto}
+
+  .hero{
+    flex:1;display:flex;flex-direction:column;justify-content:center;
+    max-width:600px;padding:60px 0 40px;
+  }
+  .hero .kicker{
+    font-size:11.5px;letter-spacing:.2em;color:var(--ink3);
+    margin-bottom:24px;font-weight:400;
+  }
+  .hero .lead{
+    font-size:19px;line-height:2.05;color:var(--ink2);
+    max-width:540px;
+  }
+  @media(max-width:760px){
+    .hero{padding:56px 0 48px}
+    .hero .lead{font-size:17px;line-height:1.95}
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html"><i></i>JowJoWork</a>
+    <nav>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="kicker">JOWJOWORK.UNO</div>
+    <p class="lead">我是樂，27 岁，游民。这里放我逛过的店、想清楚和没想清楚的事，还有那些学了一半就搁下的东西。</p>
+  </div>
+
+  <footer>
+    <div class="row">
+      <a href="index.html">首页</a>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </div>
+    <div class="copy"><span>© 2026 JowJoWork</span><span>All rights reserved</span></div>
+  </footer>
+
+</main>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一些店 · JowJoWork</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .jump{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+  .jump a{font-size:13px;padding:6px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink2);transition:.22s}
+  .jump a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+  .jump a.mute{color:rgba(0,0,0,.34)}
+
+  .city{padding:12px 0 48px;scroll-margin-top:84px}
+  .city .ch{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .city .ch h2{font-size:22px;font-weight:600}
+  .city .ch span{font-size:12px;color:var(--ink3);letter-spacing:.1em}
+  .city .cd{font-size:14px;color:var(--ink3);margin-bottom:22px}
+
+  .shops{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:820px){.shops{grid-template-columns:1fr}}
+  .shop{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;transition:border-color .3s,transform .35s var(--ease);
+  }
+  .shop:hover{border-color:rgba(0,0,0,.20);transform:translateY(-3px)}
+  .shop .media{aspect-ratio:4/3;position:relative;overflow:hidden;display:grid;place-items:center;background:#EFEFEF}
+  .shop .media .art{position:absolute;inset:0;transition:transform .6s var(--ease)}
+  .shop:hover .media .art{transform:scale(1.05)}
+  .shop .media .art::before{content:"";position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.45);left:-12%;bottom:-16%}
+  .shop .media .art::after{content:"";position:absolute;width:36%;height:1px;background:rgba(255,255,255,.8);right:16%;top:32%}
+  .shop .media em{position:relative;z-index:2;font-style:normal;font-size:11px;letter-spacing:.14em;color:rgba(0,0,0,.34)}
+  .shop .body{padding:18px 20px 20px}
+  .shop .body h4{font-size:16px;font-weight:600;margin-bottom:3px}
+  .shop .body .meta{font-size:12.5px;color:var(--ink3)}
+  .reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .34s var(--ease),opacity .26s ease,margin-top .34s var(--ease)}
+  .shop:hover .reveal{max-height:90px;opacity:1;margin-top:11px}
+  .reveal p{font-size:13px;color:var(--ink2);line-height:1.8}
+  @media (hover:none){.reveal{max-height:none;opacity:1;margin-top:11px}}
+
+  .ghost{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;margin-top:8px}
+  .ghost div{
+    border:1px dashed rgba(0,0,0,.14);border-radius:9px;padding:16px 14px;
+    font-size:13.5px;color:rgba(0,0,0,.32);
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html"><i></i>JowJoWork</a>
+    <nav>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html" class="on">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="crumb">PLACES</div>
+    <h1>一些店</h1>
+    <p class="lead">去过的、想再去的、记不住名字的。按城市放，没有排名。</p>
+    <div class="count"><span><b>10</b> 个城市</span><span><b>6</b> 家已记录</span><span>待补 <b>4</b> 个城市</span></div>
+  </div>
+
+  <div class="jump">
+    <a href="#nb">宁波 5</a>
+    <a href="#hd">邯郸 1</a>
+    <a href="#todo" class="mute">其余 8 个城市 →</a>
+  </div>
+
+  <!-- 宁波 -->
+  <div class="city" id="nb">
+    <div class="ch"><h2>宁波</h2><span>NINGBO</span></div>
+    <div class="cd">待补一句对这座城市的印象。</div>
+
+    <div class="shops">
+      <article class="shop rise">
+        <div class="media"><div class="art" style="background:#F2F2F2"></div><em>照片位置</em></div>
+        <div class="body">
+          <h4>Monkey Club</h4>
+          <div class="meta">待补：类型 / 区域</div>
+          <div class="reveal"><p>待填一句你的备注：为什么记它、什么时间去最好、点什么。</p></div>
+        </div>
+      </article>
+
+      <article class="shop rise" style="--i:1">
+        <div class="media"><div class="art" style="background:#EDEDED"></div><em>照片位置</em></div>
+        <div class="body">
+          <h4>Cang 仓</h4>
+          <div class="meta">待补：类型 / 区域</div>
+          <div class="reveal"><p>待填一句你的备注。</p></div>
+        </div>
+      </article>
+
+      <article class="shop rise" style="--i:2">
+        <div class="media"><div class="art" style="background:#F4F4F4"></div><em>照片位置</em></div>
+        <div class="body">
+          <h4>香樟树天堂</h4>
+          <div class="meta">待补：类型 / 区域</div>
+          <div class="reveal"><p>待填一句你的备注。</p></div>
+        </div>
+      </article>
+
+      <article class="shop rise" style="--i:3">
+        <div class="media"><div class="art" style="background:#EAEAEA"></div><em>照片位置</em></div>
+        <div class="body">
+          <h4>Attic Bar</h4>
+          <div class="meta">待补：类型 / 区域</div>
+          <div class="reveal"><p>待填一句你的备注。</p></div>
+        </div>
+      </article>
+
+      <article class="shop rise" style="--i:4">
+        <div class="media"><div class="art" style="background:#F1F1F1"></div><em>照片位置</em></div>
+        <div class="body">
+          <h4>在在在 books</h4>
+          <div class="meta">待补：类型 / 区域</div>
+          <div class="reveal"><p>待填一句你的备注。</p></div>
+        </div>
+      </article>
+
+      <article class="shop rise" style="--i:5" aria-label="添加一家">
+        <div class="media" style="background:transparent;border-bottom:1px dashed rgba(0,0,0,.14)"><em style="color:rgba(0,0,0,.34)">＋</em></div>
+        <div class="body">
+          <h4 style="color:rgba(0,0,0,.34)">再加一家</h4>
+          <div class="meta">在 工作区_网站/主页/一些店/宁波 里新建 md</div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 邯郸 -->
+  <div class="city" id="hd">
+    <div class="ch"><h2>邯郸</h2><span>HANDAN</span></div>
+    <div class="cd">待补一句对这座城市的印象。</div>
+
+    <div class="shops">
+      <article class="shop rise">
+        <div class="media"><div class="art" style="background:#ECECEC"></div><em>照片位置</em></div>
+        <div class="body">
+          <h4>未命名</h4>
+          <div class="meta">待补：店名 / 类型 / 区域</div>
+          <div class="reveal"><p>这家还没起名字。想好了改文件名就行。</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 待补城市 -->
+  <div class="city" id="todo">
+    <div class="ch"><h2>还没写</h2><span>TO FILL</span></div>
+    <div class="cd">文件夹里已经建好了，只是还没有内容。什么时候想起来再补。</div>
+    <div class="ghost">
+      <div>上海</div><div>北京</div><div>杭州</div><div>海口</div>
+      <div>文昌</div><div>郑州</div><div>武汉</div><div>未命名</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="row">
+      <a href="index.html">首页</a>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </div>
+    <div class="copy"><span>© 2026 JowJoWork</span><span>All rights reserved</span></div>
+  </footer>
+
+</main>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一些思考 · JowJoWork</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .jump{
+    display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;
+    padding-bottom:22px;border-bottom:1px solid var(--line);
+  }
+  .jump a{
+    font-size:13px;padding:6px 14px;border-radius:999px;
+    background:var(--card);border:1px solid var(--line);color:var(--ink2);
+    transition:border-color .22s,background .22s,color .22s;
+  }
+  .jump a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+  .theme{padding:14px 0 46px;scroll-margin-top:84px}
+  .theme .th{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .theme .th h2{font-size:22px;font-weight:600}
+  .theme .th span{font-size:12px;color:var(--ink3);letter-spacing:.1em}
+  .theme .td{font-size:14px;color:var(--ink3);margin-bottom:20px}
+
+  .plist{border-top:1px solid var(--line)}
+  .pitem{
+    display:grid;grid-template-columns:1fr 96px;gap:24px;align-items:baseline;
+    padding:20px 4px;border-bottom:1px solid var(--line);
+    transition:background .2s,padding-left .28s var(--ease);
+  }
+  .pitem:hover{background:rgba(0,0,0,.03);padding-left:10px}
+  .pitem .t{font-size:16.5px;font-weight:500;margin-bottom:5px}
+  .pitem .e{font-size:13.5px;color:var(--ink3);line-height:1.75}
+  .pitem .d{font-size:12px;color:rgba(0,0,0,.34);text-align:right;white-space:nowrap}
+  @media(max-width:640px){
+    .pitem{grid-template-columns:1fr;gap:6px}
+    .pitem .d{text-align:left}
+  }
+  .addrow{
+    display:flex;align-items:center;gap:10px;padding:16px 4px;
+    font-size:13px;color:rgba(0,0,0,.34);border-bottom:1px dashed var(--line);
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html"><i></i>JowJoWork</a>
+    <nav>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html" class="on">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="crumb">NOTES</div>
+    <h1>一些思考</h1>
+    <p class="lead">都不长，大多是写给自己看的。按主题分了四组，没按时间。</p>
+    <div class="count"><span><b>4</b> 个主题</span><span><b>4</b> 篇</span><span>最后更新 <b>11.12</b></span></div>
+  </div>
+
+  <div class="jump">
+    <a href="#eat">关于吃饭</a>
+    <a href="#work">关于工作</a>
+    <a href="#fit">关于健身</a>
+    <a href="#life">关于生活</a>
+  </div>
+
+  <!-- 吃饭 -->
+  <div class="theme" id="eat">
+    <div class="th"><h2>关于吃饭</h2><span>01</span></div>
+    <div class="td">优先顺序比花哨的做法重要。</div>
+    <div class="plist">
+      <a class="pitem rise" href="post.html">
+        <div>
+          <div class="t">吃饭的需求</div>
+          <div class="e">蛋白质、蔬菜、碳水、脂肪——按这个顺序保证摄入，脂肪基本不用额外算。</div>
+        </div>
+        <div class="d">11.12</div>
+      </a>
+      <div class="addrow">＋ 这一组还可以加：外食怎么点、一天吃几顿、备餐流程</div>
+    </div>
+  </div>
+
+  <!-- 工作 -->
+  <div class="theme" id="work">
+    <div class="th"><h2>关于工作</h2><span>02</span></div>
+    <div class="td">底线和顶层，中间那段最难写。</div>
+    <div class="plist">
+      <a class="pitem rise" href="post.html">
+        <div>
+          <div class="t">关于工作</div>
+          <div class="e">底线是挣钱（谋生），顶层是愉悦且有钱。中间怎么走，还没想明白。</div>
+        </div>
+        <div class="d">11.12</div>
+      </a>
+      <div class="addrow">＋ 这一组还可以加：自由职业的现金流、怎么报价、要不要上班</div>
+    </div>
+  </div>
+
+  <!-- 健身 -->
+  <div class="theme" id="fit">
+    <div class="th"><h2>关于健身</h2><span>03</span></div>
+    <div class="td">人是动物，得动。</div>
+    <div class="plist">
+      <a class="pitem rise" href="post.html">
+        <div>
+          <div class="t">关于健身</div>
+          <div class="e">每天早上 mini routine，每几天泡一泡健身房。练的时候只练，别一边练一边刷手机。</div>
+        </div>
+        <div class="d">11.12</div>
+      </a>
+      <div class="addrow">＋ 这一组还可以加：新手第一周怎么开始、断网一小时、器械还是自由重量</div>
+    </div>
+  </div>
+
+  <!-- 生活 -->
+  <div class="theme" id="life">
+    <div class="th"><h2>关于生活</h2><span>04</span></div>
+    <div class="td">是生活，不是生存。</div>
+    <div class="plist">
+      <a class="pitem rise" href="post.html">
+        <div>
+          <div class="t">关于生活</div>
+          <div class="e">先保证住、吃、行、衣这四件。剩下的才叫生活。</div>
+        </div>
+        <div class="d">11.12</div>
+      </a>
+      <div class="addrow">＋ 这一组还可以加：怎么挑住处、低消费生活、一个人怎么过节</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="row">
+      <a href="index.html">首页</a>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </div>
+    <div class="copy"><span>© 2026 JowJoWork</span><span>All rights reserved</span></div>
+  </footer>
+
+</main>
+<script src="assets/site.js"></script>
+</body>
+</html>

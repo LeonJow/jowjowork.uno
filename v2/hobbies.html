@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>半桶水 · JowJoWork</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .grp{margin-top:44px;scroll-margin-top:80px}
+  .grp:first-of-type{margin-top:8px}
+  .grp .gh{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .grp .gh h2{font-size:18px;font-weight:600}
+  .grp .gh span{font-size:11.5px;color:var(--ink3);letter-spacing:.14em}
+  .grp .gh em{margin-left:auto;font-style:normal;font-size:12px;color:rgba(0,0,0,.28);font-variant-numeric:tabular-nums}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(410px,1fr));gap:14px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+
+  .hb{
+    position:relative;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--r);padding:22px 24px 20px;
+    transition:border-color .28s,transform .3s var(--ease);
+  }
+  .hb::before{
+    content:"";position:absolute;left:0;top:18px;bottom:18px;width:1.5px;
+    background:var(--ink);transform:scaleY(0);transform-origin:top;
+    transition:transform .35s var(--ease);border-radius:2px;
+  }
+  .hb:hover{border-color:rgba(0,0,0,.20);transform:translateY(-2px)}
+  .hb:hover::before{transform:scaleY(1)}
+
+  .hb .top{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+  .hb h3{font-size:17px;font-weight:600;letter-spacing:-.005em}
+  .hb .st{
+    font-size:10.5px;letter-spacing:.05em;padding:1.5px 8px;border-radius:4px;
+    background:rgba(0,0,0,.06);color:rgba(0,0,0,.58);white-space:nowrap;
+  }
+  .hb .st.plan{background:transparent;border:1px dashed rgba(0,0,0,.20);color:rgba(0,0,0,.40)}
+
+  .hb dl{display:grid;grid-template-columns:60px 1fr;gap:7px 14px;font-size:13px;line-height:1.8}
+  .hb dt{color:rgba(0,0,0,.36);font-size:11.5px;padding-top:3px;white-space:nowrap;letter-spacing:.02em}
+  .hb dd{color:var(--ink2)}
+  .hb dd b{color:var(--ink);font-weight:600}
+  .hb dd .num{font-variant-numeric:tabular-nums}
+
+  .note{margin:46px 0 0;padding:20px 22px;border:1px dashed rgba(0,0,0,.14);border-radius:var(--r);font-size:13px;color:var(--ink3);line-height:1.9}
+  .note b{color:var(--ink2);font-weight:600}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html"><i></i>JowJoWork</a>
+    <nav>
+      <a href="hobbies.html" class="on">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="crumb">HOBBIES</div>
+    <h1>半桶水</h1>
+    <p class="lead">每一样都只学到入门，然后就去学下一样了。所以每一样我都记下了四件事：怎么开始、要什么条件、大概花多少、先学哪个。</p>
+    <div class="count"><span><b>17</b> 项</span><span>入门 <b>15</b></span><span>计划中 <b>2</b></span></div>
+  </div>
+
+  <!-- ============ 运动 ============ -->
+  <div class="grp">
+    <div class="gh"><h2>动的</h2><span>BODY</span><em>6 项</em></div>
+    <div class="grid">
+
+      <article class="hb rise">
+        <div class="top"><h3>跑步</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>一双鞋就够。从 <b>500 米</b>跑起，从 <b>1 分钟</b>跑起，慢慢发现自己越跑越远。</dd>
+          <dt>入门条件</dt><dd>没有门槛。膝盖或足底有旧伤先去做个检查。</dd>
+          <dt>大概花费</dt><dd class="num">跑鞋 <b>300–800</b>，其余 0。路跑不要钱。</dd>
+          <dt>先学这个</dt><dd><b>控制心率</b>。能边跑边说话的配速，才是你该跑的配速。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:1">
+        <div class="top"><h3>游泳</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>先克服对水的恐惧，学会漂浮，再学划手<b>感知水</b>，然后憋气、换气。</dd>
+          <dt>入门条件</dt><dd>能在浅水区站稳就行。中耳炎、皮肤病先问医生。</dd>
+          <dt>大概花费</dt><dd class="num">泳镜 <b>100–200</b>、泳帽 30；泳池单次 <b>20–60</b>，年卡 1500–3000。</dd>
+          <dt>先学这个</dt><dd><b>换气</b>。游不长的人九成是不会换气，不是没力气。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:2">
+        <div class="top"><h3>健身</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>每天早上 mini routine，每几天泡一泡健身房。练的时候只练，别一边练一边刷手机。</dd>
+          <dt>入门条件</dt><dd>无。先做自重，别急着上大重量。</dd>
+          <dt>大概花费</dt><dd class="num">健身房月卡 <b>200–600</b>；私教 <b>200–400</b>/节，前期上 5–10 节学动作就够。</dd>
+          <dt>先学这个</dt><dd><b>深蹲、硬拉、卧推的姿势</b>。姿势错了，练越久越伤。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:3">
+        <div class="top"><h3>抱石</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>买门票进场，先学<b>怎么摔</b>再上墙。新手墙永远比看上去难。</dd>
+          <dt>入门条件</dt><dd>手指、肩没有旧伤。恐高的话从三米以下的墙开始。</dd>
+          <dt>大概花费</dt><dd class="num">门票 <b>88–128</b>、保险 10、租鞋 10；月卡 300–600。</dd>
+          <dt>先学这个</dt><dd><b>落地</b>：屈膝、屁股先着地、双手抱胸别撑地。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:4">
+        <div class="top"><h3>柔术</h3><span class="st plan">计划中</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>先约一节体验课，别一上来买年卡。看教练是不是教基本功。</dd>
+          <dt>入门条件</dt><dd>手指、膝、颈没有旧伤；能接受长时间身体接触。</dd>
+          <dt>大概花费</dt><dd class="num">一线核心区月卡 <b>1200–1500</b>、年卡 8000–12000；新一线 800–1200；二线 500–800。道服 300–800。</dd>
+          <dt>先学这个</dt><dd><b>受身</b>（怎么被摔不受伤）和 <b>tap</b>（认输）。这两个比任何降服技都先学。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:5">
+        <div class="top"><h3>拳击</h3><span class="st plan">计划中</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>同上，先体验。看教练肯不肯让你练三个月空击，而不是第一节课就打沙袋。</dd>
+          <dt>入门条件</dt><dd>手腕、肩无旧伤；先体检，血压高别硬上。</dd>
+          <dt>大概花费</dt><dd class="num">团课月卡 <b>800–1500</b>；私教 <b>200–400</b>/节；拳套护齿 300–800。</dd>
+          <dt>先学这个</dt><dd><b>站架和步伐</b>。拳是最后才学的东西。</dd>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ============ 手上的 ============ -->
+  <div class="grp">
+    <div class="gh"><h2>手上的</h2><span>CRAFT</span><em>4 项</em></div>
+    <div class="grid">
+
+      <article class="hb rise">
+        <div class="top"><h3>摄影</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>一部手机 or 相机，多拍、多看，培养自己的美感。先拍够一万张再谈器材。</dd>
+          <dt>入门条件</dt><dd>不用器材，手机就够。真正的门槛是<b>每天都拍</b>。</dd>
+          <dt>大概花费</dt><dd class="num">0 元起。想上微单：佳能 R100 套机约 <b>3600</b>，索尼 ZV-E10 约 <b>3900</b>。</dd>
+          <dt>先学这个</dt><dd><b>构图</b>——三分法、留白。把一件静物拍好，比换镜头有用。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:1">
+        <div class="top"><h3>剪辑</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>手机 or 电脑，<b>剪映</b>起步，先学会「剪」这一件事。</dd>
+          <dt>入门条件</dt><dd>设备跑得动软件，手里有素材。</dd>
+          <dt>大概花费</dt><dd class="num">剪映基础功能免费；能剪 4K 的电脑 4000 起。</dd>
+          <dt>先学这个</dt><dd><b>卡点</b>。把画面切在音乐重拍上，节奏自然就出来了。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:2">
+        <div class="top"><h3>美工</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>新建画板 → 收集素材 → 编辑 → 排版 → 效果 → 导出。</dd>
+          <dt>入门条件</dt><dd>手机就能做，不用电脑。</dd>
+          <dt>大概花费</dt><dd class="num">手机 App 免费或 <b>30–100</b>/月；电脑端订阅另算。</dd>
+          <dt>先学这个</dt><dd><b>对齐</b>。把元素对齐，丑图能救回一半。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:3">
+        <div class="top"><h3>公众号</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>免费注册，一部手机 or 一台电脑：文字、配图、排版、超链。</dd>
+          <dt>入门条件</dt><dd>一个微信号，完成实名。</dd>
+          <dt>大概花费</dt><dd class="num"><b>0</b>。排版工具会员 0–200/年。</dd>
+          <dt>先学这个</dt><dd><b>标题和第一段</b>。它们决定别人点不点、读不读下去。</dd>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ============ 嘴里和碗里的 ============ -->
+  <div class="grp">
+    <div class="gh"><h2>嘴里和碗里的</h2><span>TASTE</span><em>4 项</em></div>
+    <div class="grid">
+
+      <article class="hb rise">
+        <div class="top"><h3>咖啡</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>先喝贵的，再喝便宜的，才知道差在哪。</dd>
+          <dt>入门条件</dt><dd>无。喝多了自然就喝出区别。</dd>
+          <dt>大概花费</dt><dd class="num">一杯 <b>28–98</b>。在家做：手冲壶 + 磨豆机 500–1500，豆子 80–150/半磅。</dd>
+          <dt>先学这个</dt><dd><b>分清酸和苦</b>。知道自己喜欢哪种，比背产区有用。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:1">
+        <div class="top"><h3>威士忌</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>不同的桶、不同的年份、不同的产地，一样一样喝过去。</dd>
+          <dt>入门条件</dt><dd>成年，喝完不开车。</dd>
+          <dt>大概花费</dt><dd class="num">入门瓶 <b>68–188</b>；单一麦芽 200–500。</dd>
+          <dt>先学这个</dt><dd><b>加水</b>。几滴清水能把香气打开，别急着纯饮装懂。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:2">
+        <div class="top"><h3>金酒</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>从不同的<b>植物香气</b>开始分辨，一款一款对比着喝。</dd>
+          <dt>入门条件</dt><dd>成年。空腹别喝。</dd>
+          <dt>大概花费</dt><dd class="num">一瓶 <b>68–188</b>；金汤力用的汤力水 5–10/罐。</dd>
+          <dt>先学这个</dt><dd><b>认杜松子味</b>。所有金酒都有它，其他植物是变奏。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:3">
+        <div class="top"><h3>营养</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>先分清类别：蛋白质、蔬菜、纤维、碳水。顺序比数量重要。</dd>
+          <dt>入门条件</dt><dd>无。</dd>
+          <dt>大概花费</dt><dd class="num"><b>0</b>。这是纯知识，不花钱。</dd>
+          <dt>先学这个</dt><dd><b>看配料表</b>。前三位就是主要成分，排得越前含量越高。</dd>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ============ 杂 ============ -->
+  <div class="grp">
+    <div class="gh"><h2>杂</h2><span>MISC</span><em>3 项</em></div>
+    <div class="grid">
+
+      <article class="hb rise">
+        <div class="top"><h3>旅行</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>目的地 → 玩什么 → 住哪 → 吃什么 → 怎么走，<b>按这个顺序定</b>，别倒过来。</dd>
+          <dt>入门条件</dt><dd>证件有效期；一个人出门的决心。</dd>
+          <dt>大概花费</dt><dd class="num">因人而异。周末短途 <b>800–2000</b>，长途看机票。</dd>
+          <dt>先学这个</dt><dd><b>订可退的住宿</b>。行程会变，别把自己钉死。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:1">
+        <div class="top"><h3>音乐</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>多听。就这一条，但很难做到。</dd>
+          <dt>入门条件</dt><dd>无。</dd>
+          <dt>大概花费</dt><dd class="num"><b>0</b>；流媒体会员 15–30/月。</dd>
+          <dt>先学这个</dt><dd><b>听结构</b>。前奏、主歌、副歌之间是怎么过渡的。</dd>
+        </dl>
+      </article>
+
+      <article class="hb rise" style="--i:2">
+        <div class="top"><h3>护理</h3><span class="st">入门</span></div>
+        <dl>
+          <dt>如何入门</dt><dd>无创操作 → 消毒 → 体征测量 → 有创操作 → 输液、打针。</dd>
+          <dt>入门条件</dt><dd><b>有创操作必须持证</b>。自学只能到「量体温、测血压、消毒」这一层。</dd>
+          <dt>大概花费</dt><dd class="num">自学 <b>0</b>；正规培训 2000–8000。</dd>
+          <dt>先学这个</dt><dd><b>消毒和手卫生</b>。其他所有操作都排在这件后面。</dd>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="note">
+    <b>关于这些数字</b>：柔术、拳击、健身、相机的价格是查过的（2026 年公开报价），其余是按国内城市常见区间给的，会随城市和年份浮动。真正决定花费的从来不是单价，是你去多少次——年卡一万二、一年只去二十次，单次就是六百。<br><br>
+    <b>这一页还能怎么长</b>：每张卡点进去是一篇「入门」长文，写清楚我踩过的坑和放弃过几次。内容来自 <code style="font-size:12.5px;background:rgba(0,0,0,.04);padding:1px 5px;border-radius:4px">工作区_网站/主页/半桶水/</code> 里每个文件夹的「入门.md」。
+  </div>
+
+  <footer>
+    <div class="row">
+      <a href="index.html">首页</a>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </div>
+  <div class="copy"><span>© 2026 JowJoWork</span><span>All rights reserved</span></div>
+  </footer>
+
+</main>
+<script src="assets/site.js"></script>
+</body>
+</html>
