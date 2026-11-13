@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>常用网址 · JowJoWork</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* 搜索框 */
+  .finder{
+    display:flex;align-items:center;gap:12px;
+    border:1px solid var(--line);border-radius:var(--r);
+    padding:0 16px;height:52px;margin-bottom:24px;
+    transition:border-color .25s,box-shadow .25s;background:var(--card);
+  }
+  .finder:focus-within{border-color:rgba(0,0,0,.3);box-shadow:0 0 0 3px rgba(0,0,0,.03)}
+  .finder .ico{color:var(--ink3);flex:0 0 auto}
+  .finder input{flex:1;border:0;outline:0;background:transparent;font:inherit;font-size:14.5px;color:var(--ink)}
+  .finder input::placeholder{color:rgba(0,0,0,.3)}
+  .finder .hint{font-size:11.5px;color:rgba(0,0,0,.28);white-space:nowrap;letter-spacing:.04em}
+  @media(max-width:640px){.finder .hint{display:none}}
+
+  /* 分类快捷跳转 */
+  .jump{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+  .jump a{font-size:13px;padding:6px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink2);transition:border-color .22s,background .22s,color .22s}
+  .jump a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+  /* 分类区块 */
+  .cat{padding:14px 0 46px;scroll-margin-top:84px}
+  .cat .ch{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .cat .ch h2{font-size:22px;font-weight:600}
+  .cat .ch span{font-size:12px;color:var(--ink3);letter-spacing:.1em}
+  .cat .cd{font-size:14px;color:var(--ink3);margin-bottom:20px}
+
+  /* 站点卡片 */
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:1px solid var(--line);padding-top:20px}
+  .tcard{display:block;padding:16px 17px 15px;min-height:104px}
+  .tcard:hover{background:rgba(0,0,0,.018)}
+  .tcard .tn{font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .tcard .ar{font-size:13px;color:rgba(0,0,0,.2);transition:color .25s,transform .3s var(--ease)}
+  .tcard:hover .ar{color:var(--ink);transform:translate(2px,-2px)}
+  .tcard .td{font-size:12.5px;color:var(--ink3);line-height:1.65;margin-bottom:9px}
+  .tcard .tu{font-size:11px;color:rgba(0,0,0,.3);letter-spacing:.02em}
+  @media(max-width:760px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:420px){.tgrid{grid-template-columns:1fr}.tcard{min-height:0}}
+
+  .note{margin:0 0 8px;padding:20px 22px;border:1px dashed rgba(0,0,0,.14);border-radius:var(--r);font-size:13.5px;color:var(--ink3);line-height:1.9}
+  .note b{color:var(--ink2);font-weight:600;display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html"><i></i>JowJoWork</a>
+    <nav>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="crumb">NAVIGATION</div>
+    <h1>常用网址</h1>
+    <p class="lead">我自己反复打开的那几个，按用途摊开摆着。点一下开新标签页，不打断当前这页。</p>
+    <div class="count"><span><b>51</b> 个站点</span><span><b>7</b> 个分类</span><span>命中 <b id="hit">51</b></span></div>
+  </div>
+
+  <div class="finder">
+    <svg class="ico" width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+      <circle cx="7.2" cy="7.2" r="5.2" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M11.2 11.2 L15 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <input id="q" type="search" placeholder="输名字、用途或域名，比如「抠图」「PDF」「B站」" autocomplete="off" spellcheck="false">
+    <span class="hint">按 / 直接搜</span>
+  </div>
+
+  <div class="jump">
+    <a href="#search">搜索与查资料</a>
+    <a href="#ai">AI 助手</a>
+    <a href="#social">社交与内容平台</a>
+    <a href="#news">新闻与阅读</a>
+    <a href="#video">视频与解析</a>
+    <a href="#design">在线作图</a>
+    <a href="#utils">效率与杂项</a>
+  </div>
+
+  <div class="cat rise" id="search">
+    <div class="ch"><h2>搜索与查资料</h2><span>01</span></div>
+    <div class="cd">想找点什么，从这几个开始。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://www.baidu.com" target="_blank" rel="noopener noreferrer" data-k="百度 baidu.com 中文日常搜索 百度 baidu 搜索与查资料">
+        <div class="tn">百度<span class="ar">↗</span></div>
+        <div class="td">中文日常搜索</div>
+        <div class="tu">baidu.com</div>
+      </a>
+      <a class="tcard card" href="https://www.bing.com" target="_blank" rel="noopener noreferrer" data-k="必应 bing.com 国际搜索，中文界面 Bing 微软 搜索与查资料">
+        <div class="tn">必应<span class="ar">↗</span></div>
+        <div class="td">国际搜索，中文界面</div>
+        <div class="tu">bing.com</div>
+      </a>
+      <a class="tcard card" href="https://www.google.com" target="_blank" rel="noopener noreferrer" data-k="Google google.com 外文库、技术资料最全 谷歌 搜索与查资料">
+        <div class="tn">Google<span class="ar">↗</span></div>
+        <div class="td">外文库、技术资料最全</div>
+        <div class="tu">google.com</div>
+      </a>
+      <a class="tcard card" href="https://duckduckgo.com" target="_blank" rel="noopener noreferrer" data-k="DuckDuckGo duckduckgo.com 不记录搜索历史 隐私 无痕 搜索与查资料">
+        <div class="tn">DuckDuckGo<span class="ar">↗</span></div>
+        <div class="td">不记录搜索历史</div>
+        <div class="tu">duckduckgo.com</div>
+      </a>
+      <a class="tcard card" href="https://metaso.cn" target="_blank" rel="noopener noreferrer" data-k="秘塔 AI 搜索 metaso.cn 中文 AI 搜索，直接给答案和出处 AI 学术 无广告 搜索与查资料">
+        <div class="tn">秘塔 AI 搜索<span class="ar">↗</span></div>
+        <div class="td">中文 AI 搜索，直接给答案和出处</div>
+        <div class="tu">metaso.cn</div>
+      </a>
+      <a class="tcard card" href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" data-k="Perplexity perplexity.ai 带引用来源的 AI 回答 AI 英文 搜索与查资料">
+        <div class="tn">Perplexity<span class="ar">↗</span></div>
+        <div class="td">带引用来源的 AI 回答</div>
+        <div class="tu">perplexity.ai</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat rise" id="ai">
+    <div class="ch"><h2>AI 助手</h2><span>02</span></div>
+    <div class="cd">写东西、理思路、查代码，换着用。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://chat.deepseek.com" target="_blank" rel="noopener noreferrer" data-k="DeepSeek chat.deepseek.com 中文推理强，本机工具也接的它 深度求索 AI 助手">
+        <div class="tn">DeepSeek<span class="ar">↗</span></div>
+        <div class="td">中文推理强，本机工具也接的它</div>
+        <div class="tu">chat.deepseek.com</div>
+      </a>
+      <a class="tcard card" href="https://www.doubao.com" target="_blank" rel="noopener noreferrer" data-k="豆包 doubao.com 日常问答、读图、语音 字节 AI 助手">
+        <div class="tn">豆包<span class="ar">↗</span></div>
+        <div class="td">日常问答、读图、语音</div>
+        <div class="tu">doubao.com</div>
+      </a>
+      <a class="tcard card" href="https://www.kimi.com" target="_blank" rel="noopener noreferrer" data-k="Kimi kimi.com 长文档、网页阅读 月之暗面 长文 AI 助手">
+        <div class="tn">Kimi<span class="ar">↗</span></div>
+        <div class="td">长文档、网页阅读</div>
+        <div class="tu">kimi.com</div>
+      </a>
+      <a class="tcard card" href="https://chat.qwen.ai" target="_blank" rel="noopener noreferrer" data-k="Qwen chat.qwen.ai 通义千问，中文写作顺手 通义千问 阿里 AI 助手">
+        <div class="tn">Qwen<span class="ar">↗</span></div>
+        <div class="td">通义千问，中文写作顺手</div>
+        <div class="tu">chat.qwen.ai</div>
+      </a>
+      <a class="tcard card" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" data-k="ChatGPT chatgpt.com 综合能力强，需代理 OpenAI GPT AI 助手">
+        <div class="tn">ChatGPT<span class="ar">↗</span></div>
+        <div class="td">综合能力强，需代理</div>
+        <div class="tu">chatgpt.com</div>
+      </a>
+      <a class="tcard card" href="https://claude.ai" target="_blank" rel="noopener noreferrer" data-k="Claude claude.ai 长文写作、代码 Anthropic AI 助手">
+        <div class="tn">Claude<span class="ar">↗</span></div>
+        <div class="td">长文写作、代码</div>
+        <div class="tu">claude.ai</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat rise" id="social">
+    <div class="ch"><h2>社交与内容平台</h2><span>03</span></div>
+    <div class="cd">发东西、看东西的地方。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer" data-k="哔哩哔哩 bilibili.com 长视频、教程 B站 B站 bilibili 社交与内容平台">
+        <div class="tn">哔哩哔哩<span class="ar">↗</span></div>
+        <div class="td">长视频、教程</div>
+        <div class="tu">bilibili.com</div>
+      </a>
+      <a class="tcard card" href="https://www.xiaohongshu.com" target="_blank" rel="noopener noreferrer" data-k="小红书 xiaohongshu.com 图文、生活经验 红薯 xhs 社交与内容平台">
+        <div class="tn">小红书<span class="ar">↗</span></div>
+        <div class="td">图文、生活经验</div>
+        <div class="tu">xiaohongshu.com</div>
+      </a>
+      <a class="tcard card" href="https://www.douyin.com" target="_blank" rel="noopener noreferrer" data-k="抖音 douyin.com 短视频 Douyin tiktok 社交与内容平台">
+        <div class="tn">抖音<span class="ar">↗</span></div>
+        <div class="td">短视频</div>
+        <div class="tu">douyin.com</div>
+      </a>
+      <a class="tcard card" href="https://www.zhihu.com" target="_blank" rel="noopener noreferrer" data-k="知乎 zhihu.com 问答、长回答 问答 社交与内容平台">
+        <div class="tn">知乎<span class="ar">↗</span></div>
+        <div class="td">问答、长回答</div>
+        <div class="tu">zhihu.com</div>
+      </a>
+      <a class="tcard card" href="https://weibo.com" target="_blank" rel="noopener noreferrer" data-k="微博 weibo.com 热点、实时消息 热搜 社交与内容平台">
+        <div class="tn">微博<span class="ar">↗</span></div>
+        <div class="td">热点、实时消息</div>
+        <div class="tu">weibo.com</div>
+      </a>
+      <a class="tcard card" href="https://mp.weixin.qq.com" target="_blank" rel="noopener noreferrer" data-k="公众号平台 mp.weixin.qq.com 写和发公众号 微信 后台 社交与内容平台">
+        <div class="tn">公众号平台<span class="ar">↗</span></div>
+        <div class="td">写和发公众号</div>
+        <div class="tu">mp.weixin.qq.com</div>
+      </a>
+      <a class="tcard card" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" data-k="YouTube youtube.com 海外长视频 油管 需代理 社交与内容平台">
+        <div class="tn">YouTube<span class="ar">↗</span></div>
+        <div class="td">海外长视频</div>
+        <div class="tu">youtube.com</div>
+      </a>
+      <a class="tcard card" href="https://x.com" target="_blank" rel="noopener noreferrer" data-k="X x.com 海外资讯、创作者动态 推特 Twitter 需代理 社交与内容平台">
+        <div class="tn">X<span class="ar">↗</span></div>
+        <div class="td">海外资讯、创作者动态</div>
+        <div class="tu">x.com</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat rise" id="news">
+    <div class="ch"><h2>新闻与阅读</h2><span>04</span></div>
+    <div class="cd">不想只刷推荐流的时候。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://www.thepaper.cn" target="_blank" rel="noopener noreferrer" data-k="澎湃新闻 thepaper.cn 时政与深度报道 澎湃 新闻与阅读">
+        <div class="tn">澎湃新闻<span class="ar">↗</span></div>
+        <div class="td">时政与深度报道</div>
+        <div class="tu">thepaper.cn</div>
+      </a>
+      <a class="tcard card" href="https://www.caixin.com" target="_blank" rel="noopener noreferrer" data-k="财新网 caixin.com 财经调查，部分需订阅 财经 新闻与阅读">
+        <div class="tn">财新网<span class="ar">↗</span></div>
+        <div class="td">财经调查，部分需订阅</div>
+        <div class="tu">caixin.com</div>
+      </a>
+      <a class="tcard card" href="https://www.jiemian.com" target="_blank" rel="noopener noreferrer" data-k="界面新闻 jiemian.com 商业与公司动态 商业 新闻与阅读">
+        <div class="tn">界面新闻<span class="ar">↗</span></div>
+        <div class="td">商业与公司动态</div>
+        <div class="tu">jiemian.com</div>
+      </a>
+      <a class="tcard card" href="https://36kr.com" target="_blank" rel="noopener noreferrer" data-k="36氪 36kr.com 创投、科技、新消费 科技 创投 新闻与阅读">
+        <div class="tn">36氪<span class="ar">↗</span></div>
+        <div class="td">创投、科技、新消费</div>
+        <div class="tu">36kr.com</div>
+      </a>
+      <a class="tcard card" href="https://www.huxiu.com" target="_blank" rel="noopener noreferrer" data-k="虎嗅 huxiu.com 商业评论 商业评论 新闻与阅读">
+        <div class="tn">虎嗅<span class="ar">↗</span></div>
+        <div class="td">商业评论</div>
+        <div class="tu">huxiu.com</div>
+      </a>
+      <a class="tcard card" href="https://sspai.com" target="_blank" rel="noopener noreferrer" data-k="少数派 sspai.com 效率工具、数码玩法 App 效率 新闻与阅读">
+        <div class="tn">少数派<span class="ar">↗</span></div>
+        <div class="td">效率工具、数码玩法</div>
+        <div class="tu">sspai.com</div>
+      </a>
+      <a class="tcard card" href="https://www.inoreader.com" target="_blank" rel="noopener noreferrer" data-k="Inoreader inoreader.com RSS 订阅，自己攒信息源 RSS 订阅 新闻与阅读">
+        <div class="tn">Inoreader<span class="ar">↗</span></div>
+        <div class="td">RSS 订阅，自己攒信息源</div>
+        <div class="tu">inoreader.com</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat rise" id="video">
+    <div class="ch"><h2>视频与解析</h2><span>05</span></div>
+    <div class="cd">下载、转格式、压图、找素材。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener noreferrer" data-k="yt-dlp github.com/yt-dlp/yt-dlp 开源命令行下载器，最稳，支持上千站点 解析 下载 命令行 开源 视频与解析">
+        <div class="tn">yt-dlp<span class="ar">↗</span></div>
+        <div class="td">开源命令行下载器，最稳，支持上千站点</div>
+        <div class="tu">github.com/yt-dlp/yt-dlp</div>
+      </a>
+      <a class="tcard card" href="https://cobalt.tools" target="_blank" rel="noopener noreferrer" data-k="Cobalt cobalt.tools 开源在线解析，无广告、不弹窗 解析 下载 在线 视频与解析">
+        <div class="tn">Cobalt<span class="ar">↗</span></div>
+        <div class="td">开源在线解析，无广告、不弹窗</div>
+        <div class="tu">cobalt.tools</div>
+      </a>
+      <a class="tcard card" href="https://cloudconvert.com" target="_blank" rel="noopener noreferrer" data-k="CloudConvert cloudconvert.com 视频/音频/文档格式互转 转换 格式 视频与解析">
+        <div class="tn">CloudConvert<span class="ar">↗</span></div>
+        <div class="td">视频/音频/文档格式互转</div>
+        <div class="tu">cloudconvert.com</div>
+      </a>
+      <a class="tcard card" href="https://ezgif.com" target="_blank" rel="noopener noreferrer" data-k="Ezgif ezgif.com 在线转 GIF、压缩、裁剪 动图 GIF 视频与解析">
+        <div class="tn">Ezgif<span class="ar">↗</span></div>
+        <div class="td">在线转 GIF、压缩、裁剪</div>
+        <div class="tu">ezgif.com</div>
+      </a>
+      <a class="tcard card" href="https://www.pexels.com/videos" target="_blank" rel="noopener noreferrer" data-k="Pexels 视频 pexels.com/videos 免费可商用的视频素材 素材 免费 视频与解析">
+        <div class="tn">Pexels 视频<span class="ar">↗</span></div>
+        <div class="td">免费可商用的视频素材</div>
+        <div class="tu">pexels.com/videos</div>
+      </a>
+      <a class="tcard card" href="https://www.capcut.cn" target="_blank" rel="noopener noreferrer" data-k="剪映 capcut.cn 剪辑、自动字幕、配音 字幕 剪辑 视频与解析">
+        <div class="tn">剪映<span class="ar">↗</span></div>
+        <div class="td">剪辑、自动字幕、配音</div>
+        <div class="tu">capcut.cn</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat rise" id="design">
+    <div class="ch"><h2>在线作图</h2><span>06</span></div>
+    <div class="cd">不开 PS 也能把图做出来。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://www.canva.cn" target="_blank" rel="noopener noreferrer" data-k="Canva 可画 canva.cn 模板最多，做封面和海报 海报 模板 在线作图">
+        <div class="tn">Canva 可画<span class="ar">↗</span></div>
+        <div class="td">模板最多，做封面和海报</div>
+        <div class="tu">canva.cn</div>
+      </a>
+      <a class="tcard card" href="https://www.gaoding.com" target="_blank" rel="noopener noreferrer" data-k="稿定设计 gaoding.com 中文模板、电商图 海报 电商 在线作图">
+        <div class="tn">稿定设计<span class="ar">↗</span></div>
+        <div class="td">中文模板、电商图</div>
+        <div class="tu">gaoding.com</div>
+      </a>
+      <a class="tcard card" href="https://www.chuangkit.com" target="_blank" rel="noopener noreferrer" data-k="创客贴 chuangkit.com 快速出图、公众号配图 配图 模板 在线作图">
+        <div class="tn">创客贴<span class="ar">↗</span></div>
+        <div class="td">快速出图、公众号配图</div>
+        <div class="tu">chuangkit.com</div>
+      </a>
+      <a class="tcard card" href="https://www.figma.com" target="_blank" rel="noopener noreferrer" data-k="Figma figma.com 界面设计、协作 UI 原型 在线作图">
+        <div class="tn">Figma<span class="ar">↗</span></div>
+        <div class="td">界面设计、协作</div>
+        <div class="tu">figma.com</div>
+      </a>
+      <a class="tcard card" href="https://excalidraw.com" target="_blank" rel="noopener noreferrer" data-k="Excalidraw excalidraw.com 手绘风流程图、思维导图 流程图 思维导图 手绘 在线作图">
+        <div class="tn">Excalidraw<span class="ar">↗</span></div>
+        <div class="td">手绘风流程图、思维导图</div>
+        <div class="tu">excalidraw.com</div>
+      </a>
+      <a class="tcard card" href="https://www.photopea.com" target="_blank" rel="noopener noreferrer" data-k="Photopea photopea.com 网页版 PS，能开 PSD PS PSD 修图 在线作图">
+        <div class="tn">Photopea<span class="ar">↗</span></div>
+        <div class="td">网页版 PS，能开 PSD</div>
+        <div class="tu">photopea.com</div>
+      </a>
+      <a class="tcard card" href="https://www.remove.bg" target="_blank" rel="noopener noreferrer" data-k="remove.bg remove.bg 一键抠背景 抠图 去背景 在线作图">
+        <div class="tn">remove.bg<span class="ar">↗</span></div>
+        <div class="td">一键抠背景</div>
+        <div class="tu">remove.bg</div>
+      </a>
+      <a class="tcard card" href="https://tinypng.com" target="_blank" rel="noopener noreferrer" data-k="TinyPNG tinypng.com PNG/JPG 压缩 压缩 体积 在线作图">
+        <div class="tn">TinyPNG<span class="ar">↗</span></div>
+        <div class="td">PNG/JPG 压缩</div>
+        <div class="tu">tinypng.com</div>
+      </a>
+      <a class="tcard card" href="https://unsplash.com" target="_blank" rel="noopener noreferrer" data-k="Unsplash unsplash.com 免费高清图片 图库 免费 在线作图">
+        <div class="tn">Unsplash<span class="ar">↗</span></div>
+        <div class="td">免费高清图片</div>
+        <div class="tu">unsplash.com</div>
+      </a>
+      <a class="tcard card" href="https://www.iconfont.cn" target="_blank" rel="noopener noreferrer" data-k="iconfont iconfont.cn 中文图标库 图标 阿里 在线作图">
+        <div class="tn">iconfont<span class="ar">↗</span></div>
+        <div class="td">中文图标库</div>
+        <div class="tu">iconfont.cn</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat rise" id="utils">
+    <div class="ch"><h2>效率与杂项</h2><span>07</span></div>
+    <div class="cd">零散但每次都用到的。</div>
+    <div class="tgrid">
+      <a class="tcard card" href="https://docs.qq.com" target="_blank" rel="noopener noreferrer" data-k="腾讯文档 docs.qq.com 在线文档、表格、协作 文档 表格 效率与杂项">
+        <div class="tn">腾讯文档<span class="ar">↗</span></div>
+        <div class="td">在线文档、表格、协作</div>
+        <div class="tu">docs.qq.com</div>
+      </a>
+      <a class="tcard card" href="https://www.deepl.com" target="_blank" rel="noopener noreferrer" data-k="DeepL deepl.com 翻译，长句比机翻自然 翻译 英文 效率与杂项">
+        <div class="tn">DeepL<span class="ar">↗</span></div>
+        <div class="td">翻译，长句比机翻自然</div>
+        <div class="tu">deepl.com</div>
+      </a>
+      <a class="tcard card" href="https://cli.im" target="_blank" rel="noopener noreferrer" data-k="草料二维码 cli.im 生成、美化二维码 二维码 QR 效率与杂项">
+        <div class="tn">草料二维码<span class="ar">↗</span></div>
+        <div class="td">生成、美化二维码</div>
+        <div class="tu">cli.im</div>
+      </a>
+      <a class="tcard card" href="https://www.ilovepdf.com" target="_blank" rel="noopener noreferrer" data-k="iLovePDF ilovepdf.com PDF 合并、拆分、转 Word PDF 转换 效率与杂项">
+        <div class="tn">iLovePDF<span class="ar">↗</span></div>
+        <div class="td">PDF 合并、拆分、转 Word</div>
+        <div class="tu">ilovepdf.com</div>
+      </a>
+      <a class="tcard card" href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" data-k="Google Fonts fonts.google.com 免费字体 字体 免费 效率与杂项">
+        <div class="tn">Google Fonts<span class="ar">↗</span></div>
+        <div class="td">免费字体</div>
+        <div class="tu">fonts.google.com</div>
+      </a>
+      <a class="tcard card" href="https://web.archive.org" target="_blank" rel="noopener noreferrer" data-k="Wayback Machine web.archive.org 看网页的历史版本 存档 历史 快照 效率与杂项">
+        <div class="tn">Wayback Machine<span class="ar">↗</span></div>
+        <div class="td">看网页的历史版本</div>
+        <div class="tu">web.archive.org</div>
+      </a>
+      <a class="tcard card" href="https://github.com" target="_blank" rel="noopener noreferrer" data-k="GitHub github.com 代码、开源项目、Pages 仓库 开源 效率与杂项">
+        <div class="tn">GitHub<span class="ar">↗</span></div>
+        <div class="td">代码、开源项目、Pages</div>
+        <div class="tu">github.com</div>
+      </a>
+      <a class="tcard card" href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer" data-k="阿里云 aliyun.com 域名续费、控制台 万网 域名 DNS 备案 效率与杂项">
+        <div class="tn">阿里云<span class="ar">↗</span></div>
+        <div class="td">域名续费、控制台</div>
+        <div class="tu">aliyun.com</div>
+      </a>
+    </div>
+  </div>
+
+  <div id="none" class="empty" style="display:none">
+    <b>没找到</b>
+    换个词试试，或者直接按上面的分类翻一翻。
+  </div>
+
+  <div class="note"><b>关于视频解析</b>只用来处理自己有权限的内容，遵守平台条款与版权。上面放的是开源工具，比来路不明的「解析站」干净，也不弹广告。</div>
+
+
+  <footer>
+    <div class="row">
+      <a href="index.html">首页</a>
+      <a href="hobbies.html">半桶水</a>
+      <a href="places.html">一些店</a>
+      <a href="thoughts.html">一些思考</a>
+      <a href="social.html">自媒体</a>
+      <a href="about.html">关于</a>
+      <a href="tools.html">常用网址</a>
+    </div>
+    <div class="copy"><span>© 2026 JowJoWork</span><span>All rights reserved</span></div>
+  </footer>
+
+</main>
+<script src="assets/site.js"></script>
+<script>
+/* 本页专用：实时筛选 */
+(function(){
+  var q=document.getElementById('q');
+  var cards=[].slice.call(document.querySelectorAll('.tcard'));
+  var cats=[].slice.call(document.querySelectorAll('.cat'));
+  var jump=document.querySelector('.jump');
+  var none=document.getElementById('none');
+  var hit=document.getElementById('hit');
+  function run(){
+    var s=q.value.trim().toLowerCase(),n=0;
+    cards.forEach(function(c){
+      var ok=!s||(c.dataset.k||c.textContent).toLowerCase().indexOf(s)>-1;
+      c.style.display=ok?'':'none';
+      if(ok)n++;
+    });
+    cats.forEach(function(g){
+      var list=[].slice.call(g.querySelectorAll('.tcard'));
+      var visible=list.some(function(c){return c.style.display!=='none'});
+      g.style.display=visible?'':'none';
+      if(visible)g.classList.add('in');
+    });
+    jump.style.display=s?'none':'';
+    hit.textContent=n;
+    none.style.display=n?'none':'block';
+  }
+  q.addEventListener('input',run);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus();}
+    if(e.key==='Escape'&&document.activeElement===q){q.value='';run();q.blur();}
+  });
+})();
+</script>
+</body>
+</html>

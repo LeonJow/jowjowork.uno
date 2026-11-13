@@ -17,6 +17,7 @@
 | `notes-work.html` | 关于工作 |
 | `notes-fit.html` | 关于健身 |
 | `notes-life.html` | 关于生活 |
+| `tools.html` | 常用网址导航（7 类 51 站，带实时筛选；站点清单与搜索关键词直接写在文件里） |
 | `social.html` | 自媒体 · 8 个平台 |
 | `about.html` | 关于 · 参数表 |
 | `assets/style.css` | 全站配色与字体，顶部变量可改 |
