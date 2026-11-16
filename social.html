@@ -24,6 +24,32 @@
     .s .fr{display:none}
     .s .ds{grid-column:1}
   }
+  /* ---------- 在做的系列：STEPbystep ---------- */
+  .series{border:1px solid var(--line);border-radius:var(--r);padding:30px 30px 26px;margin-bottom:54px;background:var(--card)}
+  .sid{display:flex;align-items:center;gap:16px;font-size:11.5px;letter-spacing:.12em;color:var(--ink3);margin-bottom:18px}
+  .sid .live{color:var(--ink);letter-spacing:.04em}
+  .sid .live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ink);margin-right:7px;vertical-align:1px}
+  .series h2{font-size:28px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px}
+  .series h2 em{font-style:normal;color:var(--ink3);font-weight:400;margin:0 4px}
+  .slogan{font-size:16px;color:var(--ink2);padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:24px}
+  .intent{display:grid;grid-template-columns:78px 1fr;gap:22px;margin-bottom:28px}
+  .intent .il{font-size:12px;color:var(--ink3);letter-spacing:.14em;padding-top:5px}
+  .intent .ib p{font-size:14px;color:var(--ink2);line-height:1.95;margin-bottom:13px}
+  .intent .ib p:last-child{margin-bottom:0}
+  .intent .ib b{color:var(--ink);font-weight:600}
+  .ports{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .port{border:1px solid var(--line);border-radius:9px;padding:15px 17px;transition:border-color .25s,background .25s}
+  .port:hover{border-color:rgba(0,0,0,.25);background:rgba(0,0,0,.018)}
+  .port .pn{font-size:15px;font-weight:600;margin-bottom:5px}
+  .port .pn small{font-size:11px;color:var(--ink3);font-weight:400;letter-spacing:.08em;margin-left:7px}
+  .port .pd{font-size:12.5px;color:var(--ink3);line-height:1.6}
+  @media(max-width:760px){
+    .series{padding:24px 20px 22px;margin-bottom:44px}
+    .series h2{font-size:23px}
+    .slogan{font-size:15px}
+    .intent{grid-template-columns:1fr;gap:8px}
+    .ports{grid-template-columns:1fr}
+  }
   .note{margin:38px 0 0;padding:20px 22px;border:1px dashed rgba(0,0,0,.14);border-radius:var(--r);font-size:13.5px;color:var(--ink3);line-height:1.9}
   .note b{color:var(--ink2);font-weight:600}
 </style>
@@ -47,25 +73,51 @@
 <main class="wrap">
 
   <div class="phead">
-    <div class="crumb">ELSEWHERE</div>
+    <div class="crumb">ELSEWHERE · MATRIX</div>
     <h1>自媒体</h1>
-    <p class="lead">在哪儿发东西，以及哪个更值得看。更新频率不一样，我按频率排。</p>
-    <div class="count"><span><b>8</b> 个平台</span><span>常更新 <b>3</b></span></div>
+    <p class="lead">铺了八个位置，但真正认真做的只有一个系列。其余的留着，不假装都在更新。</p>
+    <div class="count"><span><b>8</b> 个平台</span><span>在做 <b>1</b> 个系列</span><span>在更 <b>2</b> 个号</span></div>
   </div>
 
+  <section class="series rise">
+    <div class="sid"><span class="live">正在做</span><span>FIRST SERIES / 第一期</span></div>
+    <h2>STEPbystep <em>·</em> 一步一步</h2>
+    <p class="slogan">复杂的事，我们拆成一步一步做。</p>
+
+    <div class="intent">
+      <div class="il">立意</div>
+      <div class="ib">
+        <p>这不是句漂亮话，是我给自己定的规矩。我容易贪大：还没动手，先想做成什么样、要多少人看、得像不像样——想完一圈，人就不想动了。拆开就好办：<b>今天只做这一期，这一期只讲这一件事，讲完就发。</b></p>
+        <p>英文写在前、中文写在后，说的都是同一件事：<b>不跳步</b>。做的时候不跳，看的人也不用跳。每一步都留在那儿，谁都能从第一步接上。</p>
+        <p>第一期选了「做内容」。从零开始把一个号搭起来，<b>过程本身就是内容</b>——不假设我看得多懂，也不装懂。做完一步，记一步。</p>
+        <p>两个平台不是复制粘贴。小红书放图文，步骤停得住，回头能照着做；抖音放视频，把过程演一遍。同一件事讲两遍，给不同习惯的人。</p>
+      </div>
+    </div>
+
+    <div class="ports">
+      <a class="port" href="https://xhslink.cn/o/9WgYz9FRAds" target="_blank" rel="noopener noreferrer">
+        <div class="pn">小红书 <small>XIAOHONGSHU</small></div>
+        <div class="pd">图文版 · STEPbystep（做内容版）</div>
+      </a>
+      <a class="port" href="https://v.douyin.com/h_fk9Aymzwg/" target="_blank" rel="noopener noreferrer">
+        <div class="pn">抖音 <small>DOUYIN</small></div>
+        <div class="pd">视频版 · STEPbystep（做内容版）</div>
+      </a>
+    </div>
+  </section>
+
   <div class="list">
-    <!-- 改这里：把 href="#" 换成你的主页链接 -->
-    <a class="s rise" href="#" target="_blank" rel="noopener">
+    <a class="s rise" href="https://xhslink.cn/o/9WgYz9FRAds" target="_blank" rel="noopener noreferrer">
       <div class="nm">小红书<small>XIAOHONGSHU</small></div>
-      <div class="ds">图文为主，店里和日常都发这里</div>
-      <div class="fr">经常更新</div>
+      <div class="ds">STEPbystep 一步一步（图文版）· 步骤和笔记留得住，回头能照着做</div>
+      <div class="fr">在更</div>
       <div class="ar">→</div>
     </a>
 
-    <a class="s rise" style="--i:1" href="#" target="_blank" rel="noopener">
+    <a class="s rise" style="--i:1" href="https://v.douyin.com/h_fk9Aymzwg/" target="_blank" rel="noopener noreferrer">
       <div class="nm">抖音<small>DOUYIN</small></div>
-      <div class="ds">短视频，随手拍的居多</div>
-      <div class="fr">经常更新</div>
+      <div class="ds">STEPbystep 一步一步（视频版）· 把过程一步步演出来，不剪成结果</div>
+      <div class="fr">在更</div>
       <div class="ar">→</div>
     </a>
 
@@ -113,8 +165,9 @@
   </div>
 
   <div class="note">
-    <b>这一页要填的东西很少，但很关键</b><br>
-    每个平台把 <code style="font-size:12.5px;background:rgba(0,0,0,.04);padding:1px 5px;border-radius:4px">href="#"</code> 换成你的主页地址就行。右边那列「更新频率」建议照实写——写「经常更新」却三个月没动，比写「很少更新」更掉分。
+    <b>矩阵不是铺得越多越好</b><br>
+    这八个位置里，现在只有小红书和抖音在认真做「一步一步」，发的是同一件事的两种形态。其余的先空着——空着不代表要做，只是留个位置。<br>
+    以后每开一个号，先回答一句：<b>这个位置在讲什么，和别处有什么不一样。</b>答不上来就别开。
   </div>
 
   <footer>
